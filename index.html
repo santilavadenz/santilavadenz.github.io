@@ -147,46 +147,167 @@
 </head>
 <body class="font-sans antialiased overflow-x-hidden selection:bg-white selection:text-black">
 
+   <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <style>
+        /* Optimización para móviles: quita el subrayado azul al tocar en iOS/Android */
+        a, button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Efecto Glassmorphism ultra nítido con soporte total para Apple (Safari) */
+        .glass-nav {
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .menu-overlay {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+
+        /* Animación de subrayado para enlaces de escritorio */
+        .nav-link-desktop {
+            position: relative;
+        }
+        .nav-link-desktop::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+        }
+        .nav-link-desktop:hover::after {
+            width: 100%;
+        }
+
+        /* Clases para la animación escalonada del menú móvil */
+        .mobile-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        
+        .mobile-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animación del ícono hamburguesa */
+        .hamburger-line {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-zinc-900 h-screen">
+
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300 pt-[env(safe-area-inset-top)]" id="navbar">
-        <div class="max-w-7xl mx-auto safe-padding">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="#hero" class="font-serif text-xl md:text-2xl tracking-widest text-white hover:text-gray-300 transition-colors p-2 -ml-2">
+                
+                <a href="#hero" class="font-serif text-xl md:text-2xl tracking-widest text-white hover:opacity-70 transition-opacity duration-300 p-2 -ml-2">
                     santilavadenz
                 </a>
                 
-                <div class="hidden md:flex space-x-8 text-sm tracking-[0.2em] uppercase text-gray-400">
-                    <a href="#musica" class="hover:text-white transition-colors py-2">Music</a>
-                    <a href="#partituras" class="hover:text-white transition-colors py-2">Sheet Music</a>
-                    <a href="#sobre-mi" class="hover:text-white transition-colors py-2">About Me</a>
-                    <a href="#videos" class="hover:text-white transition-colors py-2">Videos</a>
-                    <a href="#contacto" class="hover:text-white transition-colors py-2">Contact</a>
+                <div class="hidden md:flex space-x-8 text-xs lg:text-sm tracking-[0.2em] uppercase text-gray-300">
+                    <a href="#musica" class="nav-link-desktop hover:text-white transition-colors py-2">Music</a>
+                    <a href="#partituras" class="nav-link-desktop hover:text-white transition-colors py-2">Sheet Music</a>
+                    <a href="#sobre-mi" class="nav-link-desktop hover:text-white transition-colors py-2">About Me</a>
+                    <a href="#videos" class="nav-link-desktop hover:text-white transition-colors py-2">Videos</a>
+                    <a href="#contacto" class="nav-link-desktop hover:text-white transition-colors py-2">Contact</a>
                 </div>
 
-                <button class="md:hidden text-white focus:outline-none p-4 -mr-4 flex items-center justify-center" id="mobile-menu-btn" aria-label="Abrir menú">
-                    <i class="fas fa-bars text-2xl"></i>
+                <button class="md:hidden text-white focus:outline-none p-2 flex flex-col justify-center items-center gap-1.5 w-10 h-10 group" id="mobile-menu-btn" aria-label="Abrir menú">
+                    <span class="w-6 h-[2px] bg-white rounded-full hamburger-line"></span>
+                    <span class="w-6 h-[2px] bg-white rounded-full hamburger-line"></span>
+                    <span class="w-6 h-[2px] bg-white rounded-full hamburger-line"></span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <div class="fixed inset-0 bg-brand-black z-[60] flex flex-col items-center justify-center transform translate-x-full transition-transform duration-500 ease-in-out pb-[env(safe-area-inset-bottom)]" id="mobile-menu">
-        <button class="absolute top-6 right-4 text-white text-4xl p-4 focus:outline-none flex items-center justify-center" id="close-menu-btn" aria-label="Cerrar menú">
+    <div class="fixed inset-0 menu-overlay z-[60] flex flex-col items-center justify-center transform translate-x-full transition-transform duration-700 cubic-bezier(0.7, 0, 0.3, 1) pb-[env(safe-area-inset-bottom)]" id="mobile-menu">
+        
+        <button class="absolute top-6 right-6 text-white text-5xl p-2 focus:outline-none flex items-center justify-center hover:rotate-90 transition-transform duration-300 active:scale-75" id="close-menu-btn" aria-label="Cerrar menú">
             &times;
         </button>
-        <div class="flex flex-col space-y-8 text-center text-xl font-serif tracking-widest w-full px-6">
-            <a href="#musica" class="mobile-link text-white hover:text-gray-400 p-2">Music</a>
-            <a href="#partituras" class="mobile-link text-white hover:text-gray-400 p-2">Sheet Music</a>
-            <a href="#sobre-mi" class="mobile-link text-white hover:text-gray-400 p-2">About Me</a>
-            <a href="#videos" class="mobile-link text-white hover:text-gray-400 p-2">Videos</a>
-            <a href="#contacto" class="mobile-link text-white hover:text-gray-400 p-2">Contact</a>
+        
+        <div class="flex flex-col space-y-8 text-center text-2xl font-serif tracking-widest w-full px-6 mt-10">
+            <a href="#musica" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Music</a>
+            <a href="#partituras" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Sheet Music</a>
+            <a href="#sobre-mi" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">About Me</a>
+            <a href="#videos" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Videos</a>
+            <a href="#contacto" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Contact</a>
         </div>
-        <div class="mt-16 flex space-x-8 text-3xl">
-            <a href="#" class="text-gray-400 hover:text-white p-2"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white p-2"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white p-2"><i class="fab fa-spotify"></i></a>
+        
+        <div class="mt-20 flex space-x-10 text-3xl mobile-item">
+            <a href="https://music.apple.com/ar/artist/santilavadenz/6798893288" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transform hover:scale-110 active:scale-90 transition-all duration-300 p-2">
+                <i class="fab fa-apple"></i>
+            </a>
+            <a href="https://youtube.com/@santilavadenz?si=qJB-5-Ur2uczYmjA" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transform hover:scale-110 active:scale-90 transition-all duration-300 p-2">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://open.spotify.com/artist/6IBfJ5usrq8ujLqfdYEQ7j?si=MAp2LWpARRaMjIpXRGLMYw&utm_source=copy-link" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transform hover:scale-110 active:scale-90 transition-all duration-300 p-2">
+                <i class="fab fa-spotify"></i>
+            </a>
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileItems = document.querySelectorAll('.mobile-item');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            // Función para abrir el menú
+            const openMenu = () => {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+                document.body.style.overflow = 'hidden'; // Evita que el fondo haga scroll en móviles
+                
+                // Animación escalonada para los enlaces
+                mobileItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('show');
+                    }, 200 + (index * 100)); // 100ms de retraso entre cada enlace
+                });
+            };
+
+            // Función para cerrar el menú
+            const closeMenu = () => {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = ''; // Restaura el scroll
+                
+                // Quita la clase show más rápido para reiniciar la animación
+                mobileItems.forEach(item => {
+                    item.classList.remove('show');
+                });
+            };
+
+            mobileMenuBtn.addEventListener('click', openMenu);
+            closeMenuBtn.addEventListener('click', closeMenu);
+
+            // Cierra el menú al hacer clic en cualquier enlace (Mejora UX en Single Page Applications)
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        });
+    </script>
+</body>
+</html>
     <header id="hero" class="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-r from-brand-black/90 via-transparent to-brand-black/90 z-10"></div>
