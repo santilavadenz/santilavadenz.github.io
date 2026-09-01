@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-    <title>santilavadenz | Pianist & Composer</title>
-    <meta name="description" content="Sitio oficial de santilavadenz, pianista y compositor. Escucha su música, compra partituras y descubre su historia.">
+    <title data-es="santilavadenz | Pianista &amp; Compositor" data-en="santilavadenz | Pianist &amp; Composer">santilavadenz | Pianista & Compositor</title>
+    <meta name="description" content="Sitio oficial de santilavadenz, pianista y compositor. Escucha su música, compra partituras y descubre su historia." data-es="Sitio oficial de santilavadenz, pianista y compositor. Escucha su música, compra partituras y descubre su historia." data-en="Official website of santilavadenz, pianist and composer. Listen to his music, buy sheet music, and discover his story.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -147,7 +147,7 @@
 </head>
 <body class="font-sans antialiased overflow-x-hidden selection:bg-white selection:text-black">
 
-   <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -220,14 +220,20 @@
                 </a>
                 
                 <div class="hidden md:flex space-x-8 text-xs lg:text-sm tracking-[0.2em] uppercase text-gray-300">
-                    <a href="#musica" class="nav-link-desktop hover:text-white transition-colors py-2">Music</a>
-                    <a href="#partituras" class="nav-link-desktop hover:text-white transition-colors py-2">Sheet Music</a>
-                    <a href="#sobre-mi" class="nav-link-desktop hover:text-white transition-colors py-2">About Me</a>
-                    <a href="#videos" class="nav-link-desktop hover:text-white transition-colors py-2">Videos</a>
-                    <a href="#contacto" class="nav-link-desktop hover:text-white transition-colors py-2">Contact</a>
+                    <a href="#musica" class="nav-link-desktop hover:text-white transition-colors py-2" data-es="Música" data-en="Music">Music</a>
+                    <a href="#partituras" class="nav-link-desktop hover:text-white transition-colors py-2" data-es="Partituras" data-en="Sheet Music">Sheet Music</a>
+                    <a href="#sobre-mi" class="nav-link-desktop hover:text-white transition-colors py-2" data-es="Sobre Mí" data-en="About Me">About Me</a>
+                    <a href="#videos" class="nav-link-desktop hover:text-white transition-colors py-2" data-es="Videos" data-en="Videos">Videos</a>
+                    <a href="#contacto" class="nav-link-desktop hover:text-white transition-colors py-2" data-es="Contacto" data-en="Contact">Contact</a>
                 </div>
 
-                <button class="md:hidden text-white focus:outline-none p-2 flex flex-col justify-center items-center gap-1.5 w-10 h-10 group" id="mobile-menu-btn" aria-label="Abrir menú">
+                <div class="hidden md:flex items-center gap-2 ml-2 text-xs tracking-[0.2em] uppercase">
+                    <button type="button" id="lang-en-desktop" class="text-white font-medium px-1 py-2 transition-opacity duration-300 focus:outline-none">EN</button>
+                    <span class="text-gray-600">/</span>
+                    <button type="button" id="lang-es-desktop" class="text-gray-500 font-medium px-1 py-2 transition-opacity duration-300 focus:outline-none">ES</button>
+                </div>
+
+                <button class="md:hidden text-white focus:outline-none p-2 flex flex-col justify-center items-center gap-1.5 w-10 h-10 group" id="mobile-menu-btn" aria-label="Open menu" data-es-aria="Abrir menú" data-en-aria="Open menu">
                     <span class="w-6 h-[2px] bg-white rounded-full hamburger-line"></span>
                     <span class="w-6 h-[2px] bg-white rounded-full hamburger-line"></span>
                     <span class="w-6 h-[2px] bg-white rounded-full hamburger-line"></span>
@@ -238,18 +244,24 @@
 
     <div class="fixed inset-0 menu-overlay z-[60] flex flex-col items-center justify-center transform translate-x-full transition-transform duration-700 cubic-bezier(0.7, 0, 0.3, 1) pb-[env(safe-area-inset-bottom)]" id="mobile-menu">
         
-        <button class="absolute top-6 right-6 text-white text-5xl p-2 focus:outline-none flex items-center justify-center hover:rotate-90 transition-transform duration-300 active:scale-75" id="close-menu-btn" aria-label="Cerrar menú">
+        <button class="absolute top-6 right-6 text-white text-5xl p-2 focus:outline-none flex items-center justify-center hover:rotate-90 transition-transform duration-300 active:scale-75" id="close-menu-btn" aria-label="Close menu" data-es-aria="Cerrar menú" data-en-aria="Close menu">
             &times;
         </button>
         
         <div class="flex flex-col space-y-8 text-center text-2xl font-serif tracking-widest w-full px-6 mt-10">
-            <a href="#musica" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Music</a>
-            <a href="#partituras" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Sheet Music</a>
-            <a href="#sobre-mi" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">About Me</a>
-            <a href="#videos" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Videos</a>
-            <a href="#contacto" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Contact</a>
+            <a href="#musica" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2" data-es="Música" data-en="Music">Music</a>
+            <a href="#partituras" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2" data-es="Partituras" data-en="Sheet Music">Sheet Music</a>
+            <a href="#sobre-mi" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2" data-es="Sobre Mí" data-en="About Me">About Me</a>
+            <a href="#videos" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2" data-es="Videos" data-en="Videos">Videos</a>
+            <a href="#contacto" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2" data-es="Contacto" data-en="Contact">Contact</a>
         </div>
         
+        <div class="mt-12 flex items-center gap-2 text-xs tracking-[0.2em] uppercase mobile-item">
+            <button type="button" id="lang-en-mobile" class="text-white font-medium px-2 py-2 transition-opacity duration-300 focus:outline-none">EN</button>
+            <span class="text-gray-600">/</span>
+            <button type="button" id="lang-es-mobile" class="text-gray-500 font-medium px-2 py-2 transition-opacity duration-300 focus:outline-none">ES</button>
+        </div>
+
         <div class="mt-20 flex space-x-10 text-3xl mobile-item">
             <a href="https://music.apple.com/ar/artist/santilavadenz/6798893288" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transform hover:scale-110 active:scale-90 transition-all duration-300 p-2">
                 <i class="fab fa-apple"></i>
@@ -308,24 +320,24 @@
     </script>
 </body>
 </html>
+
     <header id="hero" class="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-r from-brand-black/90 via-transparent to-brand-black/90 z-10"></div>
-            <img src="IMG_3164 (3).jpeg" alt="Piano de cola" class="w-full h-full object-cover object-center animate-slow-pan opacity-50 contrast-125 saturate-110">
+            <img src="IMG_3164 (3).jpeg" alt="Piano de cola" data-es-alt="Piano de cola" data-en-alt="Grand piano" class="w-full h-full object-cover object-center animate-slow-pan opacity-50 contrast-125 saturate-110">
         </div>
-
         <div class="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center safe-padding">
             <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white mb-6 animate-fade-in-up" style="animation-delay: 0.2s;">
                 santilavadenz
             </h1>
-            <p class="font-sans text-lg md:text-xl text-gray-300 font-light tracking-wide mb-10 md:mb-12 animate-fade-in-up max-w-2xl px-4" style="animation-delay: 0.5s;">
+            <p class="font-sans text-lg md:text-xl text-gray-300 font-light tracking-wide mb-10 md:mb-12 animate-fade-in-up max-w-2xl px-4" style="animation-delay: 0.5s;" data-es="Mi música busca contarte una historia." data-en="My music seeks to tell you a story.">
                 My music seeks to tell you a story. 
             </p>
             <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in-up w-full sm:w-auto px-6 sm:px-0" style="animation-delay: 0.8s;">
-                <a href="#musica" class="btn-primary border border-white text-white px-8 py-4 sm:py-5 text-sm tracking-[0.2em] uppercase w-full sm:w-auto text-center flex items-center justify-center">
+                <a href="#musica" class="btn-primary border border-white text-white px-8 py-4 sm:py-5 text-sm tracking-[0.2em] uppercase w-full sm:w-auto text-center flex items-center justify-center" data-es="Escuchar Ahora" data-en="Listen Now">
                     Listen Now
                 </a>
-                <a href="#partituras" class="border border-gray-700 text-gray-300 hover:border-white hover:text-white transition-colors px-8 py-4 sm:py-5 text-sm tracking-[0.2em] uppercase w-full sm:w-auto text-center flex items-center justify-center">
+                <a href="#partituras" class="border border-gray-700 text-gray-300 hover:border-white hover:text-white transition-colors px-8 py-4 sm:py-5 text-sm tracking-[0.2em] uppercase w-full sm:w-auto text-center flex items-center justify-center" data-es="Partituras" data-en="Sheet Music">
                     Sheet Music
                 </a>
             </div>
@@ -343,28 +355,28 @@
 
     <div class="max-w-7xl mx-auto relative z-10">
         <div class="reveal-on-scroll flex flex-col items-center mb-16 md:mb-24 text-center">
-            <h2 class="font-serif text-3xl md:text-5xl text-white tracking-widest mb-4 uppercase">Latest Releases</h2>
+            <h2 class="font-serif text-3xl md:text-5xl text-white tracking-widest mb-4 uppercase" data-es="Últimos Lanzamientos" data-en="Latest Releases">Latest Releases</h2>
             <div class="w-16 h-[2px] bg-amber-600/70"></div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div class="lg:col-span-5 reveal-on-scroll relative w-full max-w-sm sm:max-w-md mx-auto lg:max-w-none">
                 <div class="relative z-10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.7)] bg-zinc-900 aspect-square rounded-sm">
-                    <img src="IMG_4724.jpeg" alt="Portada Velune" class="w-full h-full object-cover pointer-events-none select-none">
+                    <img src="IMG_4724.jpeg" alt="Portada Velune" data-es-alt="Portada de Velune" data-en-alt="Velune cover" class="w-full h-full object-cover pointer-events-none select-none">
                 </div>
             </div>
 
             <div class="lg:col-span-7 reveal-on-scroll flex flex-col justify-center">
                 <div class="flex items-center gap-3 sm:gap-4 mb-6 flex-wrap">
-                    <span class="text-amber-500 tracking-[0.3em] uppercase text-[10px] sm:text-xs font-bold border border-amber-500/30 px-3 py-1 bg-amber-900/10">Single</span>
+                    <span class="text-amber-500 tracking-[0.3em] uppercase text-[10px] sm:text-xs font-bold border border-amber-500/30 px-3 py-1 bg-amber-900/10" data-es="Sencillo" data-en="Single">Single</span>
                     <span class="w-8 sm:w-12 h-px bg-zinc-800"></span>
-                    <span class="text-zinc-400 text-[10px] sm:text-xs tracking-widest uppercase font-mono">08/31/2026</span>
+                    <span class="text-zinc-400 text-[10px] sm:text-xs tracking-widest uppercase font-mono" data-es="08/31/2026" data-en="08/31/2026">08/31/2026</span>
                 </div>
                 
-                <h3 class="font-serif text-4xl sm:text-5xl md:text-7xl text-white mb-6 tracking-wide drop-shadow-lg">Velune</h3>
+                <h3 class="font-serif text-4xl sm:text-5xl md:text-7xl text-white mb-6 tracking-wide drop-shadow-lg" data-es="Velune" data-en="Velune">Velune</h3>
                 
                 <div class="mb-10">
-                    <p class="font-serif text-zinc-300/80 text-lg sm:text-xl md:text-2xl font-light italic tracking-wide leading-relaxed">
+                    <p class="font-serif text-zinc-300/80 text-lg sm:text-xl md:text-2xl font-light italic tracking-wide leading-relaxed" data-es="&quot;Al final, solo permanecen los momentos que hicieron que todo valiera la pena.&quot;" data-en="&quot;In the end, only the moments that made it all worthwhile remain.&quot;">
                         "In the end, only the moments that made it all worthwhile remain."
                     </p>
                     <div class="w-12 h-[1px] bg-amber-600/40 mt-5"></div>
@@ -380,11 +392,11 @@
                                 <svg class="w-6 h-6 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                             <div>
-                                <h4 class="text-white text-lg sm:text-xl font-bold tracking-wider">Velune</h4>
-                                <p class="text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest mt-1">Santilavadenz</p>
+                                <h4 class="text-white text-lg sm:text-xl font-bold tracking-wider" data-es="Velune" data-en="Velune">Velune</h4>
+                                <p class="text-gray-500 text-[10px] sm:text-xs uppercase tracking-widest mt-1" data-es="Santilavadenz" data-en="Santilavadenz">Santilavadenz</p>
                             </div>
                         </div>
-                        <span class="text-gray-400 text-xs font-mono bg-zinc-950 px-3 py-1.5 rounded border border-zinc-800 self-start sm:self-auto" id="time-display">0:00 / 0:00</span>
+                        <span class="text-gray-400 text-xs font-mono bg-zinc-950 px-3 py-1.5 rounded border border-zinc-800 self-start sm:self-auto" id="time-display" data-es="0:00 / 0:00" data-en="0:00 / 0:00">0:00 / 0:00</span>
                     </div>
                     
                     <div class="relative w-full h-10 flex items-center group/track touch-none">
@@ -410,7 +422,7 @@
                             <span class="absolute w-3 h-3 rounded-full bg-amber-500 animate-ping opacity-75"></span>
                             <span class="relative w-2 h-2 rounded-full bg-amber-500"></span>
                         </div>
-                        <span class="text-sm sm:text-base text-amber-500 uppercase tracking-[0.25em] font-black drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]">Listen Now</span>
+                        <span class="text-sm sm:text-base text-amber-500 uppercase tracking-[0.25em] font-black drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]" data-es="Escuchar Ahora" data-en="Listen Now">Listen Now</span>
                     </div>
                     
                     <div class="flex gap-4 sm:gap-5 relative z-40">
@@ -452,37 +464,40 @@
         </div>
     </div>
 </section>
-    
+
     <section id="partituras" class="py-24 md:py-32 safe-padding bg-zinc-950 scroll-mt-20">
         <div class="max-w-7xl mx-auto">
             <div class="reveal-on-scroll flex flex-col items-center mb-16 md:mb-20 text-center px-4">
-                <h2 class="font-serif text-3xl md:text-5xl text-white tracking-wider mb-4">Sheet Music</h2>
+                <h2 class="font-serif text-3xl md:text-5xl text-white tracking-wider mb-4" data-es="Partituras" data-en="Sheet Music">Sheet Music</h2>
                 <div class="w-16 h-[1px] bg-amber-600/50 mb-6"></div>
-                <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">Download the official PDF sheet music, carefully fingered and meticulously reviewed for a faithful interpretation of the piece.</p>
-            </div>
+               <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base leading-relaxed"
+   data-es="Descarga la partitura oficial en PDF, cuidadosamente digitada y revisada minuciosamente para lograr una interpretación fiel de la pieza."
+   data-en="Download the official PDF sheet music, carefully fingered and meticulously reviewed for a faithful interpretation of the piece.">
+   Download the official PDF sheet music, carefully fingered and meticulously reviewed for a faithful interpretation of the piece.
+</p>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
                 <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 lg:hover:border-amber-600/40 transition-colors duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-lg sm:rounded-none">
                     
                     <div class="w-full sm:w-2/5 bg-black relative border-b sm:border-b-0 sm:border-r border-zinc-800 overflow-hidden aspect-[3/4] sm:aspect-auto">
-                        <img src="IMG_4724.jpeg" alt="Velune Sheet Music" class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-105">
+                        <img src="IMG_4724.jpeg" alt="Partitura de Velune" data-es-alt="Partitura de Velune" data-en-alt="Velune Sheet Music" class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-105">
                     </div>
 
                     <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between">
                         <div>
                             <div class="flex justify-between items-start mb-3">
-                                <h3 class="font-serif text-2xl text-white lg:group-hover:text-amber-500 transition-colors">Velune</h3>
-                                <span class="text-white font-serif text-xl">$5.99</span>
+                                <h3 class="font-serif text-2xl text-white lg:group-hover:text-amber-500 transition-colors" data-es="Velune" data-en="Velune">Velune</h3>
+                                <span class="text-white font-serif text-xl" data-es="$5.99" data-en="$5.99">$5.99</span>
                             </div>
                             <div class="flex flex-wrap gap-2 mb-5">
-                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-300 uppercase tracking-widest rounded-sm border border-zinc-700">Format: PDF</span>
-                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-300 uppercase tracking-widest rounded-sm border border-zinc-700">Piano Solo</span>
-                                <span class="px-2.5 py-1 bg-yellow-900/10 text-[9px] sm:text-[10px] text-yellow-400 uppercase tracking-widest rounded-sm border border-yellow-900/30">Difficulty: Intermediate</span>
+                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-300 uppercase tracking-widest rounded-sm border border-zinc-700" data-es="Formato: PDF" data-en="Format: PDF">Format: PDF</span>
+                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-300 uppercase tracking-widest rounded-sm border border-zinc-700" data-es="Piano Solo" data-en="Piano Solo">Piano Solo</span>
+                                <span class="px-2.5 py-1 bg-yellow-900/10 text-[9px] sm:text-[10px] text-yellow-400 uppercase tracking-widest rounded-sm border border-yellow-900/30" data-es="Dificultad: Intermedio" data-en="Difficulty: Intermediate">Difficulty: Intermediate</span>
                             </div>
-                            <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">One of my most intimate and emotional pieces. It explores nostalgia, love, gratitude, and peace, like a final memory of the moments that, in the end, made life worth living.</p>
+                            <p class="text-gray-400 text-sm font-light leading-relaxed mb-6" data-es="Una de mis piezas más íntimas y emocionales. Explora la nostalgia, el amor, la gratitud y la paz, como un recuerdo final de los momentos que, al final, hicieron que la vida valiera la pena." data-en="One of my most intimate and emotional pieces. It explores nostalgia, love, gratitude, and peace, like a final memory of the moments that, in the end, made life worth living.">One of my most intimate and emotional pieces. It explores nostalgia, love, gratitude, and peace, like a final memory of the moments that, in the end, made life worth living.</p>
                         </div>
                         
-                        <a href="https://payhip.com/b/Abv2m" target="_blank" rel="noopener noreferrer" class="w-full border border-zinc-700 text-gray-300 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase active:bg-amber-600 active:text-white lg:hover:bg-amber-600 lg:hover:text-white lg:hover:border-amber-600 transition-all text-center block rounded sm:rounded-none">
+                        <a href="https://payhip.com/b/Abv2m" target="_blank" rel="noopener noreferrer" class="w-full border border-zinc-700 text-gray-300 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase active:bg-amber-600 active:text-white lg:hover:bg-amber-600 lg:hover:text-white lg:hover:border-amber-600 transition-all text-center block rounded sm:rounded-none" data-es="Comprar Ahora" data-en="Buy Now">
                             Buy Now
                         </a>
                     </div>
@@ -490,28 +505,28 @@
 
                 <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 transition-colors duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-lg sm:rounded-none">
                     <div class="w-full sm:w-2/5 bg-zinc-800 relative border-b sm:border-b-0 sm:border-r border-zinc-800 flex items-center justify-center aspect-[3/4] sm:aspect-auto">
-                        <span class="text-zinc-600 text-xs tracking-widest uppercase">Coming Soon</span>
-                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center"><span class="text-white text-[10px] tracking-widest uppercase border border-white/30 px-3 py-1">Coming Soon</span></div>
+                        <span class="text-zinc-600 text-xs tracking-widest uppercase" data-es="Próximamente" data-en="Coming Soon">Coming Soon</span>
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center"><span class="text-white text-[10px] tracking-widest uppercase border border-white/30 px-3 py-1" data-es="Próximamente" data-en="Coming Soon">Coming Soon</span></div>
                     </div>
                     <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between opacity-60">
                         <div>
                             <div class="flex justify-between items-start mb-3">
-                                <h3 class="font-serif text-2xl text-white">Solune</h3>
-                                <span class="text-white font-serif text-xl">$5.99</span>
+                                <h3 class="font-serif text-2xl text-white" data-es="Solune" data-en="Solune">Solune</h3>
+                                <span class="text-white font-serif text-xl" data-es="$5.99" data-en="$5.99">$5.99</span>
                             </div>
                             <div class="flex flex-wrap gap-2 mb-5">
-                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest rounded-sm border border-zinc-800">Format: PDF</span>
-                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest rounded-sm border border-zinc-800">Piano Solo</span>
-                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest rounded-sm border border-zinc-800">Difficulty: Intermediate</span>
+                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest rounded-sm border border-zinc-800" data-es="Formato: PDF" data-en="Format: PDF">Format: PDF</span>
+                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest rounded-sm border border-zinc-800" data-es="Piano Solo" data-en="Piano Solo">Piano Solo</span>
+                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest rounded-sm border border-zinc-800" data-es="Dificultad: Intermedio" data-en="Difficulty: Intermediate">Difficulty: Intermediate</span>
                             </div>
-                            <p class="text-gray-500 text-sm font-light leading-relaxed mb-6">Coming soon</p>
+                            <p class="text-gray-500 text-sm font-light leading-relaxed mb-6" data-es="Próximamente" data-en="Coming soon">Coming soon</p>
                         </div>
-                        <button class="w-full border border-zinc-800 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded sm:rounded-none">Currently Unavailable</button>
+                        <button class="w-full border border-zinc-800 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded sm:rounded-none" data-es="Actualmente no disponible" data-en="Currently Unavailable">Currently Unavailable</button>
                     </div>
                 </div>
             </div> 
 
-        
+           
     </section>
 
     <section id="sobre-mi" class="py-24 md:py-32 safe-padding bg-brand-black relative overflow-hidden scroll-mt-20">
@@ -519,33 +534,33 @@
 
         <div class="max-w-4xl mx-auto relative z-10 px-4 sm:px-0">
             <div class="reveal-on-scroll flex flex-col items-center mb-12 md:mb-16 text-center">
-                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-white tracking-widest mb-6 uppercase">My Story</h2>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-white tracking-widest mb-6 uppercase" data-es="Mi Historia" data-en="My Story">My Story</h2>
                 <div class="w-16 h-[2px] bg-amber-600/70"></div>
             </div>
             
             <div class="reveal-on-scroll space-y-8 md:space-y-10 text-gray-400 font-light text-base sm:text-lg md:text-xl leading-relaxed md:leading-loose text-justify sm:text-left">
                 
-                <p class="first-letter:font-serif first-letter:text-6xl md:first-letter:text-7xl first-letter:font-bold first-letter:text-amber-500 first-letter:mr-3 md:first-letter:mr-4 first-letter:mt-1 md:first-letter:mt-2 first-letter:float-left">
+                <p class="first-letter:font-serif first-letter:text-6xl md:first-letter:text-7xl first-letter:font-bold first-letter:text-amber-500 first-letter:mr-3 md:first-letter:mr-4 first-letter:mt-1 md:first-letter:mt-2 first-letter:float-left" data-es="Mi familia siempre ha estado rodeada de música. Desde muy pequeño, crecí profundamente influenciado por ella, y estoy increíblemente agradecido por eso, porque es una de las mejores cosas que me podrían haber pasado. Conocí el piano a una edad muy temprana gracias a mi padre, que también es pianista. Sin embargo, no fue hasta 2020 que comencé a tocar, simplemente por diversión y para experimentar, sin estar realmente enfocado en ello. En 2024, descubrí una academia de música donde estudié cello durante un tiempo. Allí encontré un piano que cambiaría por completo mi relación con la música. Ese año, me interesé genuinamente por el piano y, poco a poco, me enamoré completamente de él. Tuve la suerte de construir una amistad muy cercana con el dueño de la academia, quien me dio una llave del lugar para que pudiera practicar allí los fines de semana. Empecé a pasar incontables horas con ese piano. Me encariñé muchísimo con él y desarrollé una conexión que nunca había sentido con ningún otro instrumento. Ese mismo piano es el que aparece en todos mis videos y a través del cual muchas personas descubrieron mi música." data-en="My family has always been surrounded by music. From a young age, I grew up deeply influenced by it, and I am incredibly grateful for that, because it is one of the best things that could have happened to me. I was introduced to the piano at a very young age thanks to my father, who is also a pianist. However, it wasn&#x27;t until 2020 that I started playing, simply for fun and to experiment, without really being focused on it. In 2024, I discovered a music academy where I studied cello for a while. There, I found a piano that would completely change my relationship with music. That year, I became genuinely interested in the piano and, little by little, fell completely in love with it. I was lucky enough to build a very close friendship with the owner of the academy, who gave me a key to the place so I could practice there on weekends. I started spending countless hours with that piano. I grew incredibly attached to it and developed a connection with it that I had never felt with any other instrument. That same piano is the one that appears in all of my videos and through which many people discovered my music.">
                     My family has always been surrounded by music. From a young age, I grew up deeply influenced by it, and I am incredibly grateful for that, because it is one of the best things that could have happened to me. I was introduced to the piano at a very young age thanks to my father, who is also a pianist. However, it wasn't until 2020 that I started playing, simply for fun and to experiment, without really being focused on it. In 2024, I discovered a music academy where I studied cello for a while. There, I found a piano that would completely change my relationship with music. That year, I became genuinely interested in the piano and, little by little, fell completely in love with it. I was lucky enough to build a very close friendship with the owner of the academy, who gave me a key to the place so I could practice there on weekends. I started spending countless hours with that piano. I grew incredibly attached to it and developed a connection with it that I had never felt with any other instrument. That same piano is the one that appears in all of my videos and through which many people discovered my music.
                 </p>
                 
-                <p>
+                <p data-es="Durante ese año y hasta 2025, mi interés por el piano creció enormemente. Me sumergí cada vez más en la música clásica, especialmente porque sentía que era una de las mejores formas de llevar el piano al límite y descubrir todo lo que podía expresar. Aunque tomé algunas clases a lo largo de los años, fueron muy pocas, en gran medida debido a acuerdos con mis padres. Nunca me interesó especialmente la educación musical académica ni aprender música desde una perspectiva puramente teórica. Mi relación con el piano siempre ha sido mucho más personal: aprender por mi cuenta, explorar, escuchar y pasar horas tocando. Por eso me considero principalmente autodidacta. En 2024, también comencé a componer cada vez más. Ya había creado algunas cosas antes, pero ese piano provocó un enorme cambio en mi inspiración. Sentía que las ideas simplemente aparecían y que podía expresar a través del instrumento cosas que antes no sabía cómo expresar." data-en="Throughout that year and into 2025, my interest in the piano grew enormously. I became increasingly immersed in classical music, especially because I felt it was one of the best ways to push the piano to its limits and discover everything it could express. Although I took some lessons over the years, they were very few, largely due to agreements with my parents. I never felt particularly interested in academic music education or in learning music from a purely theoretical perspective. My relationship with the piano has always been much more personal: learning on my own, exploring, listening, and spending hours playing. That is why I consider myself primarily self-taught. In 2024, I also began composing more and more. I had already created some things before, but that piano brought a huge change to my inspiration. I felt that ideas simply appeared, and that I could express things through the instrument that I hadn&#x27;t known how to express before.">
                     Throughout that year and into 2025, my interest in the piano grew enormously. I became increasingly immersed in classical music, especially because I felt it was one of the best ways to push the piano to its limits and discover everything it could express. Although I took some lessons over the years, they were very few, largely due to agreements with my parents. I never felt particularly interested in academic music education or in learning music from a purely theoretical perspective. My relationship with the piano has always been much more personal: learning on my own, exploring, listening, and spending hours playing. That is why I consider myself primarily self-taught. In 2024, I also began composing more and more. I had already created some things before, but that piano brought a huge change to my inspiration. I felt that ideas simply appeared, and that I could express things through the instrument that I hadn't known how to express before.
                 </p>
                 
                 <div class="pl-5 md:pl-10 border-l-2 border-amber-600/50 py-2 my-10 md:my-12">
-                    <p class="text-gray-200 italic text-xl md:text-2xl font-serif leading-relaxed">
+                    <p class="text-gray-200 italic text-xl md:text-2xl font-serif leading-relaxed" data-es="&quot;Lo que comenzó como una pasión por tocar y crear música poco a poco se convirtió en algo mucho más grande... transformar emociones en música y compartirlas con el mundo.&quot;" data-en="&quot;What started as a passion for playing and creating music slowly became something much bigger... turning emotions into music and sharing them with the world.&quot;">
                         "What started as a passion for playing and creating music slowly became something much bigger... turning emotions into music and sharing them with the world."
                     </p>
                 </div>
 
-                <p>
+                <p data-es="El 22 de octubre de 2025, decidí grabarme tocando y subir uno de mis videos a las redes sociales. No tenía idea de lo que sucedería después, pero terminó siendo una de las mejores decisiones que podría haber tomado. A través de las redes sociales, comencé a compartir interpretaciones de piano e ideas originales, conectando con personas de todo el mundo que encontraron algo de sí mismas en mi música. Con el tiempo, esos videos llegaron a millones de personas y dieron a conocer mi música a una audiencia que nunca imaginé tener. Pero más allá de las cifras, lo que más significa para mí es ver a personas aprender mis canciones, hacer covers, crear ediciones y decirme que mi música las inspiró a tocar el piano o simplemente les hizo sentir algo. De eso se trata Santilavadenz. Hoy, estoy enfocado en desarrollar mi propio sonido y lanzar música original, mientras sigo construyendo una comunidad alrededor del piano y de todo lo que la música puede expresar sin palabras. Esto es solo el comienzo." data-en="On October 22, 2025, I decided to record myself playing and upload one of my videos to social media. I had no idea what would happen next, but it ended up being one of the best decisions I could have made. Through social media, I began sharing piano performances and original ideas, connecting with people from all over the world who found something of themselves in my music. Over time, those videos reached millions of people and introduced my music to an audience I never imagined having. But beyond the numbers, what means the most to me is seeing people learn my songs, make covers, create edits, and tell me that my music inspired them to play the piano or simply made them feel something. That is what Santilavadenz is about. Today, I am focused on developing my own sound and releasing original music, while continuing to build a community around the piano and everything that music can express without words. This is only the beginning.">
                     On October 22, 2025, I decided to record myself playing and upload one of my videos to social media. I had no idea what would happen next, but it ended up being one of the best decisions I could have made. Through social media, I began sharing piano performances and original ideas, connecting with people from all over the world who found something of themselves in my music. Over time, those videos reached millions of people and introduced my music to an audience I never imagined having. But beyond the numbers, what means the most to me is seeing people learn my songs, make covers, create edits, and tell me that my music inspired them to play the piano or simply made them feel something. That is what Santilavadenz is about. Today, I am focused on developing my own sound and releasing original music, while continuing to build a community around the piano and everything that music can express without words. This is only the beginning.
                 </p>
             </div>
             
             <div class="mt-16 md:mt-24 pt-12 border-t border-zinc-800/50 flex justify-center text-center reveal-on-scroll">
-                <span class="font-serif text-xl sm:text-2xl text-zinc-500 tracking-[0.3em] uppercase">Santilavadenz</span>
+                <span class="font-serif text-xl sm:text-2xl text-zinc-500 tracking-[0.3em] uppercase" data-es="Santilavadenz" data-en="Santilavadenz">Santilavadenz</span>
             </div>
         </div>
     </section>
@@ -555,9 +570,9 @@
 
         <div class="max-w-6xl mx-auto relative z-10">
             <div class="reveal-on-scroll flex flex-col items-center mb-16 md:mb-20 text-center px-4">
-                <h2 class="font-serif text-3xl md:text-5xl text-white tracking-widest mb-6 uppercase">The Original Takes</h2>
+                <h2 class="font-serif text-3xl md:text-5xl text-white tracking-widest mb-6 uppercase" data-es="Las Tomas Originales" data-en="The Original Takes">The Original Takes</h2>
                 <div class="w-16 h-[2px] bg-amber-600/70 mb-6 md:mb-8"></div>
-                <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-lg leading-relaxed">
+                <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-lg leading-relaxed" data-es="Obtén las grabaciones de video originales y sin cortes. La interpretación visual exacta de la que nacieron las pistas de audio oficiales en Spotify y en todas las demás plataformas digitales." data-en="Get the original, uncut video recordings. The exact visual performance from which the official audio tracks on Spotify and all other digital platforms were born.">
                     Get the original, uncut video recordings. The exact visual performance from which the official audio tracks on Spotify and all other digital platforms were born.
                 </p>
             </div>
@@ -569,25 +584,25 @@
                     <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-zinc-950/70 backdrop-blur-[2px]">
                         <div class="flex items-center gap-3 bg-zinc-900 border border-amber-600/30 px-5 py-3 rounded-full shadow-2xl">
                             <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                            <span class="text-amber-500 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold">Coming Soon</span>
+                            <span class="text-amber-500 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold" data-es="Próximamente" data-en="Coming Soon">Coming Soon</span>
                         </div>
                     </div>
 
                     <div class="relative pt-[56.25%] bg-black overflow-hidden border-b border-zinc-800 opacity-60">
                         <div class="absolute top-3 left-3 sm:top-4 sm:left-4">
-                            <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-300 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1">Video MP4 • 4K</span>
+                            <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-300 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1" data-es="Video MP4 • 4K" data-en="Video MP4 • 4K">Video MP4 • 4K</span>
                         </div>
                     </div>
                     
                     <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between opacity-60">
                         <div>
                             <div class="flex justify-between items-start mb-3">
-                                <h3 class="font-serif text-2xl text-white">Velune — Original Take</h3>
-                                <span class="text-white font-serif text-xl">$4.99</span>
+                                <h3 class="font-serif text-2xl text-white" data-es="Velune — Toma Original" data-en="Velune — Original Take">Velune — Original Take</h3>
+                                <span class="text-white font-serif text-xl" data-es="$4.99" data-en="$4.99">$4.99</span>
                             </div>
-                            <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">The complete, uncut 4K video recording of the performance. Experience every expression, nuance, and detail from the exact session that inspired the single.</p>
+                            <p class="text-gray-400 text-sm font-light leading-relaxed mb-6" data-es="La grabación de video 4K completa y sin cortes de la interpretación. Experimenta cada expresión, matiz y detalle de la sesión exacta que inspiró el sencillo." data-en="The complete, uncut 4K video recording of the performance. Experience every expression, nuance, and detail from the exact session that inspired the single.">The complete, uncut 4K video recording of the performance. Experience every expression, nuance, and detail from the exact session that inspired the single.</p>
                         </div>
-                        <button class="w-full border border-zinc-800 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded sm:rounded-none">Coming Soon</button>
+                        <button class="w-full border border-zinc-800 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded sm:rounded-none" data-es="Próximamente" data-en="Coming Soon">Coming Soon</button>
                     </div>
                 </div>
 
@@ -595,25 +610,25 @@
                     
                     <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-zinc-950/70 backdrop-blur-[2px]">
                         <div class="flex items-center gap-3 bg-zinc-900 border border-zinc-800 px-5 py-3 rounded-full shadow-2xl">
-                            <span class="text-zinc-500 text-[10px] sm:text-xs uppercase tracking-[0.2em]">Coming Soon</span>
+                            <span class="text-zinc-500 text-[10px] sm:text-xs uppercase tracking-[0.2em]" data-es="Próximamente" data-en="Coming Soon">Coming Soon</span>
                         </div>
                     </div>
 
                     <div class="relative pt-[56.25%] bg-black overflow-hidden border-b border-zinc-800 opacity-60">
                         <div class="absolute top-3 left-3 sm:top-4 sm:left-4">
-                            <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-400 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1">Video MP4 • 4K</span>
+                            <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-400 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1" data-es="Video MP4 • 4K" data-en="Video MP4 • 4K">Video MP4 • 4K</span>
                         </div>
                     </div>
                     
                     <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between opacity-60">
                         <div>
                             <div class="flex justify-between items-start mb-3">
-                                <h3 class="font-serif text-2xl text-white">Solune — Original Take</h3>
-                                <span class="text-white font-serif text-xl">$4.99</span>
+                                <h3 class="font-serif text-2xl text-white" data-es="Solune — Toma Original" data-en="Solune — Original Take">Solune — Original Take</h3>
+                                <span class="text-white font-serif text-xl" data-es="$4.99" data-en="$4.99">$4.99</span>
                             </div>
-                            <p class="text-gray-500 text-sm font-light leading-relaxed mb-6">Coming soon</p>
+                            <p class="text-gray-500 text-sm font-light leading-relaxed mb-6" data-es="Próximamente" data-en="Coming soon">Coming soon</p>
                         </div>
-                        <button class="w-full border border-zinc-800 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded sm:rounded-none">Currently Unavailable</button>
+                        <button class="w-full border border-zinc-800 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded sm:rounded-none" data-es="Actualmente no disponible" data-en="Currently Unavailable">Currently Unavailable</button>
                     </div>
                 </div>
 
@@ -621,134 +636,99 @@
         </div>
     </section>
 
-   <section id="contacto" class="py-24 md:py-32 safe-padding bg-brand-black relative scroll-mt-20">
-    <div class="max-w-5xl mx-auto px-4 reveal-on-scroll">
-        
-        <div class="text-center mb-16 md:mb-20">
-            <h2 class="font-serif text-3xl md:text-5xl text-white tracking-widest mb-6 uppercase">Contact</h2>
-            <div class="w-16 h-[2px] bg-amber-600/70 mx-auto mb-8 md:mb-10"></div>
-            <p class="text-gray-400 font-light text-base sm:text-lg max-w-2xl mx-auto">
-                For business inquiries, collaborations, or just to say hello, feel free to reach out.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+    <section id="contacto" class="py-24 md:py-32 safe-padding bg-brand-black relative scroll-mt-20">
+        <div class="max-w-5xl mx-auto px-4 reveal-on-scroll">
             
-            <div class="w-full">
-                <form action="https://formsubmit.co/santilavadenzmedia@gmail.com" method="POST" class="space-y-8">
-                    
-                    <input type="hidden" name="_subject" value="New contact from your website!">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-
-                    <div>
-                        <label for="name" class="block text-gray-400 text-xs tracking-widest uppercase mb-2">Name</label>
-                        <input type="text" id="name" name="name" required 
-                            class="w-full bg-transparent border-b border-gray-600 text-white py-3 focus:outline-none focus:border-white transition-colors placeholder-gray-700" 
-                            placeholder="Your Name">
-                    </div>
-                    
-                    <div>
-                        <label for="email" class="block text-gray-400 text-xs tracking-widest uppercase mb-2">Email</label>
-                        <input type="email" id="email" name="email" required 
-                            class="w-full bg-transparent border-b border-gray-600 text-white py-3 focus:outline-none focus:border-white transition-colors placeholder-gray-700" 
-                            placeholder="your@email.com">
-                    </div>
-
-                    <div>
-                        <label for="message" class="block text-gray-400 text-xs tracking-widest uppercase mb-2">Message</label>
-                        <textarea id="message" name="message" rows="4" required 
-                            class="w-full bg-transparent border-b border-gray-600 text-white py-3 focus:outline-none focus:border-white transition-colors placeholder-gray-700 resize-none" 
-                            placeholder="How can we collaborate?"></textarea>
-                    </div>
-
-                    <button type="submit" 
-                        class="inline-block border border-white text-white px-8 sm:px-10 py-4 sm:py-5 text-[11px] sm:text-sm tracking-[0.2em] uppercase active:bg-white active:text-black md:hover:bg-white md:hover:text-black transition-colors w-full mt-4">
-                        Send Message
-                    </button>
-                </form>
-            </div>
-
-            <div class="flex flex-col text-center md:text-left h-full justify-center lg:pl-10">
-                <h3 class="text-white text-xl tracking-widest uppercase mb-4">Get In Touch</h3>
-                <p class="text-gray-400 font-light mb-10 leading-relaxed text-base sm:text-lg">
-                    Fill out the form to send a direct message, or email me directly at 
-                    <a href="mailto:santilavadenzmedia@gmail.com" class="text-white hover:text-amber-600/70 transition-colors border-b border-transparent hover:border-amber-600/70 pb-1">
-                        santilavadenzmedia@gmail.com
-                    </a>.
+            <div class="text-center mb-16 md:mb-20">
+                <h2 class="font-serif text-3xl md:text-5xl text-white tracking-widest mb-6 uppercase" data-es="Contacto" data-en="Contact">Contact</h2>
+                <div class="w-16 h-[2px] bg-amber-600/70 mx-auto mb-8 md:mb-10"></div>
+                <p class="text-gray-400 font-light text-base sm:text-lg max-w-2xl mx-auto" data-es="Para consultas comerciales, colaboraciones o simplemente para saludar, no dudes en contactarme." data-en="For business inquiries, collaborations, or just to say hello, feel free to reach out.">
+                    For business inquiries, collaborations, or just to say hello, feel free to reach out.
                 </p>
-                
-                <h3 class="text-white text-sm tracking-widest uppercase mb-6">Follow Me</h3>
-                
-                <div class="flex justify-center md:justify-start flex-wrap gap-4 relative z-30">
-                    
-                    <!-- Instagram -->
-                    <a href="https://www.instagram.com/santilavadenz?igsh=eTVzNWxnYmdvb2h5&utm_source=qr" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="w-12 h-12 rounded-full border border-[#E4405F]/40 bg-[#E4405F]/10 text-[#E4405F] flex items-center justify-center active:scale-90 active:bg-[#E4405F] active:text-white md:hover:scale-110 md:hover:bg-[#E4405F] md:hover:text-white transition-all duration-300 shadow-[0_0_12px_rgba(228,64,95,0.3)] md:hover:shadow-[0_0_20px_rgba(228,64,95,0.6)] cursor-pointer touch-manipulation" 
-                       title="Instagram">
-                        <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    
-                    <!-- TikTok -->
-                    <a href="https://www.tiktok.com/@santilavadenz?_r=1&_t=ZS-98rF2gCzdmq" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="w-12 h-12 rounded-full border border-[#00F2FE]/40 bg-[#00F2FE]/10 text-[#00F2FE] flex items-center justify-center active:scale-90 active:bg-[#00F2FE] active:text-black md:hover:scale-110 md:hover:bg-[#00F2FE] md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(0,242,254,0.3)] md:hover:shadow-[0_0_20px_rgba(0,242,254,0.6)] cursor-pointer touch-manipulation" 
-                       title="TikTok">
-                        <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
-                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.31 1.55-1.3 2.53-.01.8.34 1.6 .97 2.11.75.62 1.79.8 2.7.53.95-.27 1.73-.99 2.05-1.93.22-.64.26-1.33.25-2.01.03-4.73.01-9.46.01-14.19z"/>
-                        </svg>
-                    </a>
-
-                    <!-- YouTube -->
-                    <a href="https://youtube.com/@santilavadenz?si=qJB-5-Ur2uczYmjA" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="w-12 h-12 rounded-full border border-[#FF0000]/40 bg-[#FF0000]/10 text-[#FF0000] flex items-center justify-center active:scale-90 active:bg-[#FF0000] active:text-white md:hover:scale-110 md:hover:bg-[#FF0000] md:hover:text-white transition-all duration-300 shadow-[0_0_12px_rgba(255,0,0,0.3)] md:hover:shadow-[0_0_20px_rgba(255,0,0,0.6)] cursor-pointer touch-manipulation" 
-                       title="YouTube">
-                        <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>
-                    
-                    <!-- Spotify -->
-                    <a href="https://open.spotify.com/artist/6IBfJ5usrq8ujLqfdYEQ7j?si=MAp2LWpARRaMjIpXRGLMYw&utm_source=copy-link" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="w-12 h-12 rounded-full border border-[#1DB954]/40 bg-[#1DB954]/10 text-[#1DB954] flex items-center justify-center active:scale-90 active:bg-[#1DB954] active:text-black md:hover:scale-110 md:hover:bg-[#1DB954] md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(29,185,84,0.3)] md:hover:shadow-[0_0_20px_rgba(29,185,84,0.6)] cursor-pointer touch-manipulation" 
-                       title="Spotify">
-                        <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
-                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.899 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.019zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 3.9-1.2 9.3-.54 13.02 1.74.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-                        </svg>
-                    </a>
-                    
-                    <!-- Apple Music -->
-                    <a href="https://music.apple.com/ar/artist/santilavadenz/6798893288" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="w-12 h-12 rounded-full border border-white/40 bg-white/10 text-white flex items-center justify-center active:scale-90 active:bg-white active:text-black md:hover:scale-110 md:hover:bg-white md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(255,255,255,0.3)] md:hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] cursor-pointer touch-manipulation" 
-                       title="Apple Music">
-                        <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
-                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.13c.64-.78 1.08-1.85.96-2.93-.93.04-2.09.62-2.75 1.4-.59.68-1.1 1.77-.96 2.83 1.05.08 2.11-.52 2.75-1.3"/>
-                        </svg>
-                    </a>
-
-                </div>
             </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+                
+                <div class="w-full">
+                    <form action="https://formsubmit.co/santilavadenzmedia@gmail.com" method="POST" class="space-y-8">
+                        
+                        <input type="hidden" name="_subject" value="New contact from your website!">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+
+                        <div>
+                            <label for="name" class="block text-gray-400 text-xs tracking-widest uppercase mb-2" data-es="Nombre" data-en="Name">Name</label>
+                            <input type="text" id="name" name="name" required 
+                                class="w-full bg-transparent border-b border-gray-600 text-white py-3 focus:outline-none focus:border-white transition-colors placeholder-gray-700" 
+                                placeholder="Your Name" data-es-placeholder="Tu Nombre" data-en-placeholder="Your Name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-400 text-xs tracking-widest uppercase mb-2" data-es="Correo Electrónico" data-en="Email">Email</label>
+                            <input type="email" id="email" name="email" required 
+                                class="w-full bg-transparent border-b border-gray-600 text-white py-3 focus:outline-none focus:border-white transition-colors placeholder-gray-700" 
+                                placeholder="your@email.com" data-es-placeholder="tu@email.com" data-en-placeholder="your@email.com">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-gray-400 text-xs tracking-widest uppercase mb-2" data-es="Mensaje" data-en="Message">Message</label>
+                            <textarea id="message" name="message" rows="4" required 
+                                class="w-full bg-transparent border-b border-gray-600 text-white py-3 focus:outline-none focus:border-white transition-colors placeholder-gray-700 resize-none" 
+                                placeholder="How can we collaborate?" data-es-placeholder="¿Cómo podemos colaborar?" data-en-placeholder="How can we collaborate?"></textarea>
+                        </div>
+
+                        <button type="submit" 
+                            class="inline-block border border-white text-white px-8 sm:px-10 py-4 sm:py-5 text-[11px] sm:text-sm tracking-[0.2em] uppercase active:bg-white active:text-black md:hover:bg-white md:hover:text-black transition-colors w-full mt-4" data-es="Enviar Mensaje" data-en="Send Message">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <div class="flex flex-col text-center md:text-left h-full justify-center lg:pl-10">
+                    <h3 class="text-white text-xl tracking-widest uppercase mb-4" data-es="Ponte en Contacto" data-en="Get In Touch">Get In Touch</h3>
+                    <p class="text-gray-400 font-light mb-10 leading-relaxed text-base sm:text-lg" data-es-html="Completa el formulario para enviar un mensaje directo, o escríbeme directamente a &lt;a href=&quot;mailto:santilavadenzmedia@gmail.com&quot; class=&quot;text-white hover:text-amber-600/70 transition-colors border-b border-transparent hover:border-amber-600/70 pb-1&quot;&gt;santilavadenzmedia@gmail.com&lt;/a&gt;." data-en-html="Fill out the form to send a direct message, or email me directly at &lt;a href=&quot;mailto:santilavadenzmedia@gmail.com&quot; class=&quot;text-white hover:text-amber-600/70 transition-colors border-b border-transparent hover:border-amber-600/70 pb-1&quot;&gt;santilavadenzmedia@gmail.com&lt;/a&gt;.">
+                        Fill out the form to send a direct message, or email me directly at 
+                        <a href="mailto:santilavadenzmedia@gmail.com" class="text-white hover:text-amber-600/70 transition-colors border-b border-transparent hover:border-amber-600/70 pb-1" data-es="santilavadenzmedia@gmail.com" data-en="santilavadenzmedia@gmail.com">
+                            santilavadenzmedia@gmail.com
+                        </a>.
+                    </p>
+                    
+                    <h3 class="text-white text-sm tracking-widest uppercase mb-6" data-es="Sígueme" data-en="Follow Me">Follow Me</h3>
+                    
+                    <div class="flex justify-center md:justify-start flex-wrap gap-4 sm:space-x-4 text-2xl">
+                        
+                        <a href="https://www.instagram.com/santilavadenz?igsh=eTVzNWxnYmdvb2h5&utm_source=qr" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-white transition-colors p-2" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        
+                        <a href="https://www.tiktok.com/@santilavadenz?_r=1&_t=ZS-98rF2gCzdmq" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-white transition-colors p-2" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors p-2" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors p-2" aria-label="Spotify">
+                            <i class="fab fa-spotify"></i>
+                        </a>
+                        
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors p-2" aria-label="Apple Music">
+                            <i class="fab fa-apple"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
-</section>
-    
+    </section>
+
     <footer class="bg-brand-black py-10 border-t border-zinc-900 flex flex-col items-center text-center safe-padding">
         <a href="#hero" class="font-serif text-xl tracking-widest mb-6 text-white hover:text-gray-300 transition-colors p-2">
             santilavadenz
         </a>
-        <p class="text-zinc-600 text-xs tracking-widest uppercase font-mono">
+        <p class="text-zinc-600 text-xs tracking-widest uppercase font-mono" data-es-html="© Santilavadenz. Todos los derechos reservados. &lt;span id=&quot;current-year&quot;&gt;2026&lt;/span&gt;" data-en-html="© Santilavadenz. All rights reserved. &lt;span id=&quot;current-year&quot;&gt;2026&lt;/span&gt;">
             &copy; <span id="current-year">2026</span> Santilavadenz. All rights reserved.
         </p>
     </footer>
@@ -868,5 +848,85 @@
             timeDisplay.textContent = `0:00 / ${formatTime(audio.duration)}`;
         });
     </script>
+
+    <script>
+        // Sistema bilingüe ES/EN. No modifica la lógica existente de navegación,
+        // reproductor, animaciones ni formularios.
+        (() => {
+            const savedLang = localStorage.getItem('preferred_lang');
+            const defaultLang = savedLang === 'es' || savedLang === 'en' ? savedLang : 'en';
+
+            function setLanguage(lang) {
+                if (lang !== 'es' && lang !== 'en') return;
+
+                document.documentElement.lang = lang;
+
+                document.querySelectorAll('[data-es], [data-en]').forEach(element => {
+                    const value = element.dataset[lang];
+                    if (value !== undefined) {
+                        element.textContent = value;
+                    }
+                });
+
+                document.querySelectorAll('[data-es-html], [data-en-html]').forEach(element => {
+                    const value = element.dataset[lang + 'Html'];
+                    if (value !== undefined) {
+                        element.innerHTML = value;
+                    }
+                });
+
+                document.querySelectorAll('input[data-es-placeholder], textarea[data-es-placeholder]').forEach(element => {
+                    const value = element.dataset[lang + 'Placeholder'];
+                    if (value !== undefined) element.placeholder = value;
+                });
+
+                document.querySelectorAll('[data-es-alt], [data-en-alt]').forEach(element => {
+                    const value = element.dataset[lang + 'Alt'];
+                    if (value !== undefined) element.alt = value;
+                });
+
+                document.querySelectorAll('[data-es-aria], [data-en-aria]').forEach(element => {
+                    const value = element.dataset[lang + 'Aria'];
+                    if (value !== undefined) element.setAttribute('aria-label', value);
+                });
+
+                const title = document.querySelector('title[data-es][data-en]');
+                if (title) document.title = title.dataset[lang];
+
+                const description = document.querySelector('meta[name="description"][data-es][data-en]');
+                if (description) description.setAttribute('content', description.dataset[lang]);
+
+                const currentYear = document.getElementById('current-year');
+                if (currentYear) currentYear.textContent = new Date().getFullYear();
+
+                const buttons = {
+                    en: document.querySelectorAll('#lang-en-desktop, #lang-en-mobile'),
+                    es: document.querySelectorAll('#lang-es-desktop, #lang-es-mobile')
+                };
+
+                ['en', 'es'].forEach(code => {
+                    buttons[code].forEach(button => {
+                        button.classList.toggle('text-white', code === lang);
+                        button.classList.toggle('text-gray-500', code !== lang);
+                    });
+                });
+
+                localStorage.setItem('preferred_lang', lang);
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('#lang-en-desktop, #lang-en-mobile').forEach(button => {
+                    button.addEventListener('click', () => setLanguage('en'));
+                });
+
+                document.querySelectorAll('#lang-es-desktop, #lang-es-mobile').forEach(button => {
+                    button.addEventListener('click', () => setLanguage('es'));
+                });
+
+                setLanguage(defaultLang);
+            });
+        })();
+    </script>
+
 </body>
 </html>
