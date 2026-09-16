@@ -199,11 +199,11 @@
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300 pt-[env(safe-area-inset-top)]" id="navbar">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-               
+
                 <a href="#hero" class="font-serif text-xl md:text-2xl tracking-widest text-white hover:opacity-70 transition-opacity duration-300 p-2 -ml-2">
                     santilavadenz
                 </a>
-               
+
                 <div class="hidden md:flex space-x-8 text-xs lg:text-sm tracking-[0.2em] uppercase text-gray-300">
                     <a href="#musica" class="nav-link-desktop hover:text-white transition-colors py-2">Music</a>
                     <a href="#partituras" class="nav-link-desktop hover:text-white transition-colors py-2">Store</a>
@@ -216,33 +216,38 @@
                     <span class="w-6 h-[2px] bg-white rounded-full hamburger-line"></span>
                     <span class="w-6 h-[2px] bg-white rounded-full hamburger-line"></span>
                 </button>
+
             </div>
         </div>
     </nav>
 
     <div class="fixed inset-0 menu-overlay z-[60] flex flex-col items-center justify-center transform translate-x-full transition-transform duration-700 cubic-bezier(0.7, 0, 0.3, 1) pb-[env(safe-area-inset-bottom)]" id="mobile-menu">
-       
+
         <button class="absolute top-6 right-6 text-white text-5xl p-2 focus:outline-none flex items-center justify-center hover:rotate-90 transition-transform duration-300 active:scale-75" id="close-menu-btn" aria-label="Cerrar menú">
             &times;
         </button>
-       
+
         <div class="flex flex-col space-y-8 text-center text-2xl font-serif tracking-widest w-full px-6 mt-10">
             <a href="#musica" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Music</a>
             <a href="#partituras" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Store</a>
             <a href="#sobre-mi" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">About Me</a>
             <a href="#contacto" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Contact</a>
         </div>
-       
+
         <div class="mt-20 flex space-x-10 text-3xl mobile-item">
+
             <a href="https://music.apple.com/ar/artist/santilavadenz/6798893288" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transform hover:scale-110 active:scale-90 transition-all duration-300 p-2">
                 <i class="fab fa-apple"></i>
             </a>
+
             <a href="https://youtube.com/@santilavadenz?si=qJB-5-Ur2uczYmjA" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transform hover:scale-110 active:scale-90 transition-all duration-300 p-2">
                 <i class="fab fa-youtube"></i>
             </a>
+
             <a href="https://open.spotify.com/artist/6IBfJ5usrq8ujLqfdYEQ7j?si=MAp2LWpARRaMjIpXRGLMYw&utm_source=copy-link" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transform hover:scale-110 active:scale-90 transition-all duration-300 p-2">
                 <i class="fab fa-spotify"></i>
             </a>
+
         </div>
     </div>
 
@@ -275,51 +280,6 @@
         </div>
     </header>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const closeMenuBtn = document.getElementById('close-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileItems = document.querySelectorAll('.mobile-item');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
-
-            // Función para abrir el menú
-            const openMenu = () => {
-                mobileMenu.classList.remove('translate-x-full');
-                mobileMenu.classList.add('translate-x-0');
-                document.body.style.overflow = 'hidden'; // Evita que el fondo haga scroll en móviles
-               
-                // Animación escalonada para los enlaces
-                mobileItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.classList.add('show');
-                    }, 200 + (index * 100)); // 100ms de retraso entre cada enlace
-                });
-            };
-
-            // Función para cerrar el menú
-            const closeMenu = () => {
-                mobileMenu.classList.remove('translate-x-0');
-                mobileMenu.classList.add('translate-x-full');
-                document.body.style.overflow = ''; // Restaura el scroll
-               
-                // Quita la clase show más rápido para reiniciar la animación
-                mobileItems.forEach(item => {
-                    item.classList.remove('show');
-                });
-            };
-
-            mobileMenuBtn.addEventListener('click', openMenu);
-            closeMenuBtn.addEventListener('click', closeMenu);
-
-            // Cierra el menú al hacer clic en cualquier enlace (Mejora UX en Single Page Applications)
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-        });
-    </script>
-</body>
-</html>
 
 <section id="musica" class="py-24 md:py-32 safe-padding bg-brand-black relative overflow-hidden scroll-mt-20">
     <div class="absolute top-1/2 left-[20%] -translate-y-1/2 w-[600px] h-[600px] bg-amber-600/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
@@ -452,7 +412,7 @@
             <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 lg:hover:border-amber-600/40 transition-colors duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-lg sm:rounded-none">
                
                 <div class="w-full sm:w-2/5 bg-black relative border-b sm:border-b-0 sm:border-r border-zinc-800 overflow-hidden aspect-[3/4] sm:aspect-auto">
-                    <img src="IMG_4724.jpeg" alt="Velune Sheet Music" class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-105">
+                    <img src="IMG_2009.jpeg" alt="Velune Sheet Music" class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-105">
                 </div>
 
                 <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between">
@@ -525,7 +485,7 @@
                
                 <!-- Imagen (proporción 2/5 como en Sheet Music) -->
                 <div class="w-full sm:w-2/5 bg-black relative border-b sm:border-b-0 sm:border-r border-red-900/30 overflow-hidden aspect-[3/4] sm:aspect-auto z-10">
-                    <img src="IMG_4724.jpeg" alt="Velune Audio" class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-110">
+                    <img src="IMG_2009.jpeg" alt="Velune Audio" class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-110">
                 </div>
 
                 <!-- Contenido (proporción 3/5 como en Sheet Music) -->
@@ -908,37 +868,46 @@
         }
 
         // --- 2. MENÚ MÓVIL ---
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+       const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const closeMenuBtn = document.getElementById('close-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+const mobileItems = document.querySelectorAll('.mobile-item');
 
-        if (mobileMenu && mobileMenuBtn) {
-            function toggleMenu() {
-                const isOpen = mobileMenu.classList.contains('translate-x-full');
-                if (isOpen) {
-                    mobileMenu.classList.remove('translate-x-full');
-                    mobileMenu.classList.add('translate-x-0');
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    mobileMenu.classList.add('translate-x-full');
-                    mobileMenu.classList.remove('translate-x-0');
-                    document.body.style.overflow = '';
-                }
-            }
+if (mobileMenu && mobileMenuBtn) {
 
-            mobileMenuBtn.addEventListener('click', toggleMenu);
-            if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
+    function openMenu() {
+        mobileMenu.classList.remove('translate-x-full');
+        mobileMenu.classList.add('translate-x-0');
+        document.body.style.overflow = 'hidden';
 
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('translate-x-full');
-                    mobileMenu.classList.remove('translate-x-0');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
+        mobileItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add('show');
+            }, 150 + index * 80);
+        });
+    }
 
+    function closeMenu() {
+        mobileMenu.classList.add('translate-x-full');
+        mobileMenu.classList.remove('translate-x-0');
+        document.body.style.overflow = '';
+
+        mobileItems.forEach(item => {
+            item.classList.remove('show');
+        });
+    }
+
+    mobileMenuBtn.addEventListener('click', openMenu);
+
+    if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', closeMenu);
+    }
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+}
         // --- 3. NAVBAR SCROLL (Optimizado con passive event) ---
         const navbar = document.getElementById('navbar');
         if (navbar) {
@@ -971,7 +940,7 @@
         const playBtn = document.getElementById('play-btn');
        
         if (audio && playBtn) {
-            const playIcon = playBtn.querySelector('i');
+            const playIcon = playBtn.querySelector('svg path');
             const progressBar = document.getElementById('progress-bar');
             const progressActive = document.getElementById('progress-active');
             const timeDisplay = document.getElementById('time-display');
@@ -988,20 +957,26 @@
             });
 
             playBtn.addEventListener('click', () => {
-                if (audio.paused) {
-                    audio.play();
-                    if (playIcon) {
-                        playIcon.classList.remove('fa-play', 'ml-1');
-                        playIcon.classList.add('fa-pause');
-                    }
-                } else {
-                    audio.pause();
-                    if (playIcon) {
-                        playIcon.classList.remove('fa-pause');
-                        playIcon.classList.add('fa-play', 'ml-1');
-                    }
-                }
-            });
+    if (audio.paused) {
+        audio.play();
+
+        if (playIcon) {
+            playIcon.setAttribute(
+                'd',
+                'M6 4h4v16H6zM14 4h4v16h-4z'
+            );
+        }
+    } else {
+        audio.pause();
+
+        if (playIcon) {
+            playIcon.setAttribute(
+                'd',
+                'M8 5v14l11-7z'
+            );
+        }
+    }
+});
 
             audio.addEventListener('timeupdate', () => {
                 if (!audio.duration) return;
@@ -1020,10 +995,12 @@
             }
 
             audio.addEventListener('ended', () => {
-                if (playIcon) {
-                    playIcon.classList.remove('fa-pause');
-                    playIcon.classList.add('fa-play', 'ml-1');
-                }
+              if (playIcon) {
+    playIcon.setAttribute(
+        'd',
+        'M8 5v14l11-7z'
+    );
+}
                 if (progressBar) progressBar.value = 0;
                 if (progressActive) progressActive.style.width = '0%';
                 audio.currentTime = 0;
@@ -1081,4 +1058,5 @@
         }
     });
 </script>
-
+</body>
+</html>
