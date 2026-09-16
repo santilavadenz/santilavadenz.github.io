@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>santilavadenz | Pianist & Composer</title>
     <meta name="description" content="Sitio oficial de santilavadenz, pianista y compositor. Escucha su música, compra partituras y descubre su historia.">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -53,59 +52,11 @@
             -webkit-tap-highlight-color: transparent;
         }
         
-        /* Optimización para móviles: quita el subrayado azul al tocar en iOS/Android */
-        a, button {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        /* Efecto Glassmorphism ultra nítido con soporte total para Apple (Safari) */
         .glass-nav {
-            background-color: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .menu-overlay {
-            background-color: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-        }
-
-        /* Animación de subrayado para enlaces de escritorio */
-        .nav-link-desktop {
-            position: relative;
-        }
-        .nav-link-desktop::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: 0;
-            left: 50%;
-            background-color: white;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateX(-50%);
-        }
-        .nav-link-desktop:hover::after {
-            width: 100%;
-        }
-
-        /* Clases para la animación escalonada del menú móvil */
-        .mobile-item {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        
-        .mobile-item.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Animación del ícono hamburguesa */
-        .hamburger-line {
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .reveal-on-scroll {
@@ -194,9 +145,73 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased overflow-x-hidden selection:bg-white selection:text-black bg-zinc-900 h-screen">
+<body class="font-sans antialiased overflow-x-hidden selection:bg-white selection:text-black">
 
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300 pt-[env(safe-area-inset-top)]" id="navbar">
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <style>
+        /* Optimización para móviles: quita el subrayado azul al tocar en iOS/Android */
+        a, button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Efecto Glassmorphism ultra nítido con soporte total para Apple (Safari) */
+        .glass-nav {
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .menu-overlay {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+
+        /* Animación de subrayado para enlaces de escritorio */
+        .nav-link-desktop {
+            position: relative;
+        }
+        .nav-link-desktop::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 50%;
+            background-color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+        }
+        .nav-link-desktop:hover::after {
+            width: 100%;
+        }
+
+        /* Clases para la animación escalonada del menú móvil */
+        .mobile-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        
+        .mobile-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animación del ícono hamburguesa */
+        .hamburger-line {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-zinc-900 h-screen">
+
+ <nav class="fixed w-full z-50 glass-nav transition-all duration-300 pt-[env(safe-area-inset-top)]" id="navbar">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
@@ -245,36 +260,6 @@
             </a>
         </div>
     </div>
-
-    <header id="hero" class="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-r from-brand-black/90 via-transparent to-brand-black/90 z-10"></div>
-            <img src="IMG_3164 (3).jpeg" alt="Piano de cola" class="w-full h-full object-cover object-center animate-slow-pan opacity-50 contrast-125 saturate-110">
-        </div>
-        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center safe-padding">
-            <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white mb-6 animate-fade-in-up" style="animation-delay: 0.2s;">
-                santilavadenz
-            </h1>
-            <p class="font-sans text-lg md:text-xl text-gray-300 font-light tracking-wide mb-10 md:mb-12 animate-fade-in-up max-w-2xl px-4" style="animation-delay: 0.5s;">
-                My music seeks to tell you a story. 
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in-up w-full sm:w-auto px-6 sm:px-0" style="animation-delay: 0.8s;">
-                <a href="#musica" class="btn-primary border border-white text-white px-8 py-4 sm:py-5 text-sm tracking-[0.2em] uppercase w-full sm:w-auto text-center flex items-center justify-center">
-                    Listen Now
-                </a>
-                <a href="#partituras" class="border border-gray-700 text-gray-300 hover:border-white hover:text-white transition-colors px-8 py-4 sm:py-5 text-sm tracking-[0.2em] uppercase w-full sm:w-auto text-center flex items-center justify-center">
-                    Sheet Music
-                </a>
-            </div>
-        </div>
-
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce p-4">
-            <a href="#musica" class="text-gray-500 hover:text-white transition-colors flex items-center justify-center w-12 h-12" aria-label="Bajar">
-                <i class="fas fa-chevron-down font-light text-xl"></i>
-            </a>
-        </div>
-    </header>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -320,6 +305,35 @@
     </script>
 </body>
 </html>
+
+    <header id="hero" class="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-black/90 via-transparent to-brand-black/90 z-10"></div>
+            <img src="IMG_3164 (3).jpeg" alt="Piano de cola" class="w-full h-full object-cover object-center animate-slow-pan opacity-50 contrast-125 saturate-110">
+        </div>
+        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center safe-padding">
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white mb-6 animate-fade-in-up" style="animation-delay: 0.2s;">
+                santilavadenz
+            </h1>
+            <p class="font-sans text-lg md:text-xl text-gray-300 font-light tracking-wide mb-10 md:mb-12 animate-fade-in-up max-w-2xl px-4" style="animation-delay: 0.5s;">
+                My music seeks to tell you a story. 
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in-up w-full sm:w-auto px-6 sm:px-0" style="animation-delay: 0.8s;">
+                <a href="#musica" class="btn-primary border border-white text-white px-8 py-4 sm:py-5 text-sm tracking-[0.2em] uppercase w-full sm:w-auto text-center flex items-center justify-center">
+                    Listen Now
+                </a>
+                <a href="#partituras" class="border border-gray-700 text-gray-300 hover:border-white hover:text-white transition-colors px-8 py-4 sm:py-5 text-sm tracking-[0.2em] uppercase w-full sm:w-auto text-center flex items-center justify-center">
+                    Sheet Music
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce p-4">
+            <a href="#musica" class="text-gray-500 hover:text-white transition-colors flex items-center justify-center w-12 h-12" aria-label="Bajar">
+                <i class="fas fa-chevron-down font-light text-xl"></i>
+            </a>
+        </div>
+    </header>
 
 <section id="musica" class="py-24 md:py-32 safe-padding bg-brand-black relative overflow-hidden scroll-mt-20">
     <div class="absolute top-1/2 left-[20%] -translate-y-1/2 w-[600px] h-[600px] bg-amber-600/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
@@ -381,7 +395,7 @@
                     </div>
 
                     <audio id="audio-player" preload="metadata">
-                        <source src="Velune.mp3.mp3" type="audio/mpeg">
+                        <source src="Velune.mp3.mp3" type="audio/ogg">
                         Tu navegador no soporta el elemento de audio.
                     </audio>
                 </div>
@@ -436,177 +450,169 @@
     </div>
 </section>
 
-<section id="partituras" class="py-24 md:py-32 safe-padding bg-zinc-950 scroll-mt-20">
-    <div class="max-w-7xl mx-auto">
-        <div class="reveal-on-scroll flex flex-col items-center mb-16 md:mb-20 text-center px-4">
-            <h2 class="font-serif text-3xl md:text-5xl text-white tracking-wider mb-4">Sheet Music</h2>
-            <div class="w-16 h-[1px] bg-amber-600/50 mb-6"></div>
-            <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-                Download the official PDF sheet music, carefully fingered and meticulously reviewed for a faithful interpretation of the piece.
-                <br><br>
-                (Purchasing this sheet music does not transfer any rights. For personal use only.) 
-            </p>
-        </div>
+    <section id="partituras" class="py-24 md:py-32 safe-padding bg-zinc-950 scroll-mt-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal-on-scroll flex flex-col items-center mb-16 md:mb-20 text-center px-4">
+                <h2 class="font-serif text-3xl md:text-5xl text-white tracking-wider mb-4">Sheet Music</h2>
+                <div class="w-16 h-[1px] bg-amber-600/50 mb-6"></div>
+                <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">Download the official PDF sheet music, carefully fingered and meticulously reviewed for a faithful interpretation of the piece.
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-            <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 lg:hover:border-amber-600/40 transition-colors duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-lg sm:rounded-none">
-                
-                <div class="w-full sm:w-2/5 bg-black relative border-b sm:border-b-0 sm:border-r border-zinc-800 overflow-hidden aspect-[3/4] sm:aspect-auto">
-                    <img src="IMG_4724.jpeg" alt="Velune Sheet Music" class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-105">
-                </div>
+(Purchasing this sheet music does not transfer any rights. For personal use only.) </p>
+            </div>
 
-                <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-serif text-2xl text-white lg:group-hover:text-amber-500 transition-colors">Velune</h3>
-                            <span class="text-white font-serif text-xl">$5.99</span>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-300 uppercase tracking-widest rounded-sm border border-zinc-700">Format: PDF</span>
-                            <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-300 uppercase tracking-widest rounded-sm border border-zinc-700">Piano Solo</span>
-                            <span class="px-2.5 py-1 bg-yellow-900/10 text-[9px] sm:text-[10px] text-yellow-400 uppercase tracking-widest rounded-sm border border-yellow-900/30">Difficulty: Intermediate</span>
-                        </div>
-                        <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">One of my most intimate and emotional pieces. It explores nostalgia, love, gratitude, and peace, like a final memory of the moments that, in the end, made life worth living.</p>
-                    </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+                <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 lg:hover:border-amber-600/40 transition-colors duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-lg sm:rounded-none">
                     
-                    <a href="https://payhip.com/b/Abv2m" target="_blank" rel="noopener noreferrer" class="w-full border border-zinc-700 text-gray-300 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase active:bg-amber-600 active:text-white lg:hover:bg-amber-600 lg:hover:text-white lg:hover:border-amber-600 transition-all text-center block rounded sm:rounded-none">
-                        Buy Now
-                    </a>
-                </div>
-            </div>
-
-            <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 transition-colors duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-lg sm:rounded-none">
-                <div class="w-full sm:w-2/5 bg-zinc-800 relative border-b sm:border-b-0 sm:border-r border-zinc-800 flex items-center justify-center aspect-[3/4] sm:aspect-auto">
-                    <span class="text-zinc-600 text-xs tracking-widest uppercase">Coming Soon</span>
-                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center"><span class="text-white text-[10px] tracking-widest uppercase border border-white/30 px-3 py-1">Coming Soon</span></div>
-                </div>
-                <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between opacity-60">
-                    <div>
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-serif text-2xl text-white">Solune</h3>
-                            <span class="text-white font-serif text-xl">$5.99</span>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest rounded-sm border border-zinc-800">Format: PDF</span>
-                            <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest rounded-sm border border-zinc-800">Piano Solo</span>
-                            <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest rounded-sm border border-zinc-800">Difficulty: Intermediate</span>
-                        </div>
-                        <p class="text-gray-500 text-sm font-light leading-relaxed mb-6">Coming soon</p>
+                    <div class="w-full sm:w-2/5 bg-black relative border-b sm:border-b-0 sm:border-r border-zinc-800 overflow-hidden aspect-[3/4] sm:aspect-auto">
+                        <img src="IMG_4724.jpeg" alt="Velune Sheet Music" class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-105">
                     </div>
-                    <button class="w-full border border-zinc-800 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded sm:rounded-none">Currently Unavailable</button>
+
+                    <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-serif text-2xl text-white lg:group-hover:text-amber-500 transition-colors">Velune</h3>
+                                <span class="text-white font-serif text-xl">$5.99</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-300 uppercase tracking-widest rounded-sm border border-zinc-700">Format: PDF</span>
+                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-300 uppercase tracking-widest rounded-sm border border-zinc-700">Piano Solo</span>
+                                <span class="px-2.5 py-1 bg-yellow-900/10 text-[9px] sm:text-[10px] text-yellow-400 uppercase tracking-widest rounded-sm border border-yellow-900/30">Difficulty: Intermediate</span>
+                            </div>
+                            <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">One of my most intimate and emotional pieces. It explores nostalgia, love, gratitude, and peace, like a final memory of the moments that, in the end, made life worth living.</p>
+                        </div>
+                        
+                        <a href="https://payhip.com/b/Abv2m" target="_blank" rel="noopener noreferrer" class="w-full border border-zinc-700 text-gray-300 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase active:bg-amber-600 active:text-white lg:hover:bg-amber-600 lg:hover:text-white lg:hover:border-amber-600 transition-all text-center block rounded sm:rounded-none">
+                            Buy Now
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </div> 
+
+                <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 transition-colors duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-lg sm:rounded-none">
+                    <div class="w-full sm:w-2/5 bg-zinc-800 relative border-b sm:border-b-0 sm:border-r border-zinc-800 flex items-center justify-center aspect-[3/4] sm:aspect-auto">
+                        <span class="text-zinc-600 text-xs tracking-widest uppercase">Coming Soon</span>
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center"><span class="text-white text-[10px] tracking-widest uppercase border border-white/30 px-3 py-1">Coming Soon</span></div>
+                    </div>
+                    <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between opacity-60">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-serif text-2xl text-white">Solune</h3>
+                                <span class="text-white font-serif text-xl">$5.99</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest rounded-sm border border-zinc-800">Format: PDF</span>
+                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest rounded-sm border border-zinc-800">Piano Solo</span>
+                                <span class="px-2.5 py-1 bg-zinc-950 text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest rounded-sm border border-zinc-800">Difficulty: Intermediate</span>
+                            </div>
+                            <p class="text-gray-500 text-sm font-light leading-relaxed mb-6">Coming soon</p>
+                        </div>
+                        <button class="w-full border border-zinc-800 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded sm:rounded-none">Currently Unavailable</button>
+                    </div>
+                </div>
+            </div> 
+
+           
+<!-- ============================== -->
+<!--  THE ORIGINAL RECORDING AUDIO  -->
+<!-- ============================== -->
+<div class="max-w-7xl mx-auto mb-24 md:mb-40">
+    <div class="reveal-on-scroll flex flex-col items-center mt-16 mb-12 md:mb-20 text-center px-4">
+        <h2 class="font-serif text-3xl md:text-5xl text-white tracking-wider mb-4">The Original Recording</h2>
+        <!-- Toque de rojo sutil en la línea divisoria -->
+        <div class="w-16 h-[1px] bg-red-800/80 mb-6 shadow-[0_0_10px_rgba(153,27,27,0.8)]"></div>
+        <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">Get the original recording in the highest available audio quality.
+
+(Purchasing this recording does not transfer or grant any copyright, ownership, or intellectual property rights. It is provided for personal use only.)</p>
     </div>
 
-    <!-- ============================== -->
-    <!--  THE ORIGINAL RECORDING AUDIO  -->
-    <!-- ============================== -->
-    <div class="max-w-7xl mx-auto mb-24 md:mb-40">
-        <div class="reveal-on-scroll flex flex-col items-center mt-16 mb-12 md:mb-20 text-center px-4">
-            <h2 class="font-serif text-3xl md:text-5xl text-white tracking-wider mb-4">The Original Recording</h2>
-            <!-- Toque de rojo sutil en la línea divisoria -->
-            <div class="w-16 h-[1px] bg-red-800/80 mb-6 shadow-[0_0_10px_rgba(153,27,27,0.8)]"></div>
-            <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-                Get the original recording in the highest available audio quality.
-                <br><br>
-                (Purchasing this recording does not transfer or grant any copyright, ownership, or intellectual property rights. It is provided for personal use only.)
-            </p>
-        </div>
-
-        <!-- Grid idéntico en tamaño y proporciones al de Sheet Music -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 px-4">
+    <!-- Grid idéntico en tamaño y proporciones al de Sheet Music -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 px-4">
+        
+        <!-- Velune Audio Track -->
+        <div class="reveal-on-scroll bg-gradient-to-br from-zinc-900/80 to-zinc-900/30 border border-red-900/30 lg:hover:border-red-600/50 transition-all duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-3xl relative shadow-2xl shadow-red-900/5 lg:hover:shadow-red-900/20">
             
-            <!-- Velune Audio Track -->
-            <div class="reveal-on-scroll bg-gradient-to-br from-zinc-900/80 to-zinc-900/30 border border-red-900/30 lg:hover:border-red-600/50 transition-all duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-3xl relative shadow-2xl shadow-red-900/5 lg:hover:shadow-red-900/20">
-                
-                <!-- Efecto de brillo rojo de fondo al pasar el mouse por encima -->
-                <div class="absolute -inset-4 bg-red-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl rounded-3xl pointer-events-none z-0"></div>
-                
-                <!-- Imagen (proporción 2/5 como en Sheet Music) -->
-                <div class="w-full sm:w-2/5 bg-black relative border-b sm:border-b-0 sm:border-r border-red-900/30 overflow-hidden aspect-[3/4] sm:aspect-auto z-10">
-                    <img src="IMG_4724.jpeg" alt="Velune Audio" class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-110">
-                </div>
-
-                <!-- Contenido (proporción 3/5 como en Sheet Music) -->
-                <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between z-10">
-                    <div>
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-serif text-2xl text-white lg:group-hover:text-red-400 transition-colors drop-shadow-md">Velune — WAV</h3>
-                            <span class="text-white font-serif text-xl">$3.00</span>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="px-3 py-1 bg-zinc-950 text-[10px] text-gray-300 uppercase tracking-widest rounded-full border border-zinc-700 shadow-sm">Format: WAV</span>
-                            <span class="px-3 py-1 bg-red-950/40 text-[10px] text-red-300 uppercase tracking-widest rounded-full border border-red-800/50 shadow-sm">Master Audio</span>
-                            <span class="px-3 py-1 bg-emerald-900/10 text-[10px] text-emerald-400 uppercase tracking-widest rounded-full border border-emerald-900/30 shadow-sm">Available Now</span>
-                        </div>
-                        <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">The recording preserves some natural noises and sounds that emerged during the moment it was recorded. They were not added or sought intentionally, but are kept because they make the experience feel more real, close, and authentic.</p>
-                    </div>
-                    
-                    <a href="https://payhip.com/b/BG2N9" target="_blank" rel="noopener noreferrer" class="w-full bg-red-950/20 border border-red-800/60 text-red-100 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase text-center block rounded-full active:bg-red-800 active:text-white lg:hover:bg-red-700 lg:hover:text-white lg:hover:border-red-600 transition-all shadow-lg">
-                        Buy Now
-                    </a>
-                </div>
+            <!-- Efecto de brillo rojo de fondo al pasar el mouse por encima -->
+            <div class="absolute -inset-4 bg-red-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl rounded-3xl pointer-events-none z-0"></div>
+            
+            <!-- Imagen (proporción 2/5 como en Sheet Music) -->
+            <div class="w-full sm:w-2/5 bg-black relative border-b sm:border-b-0 sm:border-r border-red-900/30 overflow-hidden aspect-[3/4] sm:aspect-auto z-10">
+                <img src="IMG_4724.jpeg" alt="Velune Audio" class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-110">
             </div>
 
-            <!-- Solune Audio Track -->
-            <div class="reveal-on-scroll bg-zinc-900/20 border border-zinc-800/40 transition-colors duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-3xl opacity-60">
-                
-                <!-- Imagen (proporción 2/5 como en Sheet Music) -->
-                <div class="w-full sm:w-2/5 bg-zinc-800/50 relative border-b sm:border-b-0 sm:border-r border-zinc-800/40 flex items-center justify-center aspect-[3/4] sm:aspect-auto">
-                    <span class="text-zinc-600 text-xs tracking-widest uppercase text-center px-2">Coming Soon</span>
-                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><span class="text-white text-[10px] tracking-widest uppercase border border-white/30 px-3 py-1 rounded-full">Coming Soon</span></div>
-                </div>
-
-                <!-- Contenido (proporción 3/5 como en Sheet Music) -->
-                <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-serif text-2xl text-zinc-300">Solune</h3>
-                            <span class="text-zinc-400 font-serif text-xl">$3.00</span>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="px-3 py-1 bg-zinc-950/50 text-[10px] text-zinc-500 uppercase tracking-widest rounded-full border border-zinc-800">Format: WAV</span>
-                            <span class="px-3 py-1 bg-zinc-950/50 text-[10px] text-zinc-500 uppercase tracking-widest rounded-full border border-zinc-800">Master Audio</span>
-                        </div>
-                        <p class="text-zinc-500 text-sm font-light leading-relaxed mb-6">The master recording is currently being finalized.</p>
+            <!-- Contenido (proporción 3/5 como en Sheet Music) -->
+            <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between z-10">
+                <div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-serif text-2xl text-white lg:group-hover:text-red-400 transition-colors drop-shadow-md">Velune — WAV</h3>
+                        <span class="text-white font-serif text-xl">$3.00</span>
                     </div>
-                    
-                    <button class="w-full border border-zinc-800/50 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase text-center block rounded-full cursor-default">
-                        Unavailable
-                    </button>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="px-3 py-1 bg-zinc-950 text-[10px] text-gray-300 uppercase tracking-widest rounded-full border border-zinc-700 shadow-sm">Format: WAV</span>
+                        <span class="px-3 py-1 bg-red-950/40 text-[10px] text-red-300 uppercase tracking-widest rounded-full border border-red-800/50 shadow-sm">Master Audio</span>
+                        <span class="px-3 py-1 bg-emerald-900/10 text-[10px] text-emerald-400 uppercase tracking-widest rounded-full border border-emerald-900/30 shadow-sm">Available Now</span>
+                    </div>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">The recording preserves some natural noises and sounds that emerged during the moment it was recorded. They were not added or sought intentionally, but are kept because they make the experience feel more real, close, and authentic.</p>
                 </div>
+                
+                <a href="https://payhip.com/b/BG2N9" target="_blank" rel="noopener noreferrer" class="w-full bg-red-950/20 border border-red-800/60 text-red-100 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase text-center block rounded-full active:bg-red-800 active:text-white lg:hover:bg-red-700 lg:hover:text-white lg:hover:border-red-600 transition-all shadow-lg">
+                    Buy Now
+                </a>
+            </div>
+        </div>
+
+        <!-- Solune Audio Track -->
+        <div class="reveal-on-scroll bg-zinc-900/20 border border-zinc-800/40 transition-colors duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-3xl opacity-60">
+            
+            <!-- Imagen (proporción 2/5 como en Sheet Music) -->
+            <div class="w-full sm:w-2/5 bg-zinc-800/50 relative border-b sm:border-b-0 sm:border-r border-zinc-800/40 flex items-center justify-center aspect-[3/4] sm:aspect-auto">
+                <span class="text-zinc-600 text-xs tracking-widest uppercase text-center px-2">Coming Soon</span>
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><span class="text-white text-[10px] tracking-widest uppercase border border-white/30 px-3 py-1 rounded-full">Coming Soon</span></div>
+            </div>
+
+            <!-- Contenido (proporción 3/5 como en Sheet Music) -->
+            <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-serif text-2xl text-zinc-300">Solune</h3>
+                        <span class="text-zinc-400 font-serif text-xl">$3.00</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="px-3 py-1 bg-zinc-950/50 text-[10px] text-zinc-500 uppercase tracking-widest rounded-full border border-zinc-800">Format: WAV</span>
+                        <span class="px-3 py-1 bg-zinc-950/50 text-[10px] text-zinc-500 uppercase tracking-widest rounded-full border border-zinc-800">Master Audio</span>
+                    </div>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed mb-6">The master recording is currently being finalized.</p>
+                </div>
+                
+                <button class="w-full border border-zinc-800/50 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase text-center block rounded-full cursor-default">
+                    Unavailable
+                </button>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- ============================== -->
-<!--        VIDEOS BLOCK            -->
+<!--        VIDEOS SECTION          -->
 <!-- ============================== -->
-<div id="videos" class="bg-zinc-950 relative w-full min-h-[100dvh] flex flex-col justify-center py-16 md:py-24 overflow-hidden">
-    
+<section id="videos" class="pt-2 md:pt-4 pb-24 md:pb-32 safe-padding relative overflow-hidden scroll-mt-20">
     <!-- Fondo original mantenido -->
     <div class="absolute top-0 left-0 w-full max-w-3xl h-full bg-gradient-to-br from-amber-900/5 to-transparent opacity-50 z-0 pointer-events-none blur-3xl"></div>
 
-    <div class="max-w-6xl mx-auto w-full relative z-10 px-4 sm:px-6 lg:px-8">
-        
-        <!-- Textos Cabecera -->
-        <div class="reveal-on-scroll flex flex-col items-center mb-12 md:mb-20 text-center">
+    <div class="max-w-6xl mx-auto relative z-10 px-4">
+        <!-- Textos conservados -->
+        <div class="reveal-on-scroll flex flex-col items-center mb-16 md:mb-20 text-center">
             <h2 class="font-serif text-3xl md:text-5xl text-white tracking-widest mb-6 uppercase">Exclusive Video Performance</h2>
             <div class="w-16 h-[2px] bg-amber-600/70 mb-6 md:mb-8"></div>
-            <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed">
+            <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-lg leading-relaxed">
                 A special video performance of Velune, faithful to the original interpretation. For those who want to enjoy the piece through video and see the performance behind the music.
             </p>
         </div>
 
-        <!-- Grid de Videos (1 columna móvil, 2 en PC) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <!-- Estructura de grid original recuperada (2 columnas en desktop) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
                
             <!-- Tarjeta 1 (Velune) -->
-            <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 transition-colors duration-500 flex flex-col overflow-hidden relative shadow-2xl rounded-xl sm:rounded-lg">
+            <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 transition-colors duration-500 flex flex-col overflow-hidden relative shadow-2xl rounded-lg sm:rounded-none">
                 
-                <!-- Overlay Coming Soon -->
                 <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-zinc-950/70 backdrop-blur-[2px]">
                     <div class="flex items-center gap-3 bg-zinc-900 border border-amber-600/30 px-5 py-3 rounded-full shadow-2xl">
                         <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
@@ -614,65 +620,61 @@
                     </div>
                 </div>
 
-                <!-- Thumbnail de Video -->
-                <div class="relative w-full pt-[56.25%] bg-black overflow-hidden border-b border-zinc-800 opacity-60">
-                    <div class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
-                        <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-300 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1 rounded-sm">Video MP4 • 4K</span>
+                <div class="relative pt-[56.25%] bg-black overflow-hidden border-b border-zinc-800 opacity-60">
+                    <div class="absolute top-3 left-3 sm:top-4 sm:left-4">
+                        <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-300 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1">Video MP4 • 4K</span>
                     </div>
                 </div>
                 
-                <!-- Contenido -->
                 <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between opacity-60">
-                    <div class="mb-6">
+                    <div>
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-serif text-xl sm:text-2xl text-white">Velune - video</h3>
-                            <span class="text-white font-serif text-lg sm:text-xl">$4.99</span>
+                            <h3 class="font-serif text-2xl text-white">Velune - video</h3>
+                            <span class="text-white font-serif text-xl">$4.99</span>
                         </div>
-                        <p class="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">
-                            The complete, uncut 4K video recording of the performance. Experience every expression, nuance, and detail from the exact session that inspired the single.
-                        </p>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">The complete, uncut 4K video recording of the performance. Experience every expression, nuance, and detail from the exact session that inspired the single.</p>
                     </div>
-                    <button class="w-full border border-zinc-800 text-zinc-600 py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded-md">Coming Soon</button>
+                    <button class="w-full border border-zinc-800 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded sm:rounded-none">Coming Soon</button>
                 </div>
             </div>
 
             <!-- Tarjeta 2 (Solune) -->
-            <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 transition-colors duration-500 flex flex-col overflow-hidden relative shadow-2xl rounded-xl sm:rounded-lg">
+            <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 transition-colors duration-500 flex flex-col overflow-hidden relative shadow-2xl rounded-lg sm:rounded-none">
                 
-                <!-- Overlay Coming Soon -->
                 <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-zinc-950/70 backdrop-blur-[2px]">
                     <div class="flex items-center gap-3 bg-zinc-900 border border-zinc-800 px-5 py-3 rounded-full shadow-2xl">
                         <span class="text-zinc-500 text-[10px] sm:text-xs uppercase tracking-[0.2em]">Coming Soon</span>
                     </div>
                 </div>
 
-                <!-- Thumbnail de Video -->
-                <div class="relative w-full pt-[56.25%] bg-black overflow-hidden border-b border-zinc-800 opacity-60">
-                    <div class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
-                        <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-400 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1 rounded-sm">Video MP4 • 4K</span>
+                <div class="relative pt-[56.25%] bg-black overflow-hidden border-b border-zinc-800 opacity-60">
+                    <div class="absolute top-3 left-3 sm:top-4 sm:left-4">
+                        <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-400 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1">Video MP4 • 4K</span>
                     </div>
                 </div>
                 
-                <!-- Contenido -->
                 <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between opacity-60">
-                    <div class="mb-6">
+                    <div>
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-serif text-xl sm:text-2xl text-white">Solune - video</h3>
-                            <span class="text-white font-serif text-lg sm:text-xl">$4.99</span>
+                            <h3 class="font-serif text-2xl text-white">Solune - video</h3>
+                            <span class="text-white font-serif text-xl">$4.99</span>
                         </div>
-                        <p class="text-gray-500 text-xs sm:text-sm font-light leading-relaxed">Coming soon.</p>
+                        <p class="text-gray-500 text-sm font-light leading-relaxed mb-6">Coming soon</p>
                     </div>
-                    <button class="w-full border border-zinc-800 text-zinc-600 py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded-md">Currently Unavailable</button>
+                    <button class="w-full border border-zinc-800 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded sm:rounded-none">Currently Unavailable</button>
                 </div>
             </div>
 
         </div>
     </div>
-</div>
-<section id="sobre-mi" class="min-h-screen flex items-center py-20 md:py-24 bg-brand-black relative overflow-hidden scroll-mt-20">
-    <div class="absolute top-0 right-0 w-full md:w-1/2 h-full bg-gradient-to-l from-zinc-900 to-transparent opacity-50 z-0 pointer-events-none"></div>
+</section>
+<!-- ============================== -->
+<!--        SOBRE MÍ SECTION        -->
+<!-- ============================== -->
+<section id="sobre-mi" class="py-24 md:py-32 safe-padding bg-brand-black relative overflow-hidden scroll-mt-20">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-zinc-900 to-transparent opacity-50 z-0 pointer-events-none"></div>
 
-    <div class="max-w-4xl mx-auto w-full relative z-10 px-6 sm:px-8">
+    <div class="max-w-4xl mx-auto relative z-10 px-4 sm:px-0">
         <div class="reveal-on-scroll flex flex-col items-center mb-12 md:mb-16 text-center">
             <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-white tracking-widest mb-6 uppercase">My Story</h2>
             <div class="w-16 h-[2px] bg-amber-600/70"></div>
@@ -705,9 +707,9 @@
     </div>
 </section>
 
-<section id="contacto" class="min-h-screen flex items-center py-20 md:py-24 bg-brand-black relative scroll-mt-20">
-    <div class="max-w-5xl mx-auto w-full px-6 sm:px-8 reveal-on-scroll">
-        
+  <section id="contacto" class="py-24 md:py-32 safe-padding bg-brand-black relative scroll-mt-20">
+    <div class="max-w-5xl mx-auto px-4 reveal-on-scroll">
+       
         <div class="text-center mb-16 md:mb-20">
             <h2 class="font-serif text-3xl md:text-5xl text-white tracking-widest mb-6 uppercase">Contact</h2>
             <div class="w-16 h-[2px] bg-amber-600/70 mx-auto mb-8 md:mb-10"></div>
@@ -717,9 +719,10 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-            
+           
             <div class="w-full">
                 <form action="https://formsubmit.co/santilavadenzmedia@gmail.com" method="POST" class="space-y-8">
+                   
                     <input type="hidden" name="_subject" value="New contact from your website!">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
@@ -730,7 +733,7 @@
                             class="w-full bg-transparent border-b border-gray-600 text-white py-3 focus:outline-none focus:border-white transition-colors placeholder-gray-700"
                             placeholder="Your Name">
                     </div>
-                    
+                   
                     <div>
                         <label for="email" class="block text-gray-400 text-xs tracking-widest uppercase mb-2">Email</label>
                         <input type="email" id="email" name="email" required
@@ -756,61 +759,73 @@
                 <h3 class="text-white text-xl tracking-widest uppercase mb-4">Get In Touch</h3>
                 <p class="text-gray-400 font-light mb-10 leading-relaxed text-base sm:text-lg">
                     Fill out the form to send a direct message, or email me directly at
-                    <a href="mailto:santilavadenzmedia@gmail.com" class="text-white hover:text-amber-600/70 transition-colors border-b border-transparent hover:border-amber-600/70 pb-1 break-all">
+                    <a href="mailto:santilavadenzmedia@gmail.com" class="text-white hover:text-amber-600/70 transition-colors border-b border-transparent hover:border-amber-600/70 pb-1">
                         santilavadenzmedia@gmail.com
                     </a>.
                 </p>
-                
+               
                 <h3 class="text-white text-sm tracking-widest uppercase mb-6">Follow Me</h3>
-                
+               
                 <div class="flex justify-center md:justify-start flex-wrap gap-4 relative z-30">
-                    
+                   
+                    <!-- Instagram -->
                     <a href="https://www.instagram.com/santilavadenz?igsh=eTVzNWxnYmdvb2h5&utm_source=qr"
-                        target="_blank" rel="noopener noreferrer"
-                        class="w-12 h-12 rounded-full border border-[#E4405F]/40 bg-[#E4405F]/10 text-[#E4405F] flex items-center justify-center active:scale-90 active:bg-[#E4405F] active:text-white md:hover:scale-110 md:hover:bg-[#E4405F] md:hover:text-white transition-all duration-300 shadow-[0_0_12px_rgba(228,64,95,0.3)] md:hover:shadow-[0_0_20px_rgba(228,64,95,0.6)] cursor-pointer touch-manipulation"
-                        title="Instagram">
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="w-12 h-12 rounded-full border border-[#E4405F]/40 bg-[#E4405F]/10 text-[#E4405F] flex items-center justify-center active:scale-90 active:bg-[#E4405F] active:text-white md:hover:scale-110 md:hover:bg-[#E4405F] md:hover:text-white transition-all duration-300 shadow-[0_0_12px_rgba(228,64,95,0.3)] md:hover:shadow-[0_0_20px_rgba(228,64,95,0.6)] cursor-pointer touch-manipulation"
+                       title="Instagram">
                         <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
                     </a>
-                    
+                   
+                    <!-- TikTok -->
                     <a href="https://www.tiktok.com/@santilavadenz?_r=1&_t=ZS-98rF2gCzdmq"
-                        target="_blank" rel="noopener noreferrer"
-                        class="w-12 h-12 rounded-full border border-[#00F2FE]/40 bg-[#00F2FE]/10 text-[#00F2FE] flex items-center justify-center active:scale-90 active:bg-[#00F2FE] active:text-black md:hover:scale-110 md:hover:bg-[#00F2FE] md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(0,242,254,0.3)] md:hover:shadow-[0_0_20px_rgba(0,242,254,0.6)] cursor-pointer touch-manipulation"
-                        title="TikTok">
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="w-12 h-12 rounded-full border border-[#00F2FE]/40 bg-[#00F2FE]/10 text-[#00F2FE] flex items-center justify-center active:scale-90 active:bg-[#00F2FE] active:text-black md:hover:scale-110 md:hover:bg-[#00F2FE] md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(0,242,254,0.3)] md:hover:shadow-[0_0_20px_rgba(0,242,254,0.6)] cursor-pointer touch-manipulation"
+                       title="TikTok">
                         <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
                             <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.31 1.55-1.3 2.53-.01.8.34 1.6 .97 2.11.75.62 1.79.8 2.7.53.95-.27 1.73-.99 2.05-1.93.22-.64.26-1.33.25-2.01.03-4.73.01-9.46.01-14.19z"/>
                         </svg>
                     </a>
 
+                    <!-- YouTube -->
                     <a href="https://youtube.com/@santilavadenz?si=qJB-5-Ur2uczYmjA"
-                        target="_blank" rel="noopener noreferrer"
-                        class="w-12 h-12 rounded-full border border-[#FF0000]/40 bg-[#FF0000]/10 text-[#FF0000] flex items-center justify-center active:scale-90 active:bg-[#FF0000] active:text-white md:hover:scale-110 md:hover:bg-[#FF0000] md:hover:text-white transition-all duration-300 shadow-[0_0_12px_rgba(255,0,0,0.3)] md:hover:shadow-[0_0_20px_rgba(255,0,0,0.6)] cursor-pointer touch-manipulation"
-                        title="YouTube">
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="w-12 h-12 rounded-full border border-[#FF0000]/40 bg-[#FF0000]/10 text-[#FF0000] flex items-center justify-center active:scale-90 active:bg-[#FF0000] active:text-white md:hover:scale-110 md:hover:bg-[#FF0000] md:hover:text-white transition-all duration-300 shadow-[0_0_12px_rgba(255,0,0,0.3)] md:hover:shadow-[0_0_20px_rgba(255,0,0,0.6)] cursor-pointer touch-manipulation"
+                       title="YouTube">
                         <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
                             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
                     </a>
-                    
+                   
+                    <!-- Spotify -->
                     <a href="https://open.spotify.com/artist/6IBfJ5usrq8ujLqfdYEQ7j?si=MAp2LWpARRaMjIpXRGLMYw&utm_source=copy-link"
-                        target="_blank" rel="noopener noreferrer"
-                        class="w-12 h-12 rounded-full border border-[#1DB954]/40 bg-[#1DB954]/10 text-[#1DB954] flex items-center justify-center active:scale-90 active:bg-[#1DB954] active:text-black md:hover:scale-110 md:hover:bg-[#1DB954] md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(29,185,84,0.3)] md:hover:shadow-[0_0_20px_rgba(29,185,84,0.6)] cursor-pointer touch-manipulation"
-                        title="Spotify">
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="w-12 h-12 rounded-full border border-[#1DB954]/40 bg-[#1DB954]/10 text-[#1DB954] flex items-center justify-center active:scale-90 active:bg-[#1DB954] active:text-black md:hover:scale-110 md:hover:bg-[#1DB954] md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(29,185,84,0.3)] md:hover:shadow-[0_0_20px_rgba(29,185,84,0.6)] cursor-pointer touch-manipulation"
+                       title="Spotify">
                         <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
                             <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.899 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.019zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 3.9-1.2 9.3-.54 13.02 1.74.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
                         </svg>
                     </a>
-                    
+                   
+                    <!-- Apple Music -->
                     <a href="https://music.apple.com/ar/artist/santilavadenz/6798893288"
-                        target="_blank" rel="noopener noreferrer"
-                        class="w-12 h-12 rounded-full border border-white/40 bg-white/10 text-white flex items-center justify-center active:scale-90 active:bg-white active:text-black md:hover:scale-110 md:hover:bg-white md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(255,255,255,0.3)] md:hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] cursor-pointer touch-manipulation"
-                        title="Apple Music">
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="w-12 h-12 rounded-full border border-white/40 bg-white/10 text-white flex items-center justify-center active:scale-90 active:bg-white active:text-black md:hover:scale-110 md:hover:bg-white md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(255,255,255,0.3)] md:hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] cursor-pointer touch-manipulation"
+                       title="Apple Music">
                         <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
                             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.13c.64-.78 1.08-1.85.96-2.93-.93.04-2.09.62-2.75 1.4-.59.68-1.1 1.77-.96 2.83 1.05.08 2.11-.52 2.75-1.3"/>
                         </svg>
                     </a>
+
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -828,9 +843,9 @@
 </footer>
 
 <!-- MODAL DE TÉRMINOS Y CONDICIONES -->
-<div id="terms-modal" role="dialog" aria-modal="true" aria-labelledby="terms-title" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm hidden flex-col items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300 overscroll-contain">
+<div id="terms-modal" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm hidden flex-col items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
     
-    <div class="bg-zinc-950 max-w-3xl w-full max-h-[85vh] overflow-y-auto border border-zinc-800 p-6 sm:p-10 relative shadow-2xl transform scale-95 transition-transform duration-300 [-webkit-overflow-scrolling:touch]" id="terms-content">
+    <div class="bg-zinc-950 max-w-3xl w-full max-h-[85vh] overflow-y-auto border border-zinc-800 p-6 sm:p-10 relative shadow-2xl transform scale-95 transition-transform duration-300" id="terms-content">
         
         <!-- Botón de cerrar -->
         <button type="button" id="close-terms-btn" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-gray-500 hover:text-white text-3xl focus:outline-none transition-colors active:scale-90 cursor-pointer" aria-label="Cerrar">
@@ -839,7 +854,7 @@
         
         <!-- Contenido del texto -->
         <div class="text-gray-400 font-light text-sm sm:text-base leading-relaxed pr-2">
-            <h2 id="terms-title" class="font-serif text-2xl sm:text-3xl text-white tracking-widest uppercase mb-2">Terms & Conditions</h2>
+            <h2 class="font-serif text-2xl sm:text-3xl text-white tracking-widest uppercase mb-2">Terms & Conditions</h2>
             <p class="text-[10px] sm:text-xs uppercase tracking-widest text-zinc-500 mb-8 font-mono">Last updated: September 2026</p>
             
             <p class="mb-6">Welcome to the official Santilavadenz online store. By purchasing or downloading any digital product from this website, you agree to the following Terms & Conditions.</p>
@@ -939,7 +954,7 @@
             });
         }
 
-        // --- 3. NAVBAR SCROLL (Optimizado con passive event) ---
+        // --- 3. NAVBAR SCROLL (Optimizado con passive para móviles) ---
         const navbar = document.getElementById('navbar');
         if (navbar) {
             window.addEventListener('scroll', () => {
@@ -977,57 +992,48 @@
             const timeDisplay = document.getElementById('time-display');
 
             function formatTime(seconds) {
-                if (isNaN(seconds)) return '0:00';
                 const minutes = Math.floor(seconds / 60);
                 const remainingSeconds = Math.floor(seconds % 60);
                 return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
             }
 
             audio.addEventListener('loadedmetadata', () => {
-                if (timeDisplay) timeDisplay.textContent = `0:00 / ${formatTime(audio.duration)}`;
+                timeDisplay.textContent = `0:00 / ${formatTime(audio.duration)}`;
             });
 
             playBtn.addEventListener('click', () => {
                 if (audio.paused) {
                     audio.play();
-                    if (playIcon) {
-                        playIcon.classList.remove('fa-play', 'ml-1');
-                        playIcon.classList.add('fa-pause');
-                    }
+                    playIcon.classList.remove('fa-play', 'ml-1');
+                    playIcon.classList.add('fa-pause');
                 } else {
                     audio.pause();
-                    if (playIcon) {
-                        playIcon.classList.remove('fa-pause');
-                        playIcon.classList.add('fa-play', 'ml-1');
-                    }
+                    playIcon.classList.remove('fa-pause');
+                    playIcon.classList.add('fa-play', 'ml-1');
                 }
             });
 
             audio.addEventListener('timeupdate', () => {
                 if (!audio.duration) return;
                 const progressPercent = (audio.currentTime / audio.duration) * 100;
-                if (progressBar) progressBar.value = progressPercent;
-                if (progressActive) progressActive.style.width = `${progressPercent}%`;
-                if (timeDisplay) timeDisplay.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+                progressBar.value = progressPercent;
+                progressActive.style.width = `${progressPercent}%`;
+                timeDisplay.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
             });
 
-            if (progressBar) {
-                progressBar.addEventListener('input', (e) => {
-                    if (!audio.duration) return;
-                    const seekTime = (e.target.value / 100) * audio.duration;
-                    audio.currentTime = seekTime;
-                });
-            }
+            progressBar.addEventListener('input', (e) => {
+                if (!audio.duration) return;
+                const seekTime = (e.target.value / 100) * audio.duration;
+                audio.currentTime = seekTime;
+            });
 
             audio.addEventListener('ended', () => {
-                if (playIcon) {
-                    playIcon.classList.remove('fa-pause');
-                    playIcon.classList.add('fa-play', 'ml-1');
-                }
-                if (progressBar) progressBar.value = 0;
-                if (progressActive) progressActive.style.width = '0%';
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play', 'ml-1');
+                progressBar.value = 0;
+                progressActive.style.width = '0%';
                 audio.currentTime = 0;
-                if (timeDisplay) timeDisplay.textContent = `0:00 / ${formatTime(audio.duration)}`;
+                timeDisplay.textContent = `0:00 / ${formatTime(audio.duration)}`;
             });
         }
 
@@ -1081,3 +1087,5 @@
         }
     });
 </script>
+</body>
+</html>
