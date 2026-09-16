@@ -922,38 +922,7 @@
             currentYear.textContent = new Date().getFullYear();
         }
 
-        // --- 2. MENÚ MÓVIL ---
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        if (mobileMenu && mobileMenuBtn) {
-            function toggleMenu() {
-                const isOpen = mobileMenu.classList.contains('translate-x-full');
-                if (isOpen) {
-                    mobileMenu.classList.remove('translate-x-full');
-                    mobileMenu.classList.add('translate-x-0');
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    mobileMenu.classList.add('translate-x-full');
-                    mobileMenu.classList.remove('translate-x-0');
-                    document.body.style.overflow = '';
-                }
-            }
-
-            mobileMenuBtn.addEventListener('click', toggleMenu);
-            if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
-
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('translate-x-full');
-                    mobileMenu.classList.remove('translate-x-0');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-
+      
         // --- 3. NAVBAR SCROLL (Optimizado con passive para móviles) ---
         const navbar = document.getElementById('navbar');
         if (navbar) {
