@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
@@ -192,6 +192,24 @@
                 padding-right: max(6rem, env(safe-area-inset-right));
             }
         }
+
+        /* Selector de idioma: integrado visualmente en el navbar existente */
+        #language-selector,
+        [data-language-selector] {
+            z-index: 70;
+        }
+
+        #language-selector-btn,
+        .language-option {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        @media (max-width: 767px) {
+            [data-language-selector] .language-menu {
+                right: auto;
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden selection:bg-white selection:text-black bg-zinc-900 h-screen">
@@ -209,6 +227,18 @@
                     <a href="#partituras" class="nav-link-desktop hover:text-white transition-colors py-2">Store</a>
                     <a href="#sobre-mi" class="nav-link-desktop hover:text-white transition-colors py-2">About Me</a>
                     <a href="#contacto" class="nav-link-desktop hover:text-white transition-colors py-2">Contact</a>
+                    <div class="relative flex items-center" data-language-selector>
+                        <button type="button" class="language-selector-btn text-white text-xs tracking-[0.15em] uppercase flex items-center gap-1.5 py-2 focus:outline-none" aria-haspopup="true" aria-expanded="false" aria-label="Language">
+                            <span class="language-current">EN</span>
+                            <span class="text-[9px] text-gray-500">▾</span>
+                        </button>
+                        <div class="language-menu absolute right-0 top-full mt-2 hidden w-36 bg-zinc-950/95 backdrop-blur-xl border border-zinc-800 shadow-2xl py-2 z-[70]">
+                            <button type="button" data-lang="en" class="language-option w-full text-left px-4 py-2.5 text-[10px] tracking-[0.15em] uppercase text-gray-300 hover:text-white hover:bg-white/5 transition-colors">English</button>
+                            <button type="button" data-lang="es" class="language-option w-full text-left px-4 py-2.5 text-[10px] tracking-[0.15em] uppercase text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Español</button>
+                            <button type="button" data-lang="pt" class="language-option w-full text-left px-4 py-2.5 text-[10px] tracking-[0.15em] uppercase text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Português</button>
+                            <button type="button" data-lang="fr" class="language-option w-full text-left px-4 py-2.5 text-[10px] tracking-[0.15em] uppercase text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Français</button>
+                        </div>
+                    </div>
                 </div>
 
                 <button class="md:hidden text-white focus:outline-none p-2 flex flex-col justify-center items-center gap-1.5 w-10 h-10 group" id="mobile-menu-btn" aria-label="Abrir menú">
@@ -232,6 +262,18 @@
             <a href="#partituras" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Store</a>
             <a href="#sobre-mi" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">About Me</a>
             <a href="#contacto" class="mobile-link mobile-item text-gray-300 hover:text-white active:scale-95 transition-all duration-200 p-2">Contact</a>
+            <div class="relative flex items-center justify-center mobile-item" data-language-selector>
+                <button type="button" class="language-selector-btn text-white text-lg tracking-[0.15em] uppercase flex items-center justify-center gap-1.5 p-2 focus:outline-none" aria-haspopup="true" aria-expanded="false" aria-label="Language">
+                    <span class="language-current">EN</span>
+                    <span class="text-xs text-gray-500">▾</span>
+                </button>
+                <div class="language-menu absolute left-1/2 -translate-x-1/2 top-full mt-2 hidden w-40 bg-zinc-950/95 backdrop-blur-xl border border-zinc-800 shadow-2xl py-2 z-[70]">
+                    <button type="button" data-lang="en" class="language-option w-full text-center px-4 py-2.5 text-xs tracking-[0.15em] uppercase text-gray-300 hover:text-white hover:bg-white/5 transition-colors">English</button>
+                    <button type="button" data-lang="es" class="language-option w-full text-center px-4 py-2.5 text-xs tracking-[0.15em] uppercase text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Español</button>
+                    <button type="button" data-lang="pt" class="language-option w-full text-center px-4 py-2.5 text-xs tracking-[0.15em] uppercase text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Português</button>
+                    <button type="button" data-lang="fr" class="language-option w-full text-center px-4 py-2.5 text-xs tracking-[0.15em] uppercase text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Français</button>
+                </div>
+            </div>
         </div>
 
         <div class="mt-20 flex space-x-10 text-3xl mobile-item">
@@ -319,7 +361,7 @@
 
                     <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-5 mb-4 sm:mb-6">
                         <div class="flex items-center gap-4 sm:gap-5">
-                            <button class="w-16 h-16 sm:w-14 sm:h-14 shrink-0 rounded-full border-2 border-zinc-700 text-white flex items-center justify-center active:bg-white active:text-black md:hover:bg-white md:hover:text-black md:hover:border-white transition-all duration-300 focus:outline-none touch-manipulation cursor-pointer" id="play-btn">
+                            <button class="w-16 h-16 sm:w-14 sm:h-14 shrink-0 rounded-full border-2 border-zinc-700 text-white flex items-center justify-center active:bg-white active:text-black md:hover:bg-white md:hover:text-black md:hover:border-white transition-all duration-300 focus:outline-none touch-manipulation cursor-pointer" id="play-btn" aria-label="Play">
                                 <svg class="w-6 h-6 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </button>
                             <div>
@@ -404,7 +446,7 @@
             <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
                 Download the official PDF sheet music, carefully fingered and meticulously reviewed for a faithful interpretation of the piece.
                 <br><br>
-                (Purchasing this sheet music does not transfer any rights. For personal use only.)
+                (The purchase does not transfer or grant any ownership, copyright, or intellectual property rights in the composition or sheet music.)
             </p>
         </div>
 
@@ -459,175 +501,268 @@
         </div>
     </div>
 
-    <!-- ============================== -->
-    <!--  THE ORIGINAL RECORDING AUDIO  -->
-    <!-- ============================== -->
-    <div class="max-w-7xl mx-auto mb-24 md:mb-40">
-        <div class="reveal-on-scroll flex flex-col items-center mt-16 mb-12 md:mb-20 text-center px-4">
-            <h2 class="font-serif text-3xl md:text-5xl text-white tracking-wider mb-4">The Original Recording</h2>
-            <!-- Toque de rojo sutil en la línea divisoria -->
-            <div class="w-16 h-[1px] bg-red-800/80 mb-6 shadow-[0_0_10px_rgba(153,27,27,0.8)]"></div>
-            <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-                Get the original recording in the highest available audio quality.
-                <br><br>
-                (Purchasing this recording does not transfer or grant any copyright, ownership, or intellectual property rights. It is provided for personal use only.)
-            </p>
-        </div>
-
-        <!-- Grid idéntico en tamaño y proporciones al de Sheet Music -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 px-4">
-           
-            <!-- Velune Audio Track -->
-            <div class="reveal-on-scroll bg-gradient-to-br from-zinc-900/80 to-zinc-900/30 border border-red-900/30 lg:hover:border-red-600/50 transition-all duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-3xl relative shadow-2xl shadow-red-900/5 lg:hover:shadow-red-900/20">
-               
-                <!-- Efecto de brillo rojo de fondo al pasar el mouse por encima -->
-                <div class="absolute -inset-4 bg-red-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl rounded-3xl pointer-events-none z-0"></div>
-               
-                <!-- Imagen (proporción 2/5 como en Sheet Music) -->
-                <div class="w-full sm:w-2/5 bg-black relative border-b sm:border-b-0 sm:border-r border-red-900/30 overflow-hidden aspect-[3/4] sm:aspect-auto z-10">
-                    <img src="IMG_2009.jpeg" alt="Velune Audio" class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-110">
-                </div>
-
-                <!-- Contenido (proporción 3/5 como en Sheet Music) -->
-                <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between z-10">
-                    <div>
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-serif text-2xl text-white lg:group-hover:text-red-400 transition-colors drop-shadow-md">Velune — WAV</h3>
-                            <span class="text-white font-serif text-xl">$3.00</span>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="px-3 py-1 bg-zinc-950 text-[10px] text-gray-300 uppercase tracking-widest rounded-full border border-zinc-700 shadow-sm">Format: WAV</span>
-                            <span class="px-3 py-1 bg-red-950/40 text-[10px] text-red-300 uppercase tracking-widest rounded-full border border-red-800/50 shadow-sm">Master Audio</span>
-                            <span class="px-3 py-1 bg-emerald-900/10 text-[10px] text-emerald-400 uppercase tracking-widest rounded-full border border-emerald-900/30 shadow-sm">Available Now</span>
-                        </div>
-                        <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">The recording preserves some natural noises and sounds that emerged during the moment it was recorded. They were not added or sought intentionally, but are kept because they make the experience feel more real, close, and authentic.</p>
-                    </div>
-                   
-                    <a href="https://payhip.com/b/BG2N9" target="_blank" rel="noopener noreferrer" class="w-full bg-red-950/20 border border-red-800/60 text-red-100 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase text-center block rounded-full active:bg-red-800 active:text-white lg:hover:bg-red-700 lg:hover:text-white lg:hover:border-red-600 transition-all shadow-lg">
-                        Buy Now
-                    </a>
-                </div>
-            </div>
-
-            <!-- Solune Audio Track -->
-            <div class="reveal-on-scroll bg-zinc-900/20 border border-zinc-800/40 transition-colors duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-3xl opacity-60">
-               
-                <!-- Imagen (proporción 2/5 como en Sheet Music) -->
-                <div class="w-full sm:w-2/5 bg-zinc-800/50 relative border-b sm:border-b-0 sm:border-r border-zinc-800/40 flex items-center justify-center aspect-[3/4] sm:aspect-auto">
-                    <span class="text-zinc-600 text-xs tracking-widest uppercase text-center px-2">Coming Soon</span>
-                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><span class="text-white text-[10px] tracking-widest uppercase border border-white/30 px-3 py-1 rounded-full">Coming Soon</span></div>
-                </div>
-
-                <!-- Contenido (proporción 3/5 como en Sheet Music) -->
-                <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-serif text-2xl text-zinc-300">Solune</h3>
-                            <span class="text-zinc-400 font-serif text-xl">$3.00</span>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="px-3 py-1 bg-zinc-950/50 text-[10px] text-zinc-500 uppercase tracking-widest rounded-full border border-zinc-800">Format: WAV</span>
-                            <span class="px-3 py-1 bg-zinc-950/50 text-[10px] text-zinc-500 uppercase tracking-widest rounded-full border border-zinc-800">Master Audio</span>
-                        </div>
-                        <p class="text-zinc-500 text-sm font-light leading-relaxed mb-6">The master recording is currently being finalized.</p>
-                    </div>
-                   
-                    <button class="w-full border border-zinc-800/50 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase text-center block rounded-full cursor-default">
-                        Unavailable
-                    </button>
-                </div>
-            </div>
-        </div>
+   <!-- ============================== -->
+<!--  THE ORIGINAL RECORDING AUDIO  -->
+<!-- ============================== -->
+<div class="max-w-7xl mx-auto mb-24 md:mb-40">
+    <div class="reveal-on-scroll flex flex-col items-center mt-16 mb-12 md:mb-20 text-center px-4">
+        <h2 class="font-serif text-3xl md:text-5xl text-white tracking-wider mb-4">The Original Recording</h2>
+        <div class="w-16 h-[1px] bg-red-800/80 mb-6 shadow-[0_0_10px_rgba(153,27,27,0.8)]"></div>
+        <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+            Get the original recording in the highest available audio quality.
+            <br><br>
+            (Purchasing this recording does not transfer or grant any copyright, ownership, or intellectual property rights. It is provided for personal use only.)
+        </p>
     </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 px-4">
+       
+        <!-- Velune Audio Track -->
+        <div class="reveal-on-scroll bg-gradient-to-br from-zinc-900/80 to-zinc-900/30 border border-red-900/30 lg:hover:border-red-600/50 transition-all duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-3xl relative shadow-2xl shadow-red-900/5 lg:hover:shadow-red-900/20">
+           
+            <!-- Efecto de brillo rojo -->
+            <div class="absolute -inset-4 bg-red-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl rounded-3xl pointer-events-none z-0"></div>
+           
+            <!-- Imagen -->
+            <div class="w-full sm:w-2/5 bg-black relative border-b sm:border-b-0 sm:border-r border-red-900/30 overflow-hidden aspect-[3/4] sm:aspect-auto z-10">
+                <img src="IMG_2009.jpeg"
+                     alt="Velune Audio"
+                     class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-110">
+            </div>
+
+            <!-- Contenido -->
+            <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between z-10">
+                <div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-serif text-2xl text-white lg:group-hover:text-red-400 transition-colors drop-shadow-md">Velune — WAV</h3>
+                        <span class="text-white font-serif text-xl">$3.00</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="px-3 py-1 bg-zinc-950 text-[10px] text-gray-300 uppercase tracking-widest rounded-full border border-zinc-700 shadow-sm">Format: WAV</span>
+                        <span class="px-3 py-1 bg-red-950/40 text-[10px] text-red-300 uppercase tracking-widest rounded-full border border-red-800/50 shadow-sm">Master Audio</span>
+                        <span class="px-3 py-1 bg-emerald-900/10 text-[10px] text-emerald-400 uppercase tracking-widest rounded-full border border-emerald-900/30 shadow-sm">Available Now</span>
+                    </div>
+
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">
+                        The recording preserves some natural noises and sounds that emerged during the moment it was recorded. They were not added or sought intentionally, but are kept because they make the experience feel more real, close, and authentic.
+                    </p>
+                </div>
+               
+                <a href="https://payhip.com/b/BG2N9"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="w-full bg-red-950/20 border border-red-800/60 text-red-100 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase text-center block rounded-full active:bg-red-800 active:text-white lg:hover:bg-red-700 lg:hover:text-white lg:hover:border-red-600 transition-all shadow-lg">
+                    Buy Now
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Noir Audio Track -->
+        <div class="reveal-on-scroll bg-gradient-to-br from-zinc-900/80 to-zinc-900/30 border border-red-900/30 lg:hover:border-red-600/50 transition-all duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-3xl relative shadow-2xl shadow-red-900/5 lg:hover:shadow-red-900/20">
+           
+            <!-- Efecto de brillo rojo -->
+            <div class="absolute -inset-4 bg-red-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl rounded-3xl pointer-events-none z-0"></div>
+           
+            <!-- Imagen -->
+            <div class="w-full sm:w-2/5 bg-black relative border-b sm:border-b-0 sm:border-r border-red-900/30 overflow-hidden aspect-[3/4] sm:aspect-auto z-10">
+                <img src="IMG_6612 (3).jpeg"
+                     alt="Noir Audio"
+                     class="w-full h-full object-cover transform transition-transform duration-700 lg:group-hover:scale-110">
+            </div>
+
+            <!-- Contenido -->
+            <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between z-10">
+                <div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-serif text-2xl text-white lg:group-hover:text-red-400 transition-colors drop-shadow-md">Noir — WAV</h3>
+                        <span class="text-white font-serif text-xl">$3.00</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="px-3 py-1 bg-zinc-950 text-[10px] text-gray-300 uppercase tracking-widest rounded-full border border-zinc-700 shadow-sm">Format: WAV</span>
+                        <span class="px-3 py-1 bg-red-950/40 text-[10px] text-red-300 uppercase tracking-widest rounded-full border border-red-800/50 shadow-sm">Master Audio</span>
+                        <span class="px-3 py-1 bg-emerald-900/10 text-[10px] text-emerald-400 uppercase tracking-widest rounded-full border border-emerald-900/30 shadow-sm">Available Now</span>
+                    </div>
+
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">
+                        The original recording of my piano arrangement and interpretation of <i>Noir</i>, an original song by anoufie. The recording preserves the natural sounds and details of the original session, maintaining the authenticity and character of the performance.
+                        <br><br>
+                        Original composer: anoufie<br>
+                    </p>
+                </div>
+               
+                <a href="https://payhip.com/b/KL5DB"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="w-full bg-red-950/20 border border-red-800/60 text-red-100 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase text-center block rounded-full active:bg-red-800 active:text-white lg:hover:bg-red-700 lg:hover:text-white lg:hover:border-red-600 transition-all shadow-lg">
+                    Buy Now
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Solune Audio Track -->
+        <div class="reveal-on-scroll bg-zinc-900/20 border border-zinc-800/40 transition-colors duration-500 flex flex-col sm:flex-row lg:flex-row overflow-hidden group rounded-3xl opacity-60">
+            
+            <!-- Imagen -->
+            <div class="w-full sm:w-2/5 bg-zinc-800/50 relative border-b sm:border-b-0 sm:border-r border-zinc-800/40 flex items-center justify-center aspect-[3/4] sm:aspect-auto">
+                <span class="text-zinc-600 text-xs tracking-widest uppercase text-center px-2">Coming Soon</span>
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <span class="text-white text-[10px] tracking-widest uppercase border border-white/30 px-3 py-1 rounded-full">Coming Soon</span>
+                </div>
+            </div>
+
+            <!-- Contenido -->
+            <div class="w-full sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-serif text-2xl text-zinc-300">Solune</h3>
+                        <span class="text-zinc-400 font-serif text-xl">$3.00</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="px-3 py-1 bg-zinc-950/50 text-[10px] text-zinc-500 uppercase tracking-widest rounded-full border border-zinc-800">Format: WAV</span>
+                        <span class="px-3 py-1 bg-zinc-950/50 text-[10px] text-zinc-500 uppercase tracking-widest rounded-full border border-zinc-800">Master Audio</span>
+                    </div>
+
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed mb-6">
+                        The master recording is currently being finalized.
+                    </p>
+                </div>
+                
+                <button class="w-full border border-zinc-800/50 text-zinc-600 py-4 sm:py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase text-center block rounded-full cursor-default">
+                    Unavailable
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
 </section>
 
-<!-- ============================== -->
-<!--        VIDEOS BLOCK            -->
-<!-- ============================== -->
-<div id="videos" class="bg-zinc-950 relative w-full min-h-[100dvh] flex flex-col justify-center py-16 md:py-24 overflow-hidden">
-   
-    <!-- Fondo original mantenido -->
-    <div class="absolute top-0 left-0 w-full max-w-3xl h-full bg-gradient-to-br from-amber-900/5 to-transparent opacity-50 z-0 pointer-events-none blur-3xl"></div>
-
-    <div class="max-w-6xl mx-auto w-full relative z-10 px-4 sm:px-6 lg:px-8">
-       
-        <!-- Textos Cabecera -->
-        <div class="reveal-on-scroll flex flex-col items-center mb-12 md:mb-20 text-center">
-            <h2 class="font-serif text-3xl md:text-5xl text-white tracking-widest mb-6 uppercase">Exclusive Video Performance</h2>
-            <div class="w-16 h-[2px] bg-amber-600/70 mb-6 md:mb-8"></div>
-            <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed">
-                A special video performance of Velune, faithful to the original interpretation. For those who want to enjoy the piece through video and see the performance behind the music.
-            </p>
-        </div>
-
-        <!-- Grid de Videos (1 columna móvil, 2 en PC) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-               
-            <!-- Tarjeta 1 (Velune) -->
-            <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 transition-colors duration-500 flex flex-col overflow-hidden relative shadow-2xl rounded-xl sm:rounded-lg">
-               
-                <!-- Overlay Coming Soon -->
-                <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-zinc-950/70 backdrop-blur-[2px]">
-                    <div class="flex items-center gap-3 bg-zinc-900 border border-amber-600/30 px-5 py-3 rounded-full shadow-2xl">
-                        <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                        <span class="text-amber-500 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold">Coming Soon</span>
-                    </div>
-                </div>
-
-                <!-- Thumbnail de Video -->
-                <div class="relative w-full pt-[56.25%] bg-black overflow-hidden border-b border-zinc-800 opacity-60">
-                    <div class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
-                        <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-300 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1 rounded-sm">Video MP4 • 4K</span>
-                    </div>
-                </div>
-               
-                <!-- Contenido -->
-                <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between opacity-60">
-                    <div class="mb-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-serif text-xl sm:text-2xl text-white">Velune - video</h3>
-                            <span class="text-white font-serif text-lg sm:text-xl">$4.99</span>
-                        </div>
-                        <p class="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">
-                            The complete, uncut 4K video recording of the performance. Experience every expression, nuance, and detail from the exact session that inspired the single.
-                        </p>
-                    </div>
-                    <button class="w-full border border-zinc-800 text-zinc-600 py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded-md">Coming Soon</button>
-                </div>
-            </div>
-
-            <!-- Tarjeta 2 (Solune) -->
-            <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 transition-colors duration-500 flex flex-col overflow-hidden relative shadow-2xl rounded-xl sm:rounded-lg">
-               
-                <!-- Overlay Coming Soon -->
-                <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-zinc-950/70 backdrop-blur-[2px]">
-                    <div class="flex items-center gap-3 bg-zinc-900 border border-zinc-800 px-5 py-3 rounded-full shadow-2xl">
-                        <span class="text-zinc-500 text-[10px] sm:text-xs uppercase tracking-[0.2em]">Coming Soon</span>
-                    </div>
-                </div>
-
-                <!-- Thumbnail de Video -->
-                <div class="relative w-full pt-[56.25%] bg-black overflow-hidden border-b border-zinc-800 opacity-60">
-                    <div class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
-                        <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-400 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1 rounded-sm">Video MP4 • 4K</span>
-                    </div>
-                </div>
-               
-                <!-- Contenido -->
-                <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between opacity-60">
-                    <div class="mb-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-serif text-xl sm:text-2xl text-white">Solune - video</h3>
-                            <span class="text-white font-serif text-lg sm:text-xl">$4.99</span>
-                        </div>
-                        <p class="text-gray-500 text-xs sm:text-sm font-light leading-relaxed">Coming soon.</p>
-                    </div>
-                    <button class="w-full border border-zinc-800 text-zinc-600 py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded-md">Currently Unavailable</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
+<!-- ============================== --> 
+<!--        VIDEOS BLOCK            --> 
+<!-- ============================== --> 
+<div id="videos" class="bg-zinc-950 relative w-full min-h-[100dvh] flex flex-col justify-center py-16 md:py-24 overflow-hidden"> 
+    
+    <!-- Fondo original mantenido -->  
+    <div class="absolute top-0 left-0 w-full max-w-3xl h-full bg-gradient-to-br from-amber-900/5 to-transparent opacity-50 z-0 pointer-events-none blur-3xl"></div>  
+  
+    <div class="max-w-6xl mx-auto w-full relative z-10 px-4 sm:px-6 lg:px-8">  
+         
+        <!-- Textos Cabecera -->  
+        <div class="reveal-on-scroll flex flex-col items-center mb-12 md:mb-20 text-center">  
+            <h2 class="font-serif text-3xl md:text-5xl text-white tracking-widest mb-6 uppercase">Exclusive Video Performance</h2>  
+            <div class="w-16 h-[2px] bg-amber-600/70 mb-6 md:mb-8"></div>  
+            <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed">  
+                Exclusive video performances of original compositions and selected arrangements, showcasing the performance behind the music.<br><br>(Purchasing a video does not transfer or grant any ownership, copyright, intellectual property, or other rights in the composition, arrangement, or recording.)  
+            </p>  
+        </div>  
+  
+        <!-- Grid de Videos (1 columna móvil, 2 en PC) -->  
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">  
+                 
+            <!-- Tarjeta 1 (Velune) -->  
+            <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 transition-colors duration-500 flex flex-col overflow-hidden relative shadow-2xl rounded-xl sm:rounded-lg">  
+                 
+                <!-- Overlay Coming Soon -->  
+                <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-zinc-950/70 backdrop-blur-[2px]">  
+                    <div class="flex items-center gap-3 bg-zinc-900 border border-amber-600/30 px-5 py-3 rounded-full shadow-2xl">  
+                        <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>  
+                        <span class="text-amber-500 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold">Coming Soon</span>  
+                    </div>  
+                </div>  
+  
+                <!-- Thumbnail de Video -->  
+                <div class="relative w-full pt-[56.25%] bg-black overflow-hidden border-b border-zinc-800 opacity-60">  
+                    <div class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">  
+                        <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-300 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1 rounded-sm">Video MP4 • 4K</span>  
+                    </div>  
+                </div>  
+                 
+                <!-- Contenido -->  
+                <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between opacity-60">  
+                    <div class="mb-6">  
+                        <div class="flex justify-between items-start mb-3">  
+                            <h3 class="font-serif text-xl sm:text-2xl text-white">Velune - video</h3>  
+                            <span class="text-white font-serif text-lg sm:text-xl">$4.99</span>  
+                        </div>  
+                        <p class="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">  
+                            The complete, uncut 4K video recording of the performance. Experience every expression, nuance, and detail from the exact session that inspired the single.  
+                        </p>  
+                    </div>  
+                    <button class="w-full border border-zinc-800 text-zinc-600 py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded-md">Coming Soon</button>  
+                </div>  
+            </div>  
+  
+            <!-- Tarjeta 2 (Noir) -->  
+            <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 hover:border-amber-600/30 transition-colors duration-500 flex flex-col overflow-hidden relative shadow-2xl rounded-xl sm:rounded-lg">  
+                 
+                <!-- Thumbnail de Video -->  
+                <div class="relative w-full pt-[56.25%] bg-black overflow-hidden border-b border-zinc-800">  
+                     <img src="IMG_6612 (3).jpeg"
+             alt="Noir - Piano Performance Video"
+             class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">  
+                        <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-300 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1 rounded-sm">Video 4K • 60 FPS</span>  
+                    </div>  
+                </div>  
+                 
+                <!-- Contenido -->  
+                <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between">  
+                    <div class="mb-6">  
+                        <div class="flex justify-between items-start mb-3">  
+                            <h3 class="font-serif text-xl sm:text-2xl text-white">Noir - video</h3>  
+                            <span class="text-white font-serif text-lg sm:text-xl">$15.99</span>  
+                        </div>  
+                        <p class="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">  
+                            My piano arrangement and interpretation of <i>Noir</i> by anoufie. This is the original video recording of the performance, from which the audio for my Spotify release was taken.  
+                            <br><br>  
+                            Piano arrangement & performance by Santilavadenz<br>  
+                            4K • 60 FPS<br>  
+                            High-quality audio<br>  
+                            Original song by anoufie.  
+                        </p>  
+                    </div>  
+                    <a href="https://payhip.com/b/WmJxn" target="_blank" rel="noopener noreferrer" class="w-full border border-amber-600/50 text-amber-500 hover:bg-amber-600 hover:text-white py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase transition-all duration-300 rounded-md text-center">Buy Now</a>  
+                </div>  
+            </div>  
+ 
+            <!-- Tarjeta 3 (Solune) -->  
+            <div class="reveal-on-scroll bg-zinc-900 border border-zinc-800 transition-colors duration-500 flex flex-col overflow-hidden relative shadow-2xl rounded-xl sm:rounded-lg">  
+                 
+                <!-- Overlay Coming Soon -->  
+                <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-zinc-950/70 backdrop-blur-[2px]">  
+                    <div class="flex items-center gap-3 bg-zinc-900 border border-zinc-800 px-5 py-3 rounded-full shadow-2xl">  
+                        <span class="text-zinc-500 text-[10px] sm:text-xs uppercase tracking-[0.2em]">Coming Soon</span>  
+                    </div>  
+                </div>  
+  
+                <!-- Thumbnail de Video -->  
+                <div class="relative w-full pt-[56.25%] bg-black overflow-hidden border-b border-zinc-800 opacity-60">  
+                    <div class="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">  
+                        <span class="bg-zinc-950/80 backdrop-blur-sm border border-zinc-700 text-gray-400 text-[9px] sm:text-[10px] uppercase tracking-widest px-2.5 sm:px-3 py-1 rounded-sm">Video MP4 • 4K</span>  
+                    </div>  
+                </div>  
+                 
+                <!-- Contenido -->  
+                <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between opacity-60">  
+                    <div class="mb-6">  
+                        <div class="flex justify-between items-start mb-3">  
+                            <h3 class="font-serif text-xl sm:text-2xl text-white">Solune - video</h3>  
+                            <span class="text-white font-serif text-lg sm:text-xl">$4.99</span>  
+                        </div>  
+                        <p class="text-gray-500 text-xs sm:text-sm font-light leading-relaxed">Coming soon.</p>  
+                    </div>  
+                    <button class="w-full border border-zinc-800 text-zinc-600 py-3.5 text-[11px] sm:text-xs tracking-[0.2em] uppercase cursor-default rounded-md">Currently Unavailable</button>  
+                </div>  
+            </div>  
+  
+        </div>  
+    </div>  
 </div>
 <section id="sobre-mi" class="min-h-screen flex items-center py-20 md:py-24 bg-brand-black relative overflow-hidden scroll-mt-20">
     <div class="absolute top-0 right-0 w-full md:w-1/2 h-full bg-gradient-to-l from-zinc-900 to-transparent opacity-50 z-0 pointer-events-none"></div>
@@ -745,7 +880,7 @@
 
                     <a href="https://youtube.com/@santilavadenz?si=qJB-5-Ur2uczYmjA"
                         target="_blank" rel="noopener noreferrer"
-                        class="w-12 h-12 rounded-full border border-[#FF0000]/40 bg-[#FF0000]/10 text-[#FF0000] flex items-center justify-center active:scale-90 active:bg-[#FF0000] active:text-white md:hover:scale-110 md:hover:bg-[#FF0000] md:hover:text-white transition-all duration-300 shadow-[0_0_12px_rgba(255,0,0,0.3)] md:hover:shadow-[0_0_20px_rgba(255,0,0,0.6)] cursor-pointer touch-manipulation"
+                        class="w-12 h-12 rounded-full border border-[#FF0000]/40 bg-[#FF0000]/10 text-[#FF0000] flex items-center justify-center active:scale-90 active:bg-[#FF0000] active:text-white md:hover:scale-110 md:hover:border-[#FF0000] md:hover:bg-[#FF0000] md:hover:text-white transition-all duration-300 shadow-[0_0_12px_rgba(255,0,0,0.3)] md:hover:shadow-[0_0_20px_rgba(255,0,0,0.6)] cursor-pointer touch-manipulation"
                         title="YouTube">
                         <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
                             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -754,7 +889,7 @@
                    
                     <a href="https://open.spotify.com/artist/6IBfJ5usrq8ujLqfdYEQ7j?si=MAp2LWpARRaMjIpXRGLMYw&utm_source=copy-link"
                         target="_blank" rel="noopener noreferrer"
-                        class="w-12 h-12 rounded-full border border-[#1DB954]/40 bg-[#1DB954]/10 text-[#1DB954] flex items-center justify-center active:scale-90 active:bg-[#1DB954] active:text-black md:hover:scale-110 md:hover:bg-[#1DB954] md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(29,185,84,0.3)] md:hover:shadow-[0_0_20px_rgba(29,185,84,0.6)] cursor-pointer touch-manipulation"
+                        class="w-12 h-12 rounded-full border border-[#1DB954]/40 bg-[#1DB954]/10 text-[#1DB954] flex items-center justify-center active:scale-90 active:bg-[#1DB954] active:text-black md:hover:scale-110 md:hover:border-[#1DB954] md:hover:bg-[#1DB954] md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(29,185,84,0.3)] md:hover:shadow-[0_0_20px_rgba(29,185,84,0.6)] cursor-pointer touch-manipulation"
                         title="Spotify">
                         <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
                             <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.899 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.019zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 3.9-1.2 9.3-.54 13.02 1.74.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
@@ -763,7 +898,7 @@
                    
                     <a href="https://music.apple.com/ar/artist/santilavadenz/6798893288"
                         target="_blank" rel="noopener noreferrer"
-                        class="w-12 h-12 rounded-full border border-white/40 bg-white/10 text-white flex items-center justify-center active:scale-90 active:bg-white active:text-black md:hover:scale-110 md:hover:bg-white md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(255,255,255,0.3)] md:hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] cursor-pointer touch-manipulation"
+                        class="w-12 h-12 rounded-full border border-white/40 bg-white/10 text-white flex items-center justify-center active:scale-90 active:bg-white active:text-black md:hover:scale-110 md:hover:border-white md:hover:bg-white md:hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(255,255,255,0.3)] md:hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] cursor-pointer touch-manipulation"
                         title="Apple Music">
                         <svg class="w-5 h-5 fill-current pointer-events-none" viewBox="0 0 24 24">
                             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.13c.64-.78 1.08-1.85.96-2.93-.93.04-2.09.62-2.75 1.4-.59.68-1.1 1.77-.96 2.83 1.05.08 2.11-.52 2.75-1.3"/>
@@ -800,22 +935,27 @@
         <!-- Contenido del texto -->
         <div class="text-gray-400 font-light text-sm sm:text-base leading-relaxed pr-2">
             <h2 id="terms-title" class="font-serif text-2xl sm:text-3xl text-white tracking-widest uppercase mb-2">Terms & Conditions</h2>
-            <p class="text-[10px] sm:text-xs uppercase tracking-widest text-zinc-500 mb-8 font-mono">Last updated: September 2026</p>
+            <p class="text-[10px] sm:text-xs uppercase tracking-widest text-zinc-500 mb-8 font-mono">Last updated: October 2026</p>
            
             <p class="mb-6">Welcome to the official Santilavadenz online store. By purchasing or downloading any digital product from this website, you agree to the following Terms & Conditions.</p>
 
             <h3 class="text-white text-sm sm:text-base tracking-widest uppercase mt-8 mb-3">1. Digital Products</h3>
-            <p class="mb-2">The Santilavadenz store may offer digital products including:</p>
+            <p class="mb-2">The Santilavadenz store offers digital products that fall into two primary categories:</p>
+            <ul class="list-disc pl-5 mb-4 space-y-1 text-gray-400/80">
+                <li><strong class="text-zinc-300 font-medium">Original Works:</strong> Products based entirely on original compositions and master recordings created by Santilavadenz.</li>
+                <li><strong class="text-zinc-300 font-medium">Covers, Arrangements, and Interpretations:</strong> Products featuring Santilavadenz’s performances, arrangements, or master recordings of compositions owned by third parties, distributed with the corresponding authorization or permission, where applicable.</li>
+            </ul>
+            <p class="mb-2">These products may include:</p>
             <ul class="list-disc pl-5 mb-6 space-y-1 text-gray-400/80">
-                <li>Original WAV recordings</li>
-                <li>Official piano sheet music in PDF format</li>
-                <li>Exclusive video performances of Santilavadenz songs</li>
-                <li>Other digital music-related products that may be added in the future</li>
+                <li>WAV recordings (original songs and covers)</li>
+                <li>Official piano sheet music in PDF format (original compositions and original arrangements)</li>
+                <li>Exclusive video performances</li>
+                <li>Other digital music-related products</li>
             </ul>
             <p class="mb-6">All products are delivered digitally. No physical products are shipped.</p>
 
             <h3 class="text-white text-sm sm:text-base tracking-widest uppercase mt-8 mb-3">2. Personal Use License</h3>
-            <p class="mb-2">Purchasing a digital product grants the buyer a limited, non-exclusive license for personal use only. The purchased file may not be:</p>
+            <p class="mb-2">Purchasing a digital product grants the buyer a limited, non-exclusive license for personal use only. The purchased file (whether an original work or a cover/arrangement) may not be:</p>
             <ul class="list-disc pl-5 mb-4 space-y-1 text-gray-400/80">
                 <li>Resold</li>
                 <li>Redistributed</li>
@@ -825,15 +965,18 @@
                 <li>Used for commercial purposes</li>
                 <li>Presented or distributed as the buyer's own work</li>
             </ul>
-            <p class="mb-6">without prior written permission from Santilavadenz. Purchasing a digital product does not transfer any copyright, ownership, or intellectual property rights. All rights to the original work remain with the copyright owner.</p>
+            <p class="mb-6">without prior written permission from Santilavadenz. Purchasing a digital product does not transfer any copyright, ownership, or intellectual property rights to the buyer.</p>
 
             <h3 class="text-white text-sm sm:text-base tracking-widest uppercase mt-8 mb-3">3. Social Media and Content Use</h3>
             <p class="mb-4">Buyers may share short excerpts or portions of purchased material on platforms such as TikTok, Instagram, YouTube, or similar platforms for personal, non-commercial purposes, provided that appropriate credit is given.</p>
-            <p class="mb-2">For music, the credit should clearly identify the work and artist, for example:</p>
-            <blockquote class="border-l-[3px] border-amber-600/70 pl-4 py-2 my-4 bg-zinc-900/40 text-gray-300 italic font-serif">“Velune — Santilavadenz”</blockquote>
-            <p class="mb-2">or, when another Santilavadenz work is used:</p>
-            <blockquote class="border-l-[3px] border-amber-600/70 pl-4 py-2 my-4 bg-zinc-900/40 text-gray-300 italic font-serif">“[Song Title] — Santilavadenz”</blockquote>
-            <p class="mb-6">The full purchased files may not be uploaded or redistributed as standalone content.</p>
+            
+            <p class="mb-2"><strong class="text-zinc-300 font-medium">For Original Santilavadenz Works:</strong> The credit should clearly identify the work and artist (e.g.,)</p>
+            <blockquote class="border-l-[3px] border-amber-600/70 pl-4 py-2 my-4 bg-zinc-900/40 text-gray-300 italic font-serif">“Velune — Santilavadenz” <span class="not-italic font-sans text-sm text-gray-500 mx-2">or</span> “[Song Title] — Santilavadenz”</blockquote>
+            
+            <p class="mb-2 mt-6"><strong class="text-zinc-300 font-medium">For Covers and Arrangements:</strong> The credit must acknowledge both the original composer/artist and Santilavadenz’s performance or arrangement (e.g.,)</p>
+            <blockquote class="border-l-[3px] border-amber-600/70 pl-4 py-2 my-4 bg-zinc-900/40 text-gray-300 italic font-serif">“[Song Title] (Original by [Composer/Artist]) — Performed/Arranged by Santilavadenz”</blockquote>
+            
+            <p class="mb-6"><strong class="text-white font-medium">Important Restriction:</strong> This permission strictly allows only the sharing of short excerpts. It does NOT permit commercial use, redistribution of the full purchased file, or claiming the content as the buyer's own work. The full purchased files may not be uploaded or redistributed as standalone content under any circumstances.</p>
 
             <h3 class="text-white text-sm sm:text-base tracking-widest uppercase mt-8 mb-3">4. Downloads</h3>
             <p class="mb-6">Each digital purchase allows the buyer up to 5 downloads of the purchased file. The buyer is responsible for keeping their downloaded files secure and for not sharing their download access with others. If a technical problem prevents the buyer from successfully downloading a purchased product, they may contact us at: <a href="mailto:santilavadenzmedia@gmail.com" class="text-white hover:text-amber-600/70 transition-colors border-b border-transparent hover:border-amber-600/70 pb-0.5">santilavadenzmedia@gmail.com</a></p>
@@ -842,10 +985,23 @@
             <p class="mb-6">Due to the digital nature of these products, no refunds are available once a purchased product has been downloaded at least once. If a technical issue prevents access to a purchased product, please contact us at <a href="mailto:santilavadenzmedia@gmail.com" class="text-white hover:text-amber-600/70 transition-colors border-b border-transparent hover:border-amber-600/70 pb-0.5">santilavadenzmedia@gmail.com</a> so that we can review the issue.</p>
 
             <h3 class="text-white text-sm sm:text-base tracking-widest uppercase mt-8 mb-3">6. Copyright and Intellectual Property</h3>
-            <p class="mb-6">All music, compositions, recordings, performances, videos, sheet music, artwork, photographs, written materials, and other original content made available through this website remain protected by applicable intellectual property and copyright laws. Purchasing or downloading a product does not grant the buyer ownership of the underlying composition, master recording, performance, video, artwork, or any other intellectual property. No rights are transferred except for the limited personal-use license expressly described in these Terms & Conditions.</p>
+            <p class="mb-4">To protect the rights of all creators, the following intellectual property terms apply to all purchases:</p>
+
+            <h4 class="text-zinc-200 text-sm sm:text-base font-semibold mt-6 mb-2">6.1. Original Works by Santilavadenz</h4>
+            <p class="mb-6">All original compositions, master recordings, performances, videos, sheet music, artwork, photographs, and written materials created by Santilavadenz remain owned by Santilavadenz, subject to any applicable third-party rights. Purchasing or downloading an original product does not grant the buyer ownership of the underlying composition, master recording, or any other intellectual property.</p>
+
+            <h4 class="text-zinc-200 text-sm sm:text-base font-semibold mt-6 mb-2">6.2. Covers, Arrangements, and Third-Party Works</h4>
+            <p class="mb-2">For products that include covers, interpretations, or arrangements of third-party compositions, the following distinctions apply:</p>
+            <ul class="list-disc pl-5 mb-4 space-y-3 text-gray-400/80">
+                <li><strong class="text-zinc-300 font-medium">Third-Party Compositions:</strong> The original underlying composition remains the exclusive property of its respective composer, author, publisher, or rightsholder.</li>
+                <li><strong class="text-zinc-300 font-medium">Santilavadenz’s Masters and Arrangements:</strong> The specific sound recording (master recording), performance, or original arrangement created by Santilavadenz remains protected and owned by Santilavadenz, where applicable.</li>
+                <li><strong class="text-zinc-300 font-medium">Authorizations:</strong> The sale, distribution, or publication of Santilavadenz's specific recording, performance, or sheet music arrangement is done with the corresponding authorization, license, or permission, where required or applicable.</li>
+                <li><strong class="text-zinc-300 font-medium">Non-Transfer of Permissions:</strong> Any authorization, license, or permission that Santilavadenz has received from the original composer or rightsholder to sell, distribute, or publish a cover, arrangement, recording, or performance is NOT transferred to the buyer. The buyer solely receives the limited personal-use license established in these Terms & Conditions.</li>
+            </ul>
+            <p class="mb-6">The buyer does not acquire any rights, ownership, or copyright over the original third-party composition nor over Santilavadenz's master recording or arrangement.</p>
 
             <h3 class="text-white text-sm sm:text-base tracking-widest uppercase mt-8 mb-3">7. Ownership and Representation</h3>
-            <p class="mb-6">Santilavadenz is the artistic name of Santiago Lavadenz Pacheco. While Santiago Lavadenz Pacheco is under 18 years of age, purchases through the store are processed through a Payhip account managed by his legal representative, who handles the commercial and administrative aspects of the store on his behalf. This administrative arrangement does not transfer authorship or intellectual property ownership of Santilavadenz's original works.</p>
+            <p class="mb-6">Santilavadenz is the artistic name of Santiago Lavadenz Pacheco. While Santiago Lavadenz Pacheco is under 18 years of age, purchases through the store are processed through an account managed by his legal representative, who handles the commercial and administrative aspects of the store on his behalf. This administrative arrangement does not transfer authorship or intellectual property ownership of Santilavadenz's original works.</p>
 
             <h3 class="text-white text-sm sm:text-base tracking-widest uppercase mt-8 mb-3">8. Changes to Products</h3>
             <p class="mb-6">Santilavadenz reserves the right to add, modify, update, or discontinue digital products offered through the store. Changes to a product do not affect the rights granted to buyers for products they have already purchased.</p>
@@ -857,6 +1013,829 @@
         </div>
     </div>
 </div>
+
+<script>
+    // --- SISTEMA DE IDIOMAS ---
+    const siteTranslations = {
+    "Music": {
+        "es": "Música",
+        "pt": "Música",
+        "fr": "Musique"
+    },
+    "Store": {
+        "es": "Tienda",
+        "pt": "Loja",
+        "fr": "Boutique"
+    },
+    "About Me": {
+        "es": "Sobre mí",
+        "pt": "Sobre mim",
+        "fr": "À propos"
+    },
+    "Contact": {
+        "es": "Contacto",
+        "pt": "Contato",
+        "fr": "Contact"
+    },
+    "My music seeks to tell you a story.": {
+        "es": "Mi música busca contarte una historia.",
+        "pt": "Minha música busca contar uma história para você.",
+        "fr": "Ma musique cherche à vous raconter une histoire."
+    },
+    "Listen Now": {
+        "es": "Escuchar ahora",
+        "pt": "Ouvir agora",
+        "fr": "Écouter maintenant"
+    },
+    "Sheet Music": {
+        "es": "Partituras",
+        "pt": "Partituras",
+        "fr": "Partitions"
+    },
+    "Latest Releases": {
+        "es": "Últimos lanzamientos",
+        "pt": "Lançamentos recentes",
+        "fr": "Dernières sorties"
+    },
+    "Single": {
+        "es": "Sencillo",
+        "pt": "Single",
+        "fr": "Single"
+    },
+    "08/31/2026": {
+        "es": "31/08/2026",
+        "pt": "31/08/2026",
+        "fr": "31/08/2026"
+    },
+    "\"In the end, only the moments that made it all worthwhile remain.\"": {
+        "es": "\"Al final, solo permanecen los momentos que hicieron que todo valiera la pena.\"",
+        "pt": "\"No fim, permanecem apenas os momentos que fizeram tudo valer a pena.\"",
+        "fr": "\"Au final, seuls restent les moments qui ont fait que tout en valait la peine.\""
+    },
+    "Tu navegador no soporta el elemento de audio.": {
+        "es": "Tu navegador no admite el elemento de audio.",
+        "pt": "Seu navegador não suporta o elemento de áudio.",
+        "fr": "Votre navigateur ne prend pas en charge l’élément audio."
+    },
+    "Download the official PDF sheet music, carefully fingered and meticulously reviewed for a faithful interpretation of the piece.": {
+        "es": "Descarga la partitura oficial en PDF, cuidadosamente digitada y revisada minuciosamente para una interpretación fiel de la pieza.",
+        "pt": "Baixe a partitura oficial em PDF, cuidadosamente dedilhada e meticulosamente revisada para uma interpretação fiel da peça.",
+        "fr": "Téléchargez la partition officielle en PDF, soigneusement doigtée et minutieusement révisée pour une interprétation fidèle de la pièce."
+    },
+    "(The purchase does not transfer or grant any ownership, copyright, or intellectual property rights in the composition or sheet music.)": {
+        "es": "(La compra no transfiere ni concede ningún derecho de propiedad, derecho de autor o derecho de propiedad intelectual sobre la composición o la partitura.)",
+        "pt": "(A compra não transfere nem concede qualquer direito de propriedade, direito autoral ou direito de propriedade intelectual sobre a composição ou a partitura.)",
+        "fr": "(L’achat ne transfère ni ne confère aucun droit de propriété, droit d’auteur ou droit de propriété intellectuelle sur la composition ou la partition.)"
+    },
+    "Format: PDF": {
+        "es": "Formato: PDF",
+        "pt": "Formato: PDF",
+        "fr": "Format : PDF"
+    },
+    "Piano Solo": {
+        "es": "Piano solo",
+        "pt": "Piano solo",
+        "fr": "Piano solo"
+    },
+    "Difficulty: Intermediate": {
+        "es": "Dificultad: Intermedio",
+        "pt": "Dificuldade: Intermediário",
+        "fr": "Difficulté : Intermédiaire"
+    },
+    "One of my most intimate and emotional pieces. It explores nostalgia, love, gratitude, and peace, like a final memory of the moments that, in the end, made life worth living.": {
+        "es": "Una de mis piezas más íntimas y emotivas. Explora la nostalgia, el amor, la gratitud y la paz, como un recuerdo final de los momentos que, al final, hicieron que la vida valiera la pena.",
+        "pt": "Uma das minhas peças mais íntimas e emocionais. Ela explora a nostalgia, o amor, a gratidão e a paz, como uma memória final dos momentos que, no fim, fizeram a vida valer a pena.",
+        "fr": "L’une de mes pièces les plus intimes et émouvantes. Elle explore la nostalgie, l’amour, la gratitude et la paix, comme un dernier souvenir des moments qui, au final, ont fait que la vie en valait la peine."
+    },
+    "Buy Now": {
+        "es": "Comprar ahora",
+        "pt": "Comprar agora",
+        "fr": "Acheter maintenant"
+    },
+    "Coming Soon": {
+        "es": "Próximamente",
+        "pt": "Em breve",
+        "fr": "Bientôt disponible"
+    },
+    "Coming soon": {
+        "es": "Próximamente",
+        "pt": "Em breve",
+        "fr": "Bientôt disponible"
+    },
+    "Currently Unavailable": {
+        "es": "No disponible actualmente",
+        "pt": "Indisponível no momento",
+        "fr": "Actuellement indisponible"
+    },
+    "The Original Recording": {
+        "es": "La grabación original",
+        "pt": "A gravação original",
+        "fr": "L’enregistrement original"
+    },
+    "Get the original recording in the highest available audio quality.": {
+        "es": "Obtén la grabación original en la mayor calidad de audio disponible.",
+        "pt": "Obtenha a gravação original na mais alta qualidade de áudio disponível.",
+        "fr": "Obtenez l’enregistrement original dans la meilleure qualité audio disponible."
+    },
+    "(Purchasing this recording does not transfer or grant any copyright, ownership, or intellectual property rights. It is provided for personal use only.)": {
+        "es": "(La compra de esta grabación no transfiere ni concede ningún derecho de autor, propiedad o derecho de propiedad intelectual. Se proporciona únicamente para uso personal.)",
+        "pt": "(A compra desta gravação não transfere nem concede qualquer direito autoral, de propriedade ou de propriedade intelectual. Ela é fornecida apenas para uso pessoal.)",
+        "fr": "(L’achat de cet enregistrement ne transfère ni ne confère aucun droit d’auteur, de propriété ou de propriété intellectuelle. Il est fourni uniquement pour un usage personnel.)"
+    },
+    "Format: WAV": {
+        "es": "Formato: WAV",
+        "pt": "Formato: WAV",
+        "fr": "Format : WAV"
+    },
+    "Master Audio": {
+        "es": "Audio maestro",
+        "pt": "Áudio master",
+        "fr": "Audio master"
+    },
+    "Available Now": {
+        "es": "Disponible ahora",
+        "pt": "Disponível agora",
+        "fr": "Disponible maintenant"
+    },
+    "The recording preserves some natural noises and sounds that emerged during the moment it was recorded. They were not added or sought intentionally, but are kept because they make the experience feel more real, close, and authentic.": {
+        "es": "La grabación conserva algunos ruidos y sonidos naturales que surgieron durante el momento en que fue grabada. No fueron añadidos ni buscados intencionalmente, pero se mantienen porque hacen que la experiencia se sienta más real, cercana y auténtica.",
+        "pt": "A gravação preserva alguns ruídos e sons naturais que surgiram no momento em que foi gravada. Eles não foram adicionados nem buscados intencionalmente, mas são mantidos porque tornam a experiência mais real, próxima e autêntica.",
+        "fr": "L’enregistrement conserve certains bruits et sons naturels apparus au moment où il a été réalisé. Ils n’ont pas été ajoutés ni recherchés intentionnellement, mais sont conservés parce qu’ils rendent l’expérience plus réelle, proche et authentique."
+    },
+    "The original recording of my piano arrangement and interpretation of": {
+        "es": "La grabación original de mi arreglo e interpretación al piano de",
+        "pt": "A gravação original do meu arranjo e interpretação ao piano de",
+        "fr": "L’enregistrement original de mon arrangement et de mon interprétation au piano de"
+    },
+    ", an original song by anoufie. The recording preserves the natural sounds and details of the original session, maintaining the authenticity and character of the performance.": {
+        "es": ", una canción original de anoufie. La grabación conserva los sonidos y detalles naturales de la sesión original, manteniendo la autenticidad y el carácter de la interpretación.",
+        "pt": ", uma música original de anoufie. A gravação preserva os sons e detalhes naturais da sessão original, mantendo a autenticidade e o caráter da performance.",
+        "fr": ", une chanson originale d’anoufie. L’enregistrement préserve les sons et les détails naturels de la session originale, en conservant l’authenticité et le caractère de la performance."
+    },
+    "Original composer: anoufie": {
+        "es": "Compositor original: anoufie",
+        "pt": "Compositor original: anoufie",
+        "fr": "Compositeur original : anoufie"
+    },
+    "The master recording is currently being finalized.": {
+        "es": "La grabación master se está finalizando actualmente.",
+        "pt": "A gravação master está sendo finalizada no momento.",
+        "fr": "L’enregistrement master est actuellement en cours de finalisation."
+    },
+    "Unavailable": {
+        "es": "No disponible",
+        "pt": "Indisponível",
+        "fr": "Indisponible"
+    },
+    "Exclusive Video Performance": {
+        "es": "Interpretación exclusiva en video",
+        "pt": "Performance exclusiva em vídeo",
+        "fr": "Performance vidéo exclusive"
+    },
+    "Exclusive video performances of original compositions and selected arrangements, showcasing the performance behind the music.": {
+        "es": "Interpretaciones exclusivas en video de composiciones originales y arreglos seleccionados, mostrando la interpretación detrás de la música.",
+        "pt": "Performances exclusivas em vídeo de composições originais e arranjos selecionados, mostrando a performance por trás da música.",
+        "fr": "Des performances vidéo exclusives de compositions originales et d’arrangements sélectionnés, mettant en valeur l’interprétation derrière la musique."
+    },
+    "(Purchasing a video does not transfer or grant any ownership, copyright, intellectual property, or other rights in the composition, arrangement, or recording.)": {
+        "es": "(La compra de un video no transfiere ni concede ningún derecho de propiedad, derecho de autor, propiedad intelectual ni ningún otro derecho sobre la composición, el arreglo o la grabación.)",
+        "pt": "(A compra de um vídeo não transfere nem concede qualquer direito de propriedade, direito autoral, propriedade intelectual ou qualquer outro direito sobre a composição, o arranjo ou a gravação.)",
+        "fr": "(L’achat d’une vidéo ne transfère ni ne confère aucun droit de propriété, droit d’auteur, droit de propriété intellectuelle ou autre droit sur la composition, l’arrangement ou l’enregistrement.)"
+    },
+    "Video MP4 • 4K": {
+        "es": "Video MP4 • 4K",
+        "pt": "Vídeo MP4 • 4K",
+        "fr": "Vidéo MP4 • 4K"
+    },
+    "Velune - video": {
+        "es": "Velune - video",
+        "pt": "Velune - vídeo",
+        "fr": "Velune - vidéo"
+    },
+    "The complete, uncut 4K video recording of the performance. Experience every expression, nuance, and detail from the exact session that inspired the single.": {
+        "es": "La grabación completa y sin cortes en video 4K de la interpretación. Vive cada expresión, matiz y detalle de la sesión exacta que inspiró el single.",
+        "pt": "A gravação completa e sem cortes em vídeo 4K da performance. Vivencie cada expressão, nuance e detalhe da sessão exata que inspirou o single.",
+        "fr": "L’enregistrement vidéo 4K complet et sans coupures de la performance. Découvrez chaque expression, nuance et détail de la session exacte qui a inspiré le single."
+    },
+    "Video 4K • 60 FPS": {
+        "es": "Video 4K • 60 FPS",
+        "pt": "Vídeo 4K • 60 FPS",
+        "fr": "Vidéo 4K • 60 FPS"
+    },
+    "Noir - video": {
+        "es": "Noir - video",
+        "pt": "Noir - vídeo",
+        "fr": "Noir - vidéo"
+    },
+    "My piano arrangement and interpretation of": {
+        "es": "Mi arreglo e interpretación al piano de",
+        "pt": "Meu arranjo e interpretação ao piano de",
+        "fr": "Mon arrangement et mon interprétation au piano de"
+    },
+    "by anoufie. This is the original video recording of the performance, from which the audio for my Spotify release was taken.": {
+        "es": "de anoufie. Esta es la grabación de video original de la interpretación, de la cual se tomó el audio para mi lanzamiento en Spotify.",
+        "pt": "de anoufie. Esta é a gravação de vídeo original da performance, da qual foi extraído o áudio do meu lançamento no Spotify.",
+        "fr": "d’anoufie. Il s’agit de l’enregistrement vidéo original de la performance, dont l’audio de ma sortie sur Spotify a été extrait."
+    },
+    "Piano arrangement & performance by Santilavadenz": {
+        "es": "Arreglo e interpretación al piano por Santilavadenz",
+        "pt": "Arranjo e performance ao piano por Santilavadenz",
+        "fr": "Arrangement et interprétation au piano par Santilavadenz"
+    },
+    "High-quality audio": {
+        "es": "Audio de alta calidad",
+        "pt": "Áudio de alta qualidade",
+        "fr": "Audio haute qualité"
+    },
+    "Original song by anoufie.": {
+        "es": "Canción original de anoufie.",
+        "pt": "Música original de anoufie.",
+        "fr": "Chanson originale d’anoufie."
+    },
+    "Solune - video": {
+        "es": "Solune - video",
+        "pt": "Solune - vídeo",
+        "fr": "Solune - vidéo"
+    },
+    "Coming soon.": {
+        "es": "Próximamente.",
+        "pt": "Em breve.",
+        "fr": "Bientôt disponible."
+    },
+    "My Story": {
+        "es": "Mi historia",
+        "pt": "Minha história",
+        "fr": "Mon histoire"
+    },
+    "My family has always been surrounded by music. From a young age, I grew up deeply influenced by it, and I am incredibly grateful for that, because it is one of the best things that could have happened to me. I was introduced to the piano at a very young age thanks to my father, who is also a pianist. However, it wasn't until 2020 that I started playing, simply for fun and to experiment, without really being focused on it. In 2024, I discovered a music academy where I studied cello for a while. There, I found a piano that would completely change my relationship with music. That year, I became genuinely interested in the piano and, little by little, fell completely in love with it. I was lucky enough to build a very close friendship with the owner of the academy, who gave me a key to the place so I could practice there on weekends. I started spending countless hours with that piano. I grew incredibly attached to it and developed a connection with it that I had never felt with any other instrument. That same piano is the one that appears in all of my videos and through which many people discovered my music.": {
+        "es": "Mi familia siempre ha estado rodeada de música. Desde pequeño crecí profundamente influenciado por ella, y estoy increíblemente agradecido por eso, porque es una de las mejores cosas que podrían haberme pasado. Conocí el piano desde muy pequeño gracias a mi padre, que también es pianista. Sin embargo, no fue hasta 2020 cuando empecé a tocar, simplemente por diversión y para experimentar, sin estar realmente enfocado en ello. En 2024 descubrí una academia de música donde estudié cello durante un tiempo. Allí encontré un piano que cambiaría por completo mi relación con la música. Ese año me interesé de verdad por el piano y, poco a poco, me enamoré completamente de él. Tuve la suerte de construir una amistad muy cercana con el dueño de la academia, quien me dio una llave del lugar para poder practicar allí los fines de semana. Empecé a pasar incontables horas con ese piano. Me encariñé muchísimo con él y desarrollé una conexión que nunca había sentido con ningún otro instrumento. Ese mismo piano es el que aparece en todos mis videos y a través del cual muchas personas descubrieron mi música.",
+        "pt": "Minha família sempre esteve cercada de música. Desde pequeno, cresci profundamente influenciado por ela, e sou imensamente grato por isso, porque é uma das melhores coisas que poderiam ter acontecido comigo. Conheci o piano ainda muito jovem graças ao meu pai, que também é pianista. No entanto, foi somente em 2020 que comecei a tocar, simplesmente por diversão e para experimentar, sem estar realmente focado nisso. Em 2024, descobri uma academia de música onde estudei violoncelo por um tempo. Lá, encontrei um piano que mudaria completamente minha relação com a música. Naquele ano, passei a me interessar de verdade pelo piano e, pouco a pouco, me apaixonei completamente por ele. Tive a sorte de construir uma amizade muito próxima com o dono da academia, que me deu uma chave do local para que eu pudesse praticar ali nos fins de semana. Comecei a passar incontáveis horas com aquele piano. Fiquei extremamente ligado a ele e desenvolvi uma conexão que nunca havia sentido com nenhum outro instrumento. Esse mesmo piano é o que aparece em todos os meus vídeos e através do qual muitas pessoas descobriram minha música.",
+        "fr": "Ma famille a toujours été entourée de musique. Dès mon plus jeune âge, j’ai grandi profondément influencé par elle, et j’en suis incroyablement reconnaissant, car c’est l’une des meilleures choses qui aient pu m’arriver. J’ai découvert le piano très jeune grâce à mon père, qui est également pianiste. Cependant, ce n’est qu’en 2020 que j’ai commencé à jouer, simplement pour m’amuser et expérimenter, sans vraiment m’y consacrer. En 2024, j’ai découvert une académie de musique où j’ai étudié le violoncelle pendant un certain temps. Là-bas, j’ai trouvé un piano qui allait complètement changer ma relation avec la musique. Cette année-là, je me suis véritablement intéressé au piano et, petit à petit, je suis complètement tombé amoureux de cet instrument. J’ai eu la chance de nouer une amitié très proche avec le propriétaire de l’académie, qui m’a donné une clé du lieu afin que je puisse y pratiquer le week-end. J’ai commencé à passer d’innombrables heures avec ce piano. Je m’y suis énormément attaché et j’ai développé avec lui une connexion que je n’avais jamais ressentie avec aucun autre instrument. C’est ce même piano qui apparaît dans toutes mes vidéos et grâce auquel beaucoup de personnes ont découvert ma musique."
+    },
+    "Throughout that year and into 2025, my interest in the piano grew enormously. I became increasingly immersed in classical music, especially because I felt it was one of the best ways to push the piano to its limits and discover everything it could express. Although I took some lessons over the years, they were very few, largely due to agreements with my parents. I never felt particularly interested in academic music education or in learning music from a purely theoretical perspective. My relationship with the piano has always been much more personal: learning on my own, exploring, listening, and spending hours playing. That is why I consider myself primarily self-taught. In 2024, I also began composing more and more. I had already created some things before, but that piano brought a huge change to my inspiration. I felt that ideas simply appeared, and that I could express things through the instrument that I hadn't known how to express before.": {
+        "es": "A lo largo de ese año y durante 2025, mi interés por el piano creció enormemente. Me fui sumergiendo cada vez más en la música clásica, especialmente porque sentía que era una de las mejores maneras de llevar el piano al límite y descubrir todo lo que podía expresar. Aunque recibí algunas clases a lo largo de los años, fueron muy pocas, en gran parte debido a acuerdos con mis padres. Nunca me interesó especialmente la educación musical académica ni aprender música desde una perspectiva puramente teórica. Mi relación con el piano siempre ha sido mucho más personal: aprender por mi cuenta, explorar, escuchar y pasar horas tocando. Por eso me considero principalmente autodidacta. En 2024 también comencé a componer cada vez más. Ya había creado algunas cosas antes, pero aquel piano supuso un enorme cambio para mi inspiración. Sentía que las ideas simplemente aparecían y que podía expresar a través del instrumento cosas que antes no sabía cómo expresar.",
+        "pt": "Ao longo daquele ano e entrando em 2025, meu interesse pelo piano cresceu enormemente. Fui me envolvendo cada vez mais com a música clássica, especialmente porque sentia que era uma das melhores maneiras de levar o piano aos seus limites e descobrir tudo o que ele podia expressar. Embora tenha tido algumas aulas ao longo dos anos, foram muito poucas, em grande parte devido a acordos com meus pais. Nunca me interessei particularmente pela educação musical acadêmica ou por aprender música de uma perspectiva puramente teórica. Minha relação com o piano sempre foi muito mais pessoal: aprender sozinho, explorar, ouvir e passar horas tocando. Por isso, considero-me principalmente autodidata. Em 2024, também comecei a compor cada vez mais. Eu já havia criado algumas coisas antes, mas aquele piano trouxe uma enorme mudança para minha inspiração. Eu sentia que as ideias simplesmente surgiam e que podia expressar através do instrumento coisas que antes não sabia como expressar.",
+        "fr": "Au cours de cette année et jusqu’en 2025, mon intérêt pour le piano a énormément grandi. Je me suis de plus en plus plongé dans la musique classique, notamment parce que je pensais que c’était l’une des meilleures façons de pousser le piano à ses limites et de découvrir tout ce qu’il pouvait exprimer. Bien que j’aie pris quelques leçons au fil des années, elles furent très peu nombreuses, en grande partie en raison d’accords avec mes parents. Je ne me suis jamais particulièrement intéressé à l’enseignement musical académique ni à l’apprentissage de la musique d’un point de vue purement théorique. Ma relation avec le piano a toujours été beaucoup plus personnelle : apprendre seul, explorer, écouter et passer des heures à jouer. C’est pourquoi je me considère avant tout comme autodidacte. En 2024, j’ai également commencé à composer de plus en plus. J’avais déjà créé certaines choses auparavant, mais ce piano a provoqué un immense changement dans mon inspiration. J’avais l’impression que les idées apparaissaient simplement et que je pouvais exprimer à travers l’instrument des choses que je ne savais pas exprimer auparavant."
+    },
+    "\"What started as a passion for playing and creating music slowly became something much bigger... turning emotions into music and sharing them with the world.\"": {
+        "es": "\"Lo que comenzó como una pasión por tocar y crear música poco a poco se convirtió en algo mucho más grande... transformar emociones en música y compartirlas con el mundo.\"",
+        "pt": "\"O que começou como uma paixão por tocar e criar música aos poucos se tornou algo muito maior... transformando emoções em música e compartilhando-as com o mundo.\"",
+        "fr": "\"Ce qui a commencé comme une passion pour jouer et créer de la musique est lentement devenu quelque chose de beaucoup plus grand... transformer les émotions en musique et les partager avec le monde.\""
+    },
+    "On October 22, 2025, I decided to record myself playing and upload one of my videos to social media. I had no idea what would happen next, but it ended up being one of the best decisions I could have made. Through social media, I began sharing piano performances and original ideas, connecting with people from all over the world who found something of themselves in my music. Over time, those videos reached millions of people and introduced my music to an audience I never imagined having. But beyond the numbers, what means the most to me is seeing people learn my songs, make covers, create edits, and tell me that my music inspired them to play the piano or simply made them feel something. That is what Santilavadenz is about. Today, I am focused on developing my own sound and releasing original music, while continuing to build a community around the piano and everything that music can express without words. This is only the beginning.": {
+        "es": "El 22 de octubre de 2025, decidí grabarme tocando y subir uno de mis videos a las redes sociales. No tenía idea de qué sucedería después, pero terminó siendo una de las mejores decisiones que podría haber tomado. A través de las redes sociales, comencé a compartir interpretaciones al piano e ideas originales, conectando con personas de todo el mundo que encontraron algo de sí mismas en mi música. Con el tiempo, esos videos llegaron a millones de personas y presentaron mi música a un público que nunca imaginé tener. Pero más allá de las cifras, lo que más significa para mí es ver a personas aprender mis canciones, hacer covers, crear ediciones y decirme que mi música las inspiró a tocar el piano o simplemente les hizo sentir algo. De eso se trata Santilavadenz. Hoy estoy enfocado en desarrollar mi propio sonido y lanzar música original, mientras sigo construyendo una comunidad alrededor del piano y de todo lo que la música puede expresar sin palabras. Esto es solo el comienzo.",
+        "pt": "Em 22 de outubro de 2025, decidi me gravar tocando e publicar um dos meus vídeos nas redes sociais. Eu não fazia ideia do que aconteceria depois, mas acabou sendo uma das melhores decisões que eu poderia ter tomado. Por meio das redes sociais, comecei a compartilhar performances de piano e ideias originais, conectando-me com pessoas de todo o mundo que encontraram algo de si mesmas na minha música. Com o tempo, esses vídeos alcançaram milhões de pessoas e apresentaram minha música a um público que eu nunca imaginei ter. Mas, além dos números, o que mais significa para mim é ver pessoas aprendendo minhas músicas, fazendo covers, criando edições e me dizendo que minha música as inspirou a tocar piano ou simplesmente as fez sentir algo. É disso que se trata Santilavadenz. Hoje, estou focado em desenvolver meu próprio som e lançar música original, enquanto continuo construindo uma comunidade em torno do piano e de tudo o que a música pode expressar sem palavras. Este é apenas o começo.",
+        "fr": "Le 22 octobre 2025, j’ai décidé de me filmer en train de jouer et de publier l’une de mes vidéos sur les réseaux sociaux. Je n’avais aucune idée de ce qui allait se passer ensuite, mais cela s’est avéré être l’une des meilleures décisions que j’aurais pu prendre. Grâce aux réseaux sociaux, j’ai commencé à partager des performances au piano et des idées originales, en échangeant avec des personnes du monde entier qui ont retrouvé une part d’elles-mêmes dans ma musique. Au fil du temps, ces vidéos ont atteint des millions de personnes et ont fait découvrir ma musique à un public que je n’aurais jamais imaginé avoir. Mais au-delà des chiffres, ce qui compte le plus pour moi, c’est de voir des personnes apprendre mes morceaux, faire des reprises, créer des montages et me dire que ma musique les a inspirées à jouer du piano ou leur a simplement fait ressentir quelque chose. C’est cela, Santilavadenz. Aujourd’hui, je me concentre sur le développement de mon propre son et la sortie de musique originale, tout en continuant à construire une communauté autour du piano et de tout ce que la musique peut exprimer sans mots. Ce n’est que le début."
+    },
+    "For business inquiries, collaborations, or just to say hello, feel free to reach out.": {
+        "es": "Para consultas profesionales, colaboraciones o simplemente para saludar, no dudes en ponerte en contacto.",
+        "pt": "Para consultas profissionais, colaborações ou simplesmente para dizer olá, fique à vontade para entrar em contato.",
+        "fr": "Pour les demandes professionnelles, les collaborations ou simplement pour dire bonjour, n’hésitez pas à me contacter."
+    },
+    "Name": {
+        "es": "Nombre",
+        "pt": "Nome",
+        "fr": "Nom"
+    },
+    "Email": {
+        "es": "Correo electrónico",
+        "pt": "E-mail",
+        "fr": "E-mail"
+    },
+    "Message": {
+        "es": "Mensaje",
+        "pt": "Mensagem",
+        "fr": "Message"
+    },
+    "Send Message": {
+        "es": "Enviar mensaje",
+        "pt": "Enviar mensagem",
+        "fr": "Envoyer le message"
+    },
+    "Get In Touch": {
+        "es": "Ponte en contacto",
+        "pt": "Entre em contato",
+        "fr": "Contactez-moi"
+    },
+    "Fill out the form to send a direct message, or email me directly at": {
+        "es": "Completa el formulario para enviar un mensaje directo o escríbeme directamente a",
+        "pt": "Preencha o formulário para enviar uma mensagem direta ou envie um e-mail diretamente para",
+        "fr": "Remplissez le formulaire pour envoyer un message direct ou écrivez-moi directement à"
+    },
+    "Follow Me": {
+        "es": "Sígueme",
+        "pt": "Siga-me",
+        "fr": "Suivez-moi"
+    },
+    "Santilavadenz. All rights reserved.": {
+        "es": "Santilavadenz. Todos los derechos reservados.",
+        "pt": "Santilavadenz. Todos os direitos reservados.",
+        "fr": "Santilavadenz. Tous droits réservés."
+    },
+    "Terms & Conditions": {
+        "es": "Términos y condiciones",
+        "pt": "Termos e condições",
+        "fr": "Conditions générales"
+    },
+    "Last updated: October 2026": {
+        "es": "Última actualización: octubre de 2026",
+        "pt": "Última atualização: outubro de 2026",
+        "fr": "Dernière mise à jour : octobre 2026"
+    },
+    "Welcome to the official Santilavadenz online store. By purchasing or downloading any digital product from this website, you agree to the following Terms & Conditions.": {
+        "es": "Bienvenido a la tienda online oficial de Santilavadenz. Al comprar o descargar cualquier producto digital de este sitio web, aceptas los siguientes Términos y condiciones.",
+        "pt": "Bem-vindo à loja online oficial da Santilavadenz. Ao comprar ou baixar qualquer produto digital deste site, você concorda com os seguintes Termos e condições.",
+        "fr": "Bienvenue dans la boutique en ligne officielle de Santilavadenz. En achetant ou en téléchargeant tout produit numérique de ce site, vous acceptez les présentes Conditions générales."
+    },
+    "1. Digital Products": {
+        "es": "1. Productos digitales",
+        "pt": "1. Produtos digitais",
+        "fr": "1. Produits numériques"
+    },
+    "The Santilavadenz store offers digital products that fall into two primary categories:": {
+        "es": "La tienda de Santilavadenz ofrece productos digitales que se dividen en dos categorías principales:",
+        "pt": "A loja da Santilavadenz oferece produtos digitais que se enquadram em duas categorias principais:",
+        "fr": "La boutique Santilavadenz propose des produits numériques qui relèvent de deux grandes catégories :"
+    },
+    "Original Works:": {
+        "es": "Obras originales:",
+        "pt": "Obras originais:",
+        "fr": "Œuvres originales :"
+    },
+    "Products based entirely on original compositions and master recordings created by Santilavadenz.": {
+        "es": "Productos basados íntegramente en composiciones originales y grabaciones master creadas por Santilavadenz.",
+        "pt": "Produtos baseados inteiramente em composições originais e gravações master criadas por Santilavadenz.",
+        "fr": "Produits reposant entièrement sur des compositions originales et des enregistrements master créés par Santilavadenz."
+    },
+    "Covers, Arrangements, and Interpretations:": {
+        "es": "Covers, arreglos e interpretaciones:",
+        "pt": "Covers, arranjos e interpretações:",
+        "fr": "Reprises, arrangements et interprétations :"
+    },
+    "Products featuring Santilavadenz’s performances, arrangements, or master recordings of compositions owned by third parties, distributed with the corresponding authorization or permission, where applicable.": {
+        "es": "Productos que incluyen interpretaciones, arreglos o grabaciones master de Santilavadenz de composiciones propiedad de terceros, distribuidos con la autorización o permiso correspondiente, cuando corresponda.",
+        "pt": "Produtos que apresentam performances, arranjos ou gravações master de Santilavadenz de composições pertencentes a terceiros, distribuídos com a autorização ou permissão correspondente, quando aplicável.",
+        "fr": "Produits comprenant des performances, arrangements ou enregistrements master de Santilavadenz de compositions appartenant à des tiers, distribués avec l’autorisation ou la permission correspondante, le cas échéant."
+    },
+    "These products may include:": {
+        "es": "Estos productos pueden incluir:",
+        "pt": "Esses produtos podem incluir:",
+        "fr": "Ces produits peuvent inclure :"
+    },
+    "WAV recordings (original songs and covers)": {
+        "es": "Grabaciones WAV (canciones originales y covers)",
+        "pt": "Gravações WAV (músicas originais e covers)",
+        "fr": "Enregistrements WAV (chansons originales et reprises)"
+    },
+    "Official piano sheet music in PDF format (original compositions and original arrangements)": {
+        "es": "Partituras oficiales para piano en formato PDF (composiciones originales y arreglos originales)",
+        "pt": "Partituras oficiais para piano em formato PDF (composições originais e arranjos originais)",
+        "fr": "Partitions officielles pour piano au format PDF (compositions originales et arrangements originaux)"
+    },
+    "Exclusive video performances": {
+        "es": "Interpretaciones exclusivas en video",
+        "pt": "Performances exclusivas em vídeo",
+        "fr": "Performances vidéo exclusives"
+    },
+    "Other digital music-related products": {
+        "es": "Otros productos digitales relacionados con la música",
+        "pt": "Outros produtos digitais relacionados à música",
+        "fr": "Autres produits numériques liés à la musique"
+    },
+    "All products are delivered digitally. No physical products are shipped.": {
+        "es": "Todos los productos se entregan digitalmente. No se envían productos físicos.",
+        "pt": "Todos os produtos são entregues digitalmente. Nenhum produto físico é enviado.",
+        "fr": "Tous les produits sont livrés sous forme numérique. Aucun produit physique n’est expédié."
+    },
+    "2. Personal Use License": {
+        "es": "2. Licencia de uso personal",
+        "pt": "2. Licença de uso pessoal",
+        "fr": "2. Licence d’utilisation personnelle"
+    },
+    "Purchasing a digital product grants the buyer a limited, non-exclusive license for personal use only. The purchased file (whether an original work or a cover/arrangement) may not be:": {
+        "es": "La compra de un producto digital concede al comprador una licencia limitada y no exclusiva para uso personal únicamente. El archivo adquirido (ya sea una obra original o un cover/arreglo) no puede ser:",
+        "pt": "A compra de um produto digital concede ao comprador uma licença limitada e não exclusiva somente para uso pessoal. O arquivo adquirido (seja uma obra original ou um cover/arranjo) não pode ser:",
+        "fr": "L’achat d’un produit numérique accorde à l’acheteur une licence limitée et non exclusive pour un usage personnel uniquement. Le fichier acheté (qu’il s’agisse d’une œuvre originale ou d’une reprise/d’un arrangement) ne peut pas être :"
+    },
+    "Resold": {
+        "es": "Revendido",
+        "pt": "Revendido",
+        "fr": "Revendu"
+    },
+    "Redistributed": {
+        "es": "Redistribuido",
+        "pt": "Redistribuído",
+        "fr": "Redistribué"
+    },
+    "Shared with other people": {
+        "es": "Compartido con otras personas",
+        "pt": "Compartilhado com outras pessoas",
+        "fr": "Partagé avec d’autres personnes"
+    },
+    "Reproduced or uploaded in full": {
+        "es": "Reproducido o subido íntegramente",
+        "pt": "Reproduzido ou enviado na íntegra",
+        "fr": "Reproduit ou mis en ligne dans son intégralité"
+    },
+    "Modified or altered for redistribution": {
+        "es": "Modificado o alterado para su redistribución",
+        "pt": "Modificado ou alterado para redistribuição",
+        "fr": "Modifié ou altéré en vue d’une redistribution"
+    },
+    "Used for commercial purposes": {
+        "es": "Utilizado con fines comerciales",
+        "pt": "Usado para fins comerciais",
+        "fr": "Utilisé à des fins commerciales"
+    },
+    "Presented or distributed as the buyer's own work": {
+        "es": "Presentado o distribuido como obra propia del comprador",
+        "pt": "Apresentado ou distribuído como obra própria do comprador",
+        "fr": "Présenté ou distribué comme étant l’œuvre de l’acheteur"
+    },
+    "without prior written permission from Santilavadenz. Purchasing a digital product does not transfer any copyright, ownership, or intellectual property rights to the buyer.": {
+        "es": "sin el permiso previo y por escrito de Santilavadenz. La compra de un producto digital no transfiere ningún derecho de autor, propiedad ni derecho de propiedad intelectual al comprador.",
+        "pt": "sem a autorização prévia e por escrito da Santilavadenz. A compra de um produto digital não transfere ao comprador qualquer direito autoral, de propriedade ou de propriedade intelectual.",
+        "fr": "sans l’autorisation écrite préalable de Santilavadenz. L’achat d’un produit numérique ne transfère à l’acheteur aucun droit d’auteur, droit de propriété ou droit de propriété intellectuelle."
+    },
+    "3. Social Media and Content Use": {
+        "es": "3. Uso de redes sociales y contenido",
+        "pt": "3. Uso de redes sociais e conteúdo",
+        "fr": "3. Utilisation des réseaux sociaux et du contenu"
+    },
+    "Buyers may share short excerpts or portions of purchased material on platforms such as TikTok, Instagram, YouTube, or similar platforms for personal, non-commercial purposes, provided that appropriate credit is given.": {
+        "es": "Los compradores pueden compartir breves fragmentos o partes del material adquirido en plataformas como TikTok, Instagram, YouTube o plataformas similares para fines personales y no comerciales, siempre que se otorgue el crédito correspondiente.",
+        "pt": "Os compradores podem compartilhar pequenos trechos ou partes do material adquirido em plataformas como TikTok, Instagram, YouTube ou plataformas semelhantes para fins pessoais e não comerciais, desde que seja dado o devido crédito.",
+        "fr": "Les acheteurs peuvent partager de courts extraits ou portions du matériel acheté sur des plateformes telles que TikTok, Instagram, YouTube ou des plateformes similaires à des fins personnelles et non commerciales, à condition d’accorder le crédit approprié."
+    },
+    "For Original Santilavadenz Works:": {
+        "es": "Para obras originales de Santilavadenz:",
+        "pt": "Para obras originais de Santilavadenz:",
+        "fr": "Pour les œuvres originales de Santilavadenz :"
+    },
+    "The credit should clearly identify the work and artist (e.g.,)": {
+        "es": "El crédito debe identificar claramente la obra y al artista (por ejemplo:)",
+        "pt": "O crédito deve identificar claramente a obra e o artista (por exemplo:)",
+        "fr": "Le crédit doit clairement identifier l’œuvre et l’artiste (par exemple :)"
+    },
+    "or": {
+        "es": "o",
+        "pt": "ou",
+        "fr": "ou"
+    },
+    "For Covers and Arrangements:": {
+        "es": "Para covers y arreglos:",
+        "pt": "Para covers e arranjos:",
+        "fr": "Pour les reprises et arrangements :"
+    },
+    "The credit must acknowledge both the original composer/artist and Santilavadenz’s performance or arrangement (e.g.,)": {
+        "es": "El crédito debe reconocer tanto al compositor/artista original como la interpretación o el arreglo de Santilavadenz (por ejemplo:)",
+        "pt": "O crédito deve mencionar tanto o compositor/artista original quanto a performance ou o arranjo de Santilavadenz (por exemplo:)",
+        "fr": "Le crédit doit mentionner à la fois le compositeur/artiste original et la performance ou l’arrangement de Santilavadenz (par exemple :)"
+    },
+    "Important Restriction:": {
+        "es": "Restricción importante:",
+        "pt": "Restrição importante:",
+        "fr": "Restriction importante :"
+    },
+    "This permission strictly allows only the sharing of short excerpts. It does NOT permit commercial use, redistribution of the full purchased file, or claiming the content as the buyer's own work. The full purchased files may not be uploaded or redistributed as standalone content under any circumstances.": {
+        "es": "Este permiso autoriza estrictamente únicamente el uso compartido de fragmentos breves. NO permite el uso comercial, la redistribución del archivo adquirido completo ni presentar el contenido como obra propia del comprador. Los archivos adquiridos completos no pueden subirse ni redistribuirse como contenido independiente bajo ninguna circunstancia.",
+        "pt": "Esta permissão autoriza estritamente apenas o compartilhamento de pequenos trechos. NÃO permite uso comercial, redistribuição do arquivo adquirido completo ou reivindicar o conteúdo como obra própria do comprador. Os arquivos adquiridos completos não podem ser enviados ou redistribuídos como conteúdo independente em nenhuma circunstância.",
+        "fr": "Cette autorisation permet strictement uniquement le partage de courts extraits. Elle n’autorise PAS l’usage commercial, la redistribution du fichier acheté dans son intégralité ni la présentation du contenu comme étant l’œuvre de l’acheteur. Les fichiers achetés dans leur intégralité ne peuvent en aucun cas être mis en ligne ou redistribués en tant que contenu autonome."
+    },
+    "4. Downloads": {
+        "es": "4. Descargas",
+        "pt": "4. Downloads",
+        "fr": "4. Téléchargements"
+    },
+    "Each digital purchase allows the buyer up to 5 downloads of the purchased file. The buyer is responsible for keeping their downloaded files secure and for not sharing their download access with others. If a technical problem prevents the buyer from successfully downloading a purchased product, they may contact us at:": {
+        "es": "Cada compra digital permite al comprador hasta 5 descargas del archivo adquirido. El comprador es responsable de mantener seguros sus archivos descargados y de no compartir su acceso de descarga con otras personas. Si un problema técnico impide al comprador descargar correctamente un producto adquirido, puede contactarnos en:",
+        "pt": "Cada compra digital permite ao comprador até 5 downloads do arquivo adquirido. O comprador é responsável por manter seus arquivos baixados seguros e por não compartilhar seu acesso de download com outras pessoas. Se um problema técnico impedir o comprador de baixar com sucesso um produto adquirido, ele poderá entrar em contato conosco em:",
+        "fr": "Chaque achat numérique permet à l’acheteur d’effectuer jusqu’à 5 téléchargements du fichier acheté. L’acheteur est responsable de la sécurité de ses fichiers téléchargés et de ne pas partager son accès au téléchargement avec d’autres personnes. Si un problème technique empêche l’acheteur de télécharger correctement un produit acheté, il peut nous contacter à l’adresse suivante :"
+    },
+    "5. Refund Policy": {
+        "es": "5. Política de reembolsos",
+        "pt": "5. Política de reembolso",
+        "fr": "5. Politique de remboursement"
+    },
+    "Due to the digital nature of these products, no refunds are available once a purchased product has been downloaded at least once. If a technical issue prevents access to a purchased product, please contact us at": {
+        "es": "Debido a la naturaleza digital de estos productos, no se ofrecen reembolsos una vez que un producto adquirido ha sido descargado al menos una vez. Si un problema técnico impide acceder a un producto adquirido, contáctanos en",
+        "pt": "Devido à natureza digital desses produtos, não há reembolsos disponíveis depois que um produto adquirido tiver sido baixado pelo menos uma vez. Se um problema técnico impedir o acesso a um produto adquirido, entre em contato conosco em",
+        "fr": "En raison de la nature numérique de ces produits, aucun remboursement n’est disponible une fois qu’un produit acheté a été téléchargé au moins une fois. Si un problème technique empêche l’accès à un produit acheté, veuillez nous contacter à"
+    },
+    "so that we can review the issue.": {
+        "es": "para que podamos revisar el problema.",
+        "pt": "para que possamos analisar o problema.",
+        "fr": "afin que nous puissions examiner le problème."
+    },
+    "6. Copyright and Intellectual Property": {
+        "es": "6. Derechos de autor y propiedad intelectual",
+        "pt": "6. Direitos autorais e propriedade intelectual",
+        "fr": "6. Droit d’auteur et propriété intellectuelle"
+    },
+    "To protect the rights of all creators, the following intellectual property terms apply to all purchases:": {
+        "es": "Para proteger los derechos de todos los creadores, los siguientes términos de propiedad intelectual se aplican a todas las compras:",
+        "pt": "Para proteger os direitos de todos os criadores, os seguintes termos de propriedade intelectual se aplicam a todas as compras:",
+        "fr": "Afin de protéger les droits de tous les créateurs, les conditions de propriété intellectuelle suivantes s’appliquent à tous les achats :"
+    },
+    "6.1. Original Works by Santilavadenz": {
+        "es": "6.1. Obras originales de Santilavadenz",
+        "pt": "6.1. Obras originais de Santilavadenz",
+        "fr": "6.1. Œuvres originales de Santilavadenz"
+    },
+    "All original compositions, master recordings, performances, videos, sheet music, artwork, photographs, and written materials created by Santilavadenz remain owned by Santilavadenz, subject to any applicable third-party rights. Purchasing or downloading an original product does not grant the buyer ownership of the underlying composition, master recording, or any other intellectual property.": {
+        "es": "Todas las composiciones originales, grabaciones master, interpretaciones, videos, partituras, obras de arte, fotografías y materiales escritos creados por Santilavadenz siguen siendo propiedad de Santilavadenz, sin perjuicio de los derechos aplicables de terceros. Comprar o descargar un producto original no concede al comprador la propiedad de la composición subyacente, la grabación master ni ningún otro derecho de propiedad intelectual.",
+        "pt": "Todas as composições originais, gravações master, performances, vídeos, partituras, obras de arte, fotografias e materiais escritos criados por Santilavadenz permanecem de propriedade de Santilavadenz, sujeitos a quaisquer direitos aplicáveis de terceiros. A compra ou o download de um produto original não concede ao comprador a propriedade da composição subjacente, da gravação master ou de qualquer outra propriedade intelectual.",
+        "fr": "Toutes les compositions originales, enregistrements master, performances, vidéos, partitions, œuvres d’art, photographies et documents écrits créés par Santilavadenz restent la propriété de Santilavadenz, sous réserve des droits applicables de tiers. L’achat ou le téléchargement d’un produit original ne confère pas à l’acheteur la propriété de la composition sous-jacente, de l’enregistrement master ou de toute autre propriété intellectuelle."
+    },
+    "6.2. Covers, Arrangements, and Third-Party Works": {
+        "es": "6.2. Covers, arreglos y obras de terceros",
+        "pt": "6.2. Covers, arranjos e obras de terceiros",
+        "fr": "6.2. Reprises, arrangements et œuvres de tiers"
+    },
+    "For products that include covers, interpretations, or arrangements of third-party compositions, the following distinctions apply:": {
+        "es": "Para los productos que incluyen covers, interpretaciones o arreglos de composiciones de terceros, se aplican las siguientes distinciones:",
+        "pt": "Para produtos que incluam covers, interpretações ou arranjos de composições de terceiros, aplicam-se as seguintes distinções:",
+        "fr": "Pour les produits comprenant des reprises, interprétations ou arrangements de compositions de tiers, les distinctions suivantes s’appliquent :"
+    },
+    "Third-Party Compositions:": {
+        "es": "Composiciones de terceros:",
+        "pt": "Composições de terceiros:",
+        "fr": "Compositions de tiers :"
+    },
+    "The original underlying composition remains the exclusive property of its respective composer, author, publisher, or rightsholder.": {
+        "es": "La composición original subyacente sigue siendo propiedad exclusiva de su respectivo compositor, autor, editor o titular de derechos.",
+        "pt": "A composição original subjacente permanece como propriedade exclusiva de seu respectivo compositor, autor, editor ou titular de direitos.",
+        "fr": "La composition originale sous-jacente reste la propriété exclusive de son compositeur, auteur, éditeur ou titulaire de droits respectif."
+    },
+    "Santilavadenz’s Masters and Arrangements:": {
+        "es": "Masters y arreglos de Santilavadenz:",
+        "pt": "Masters e arranjos de Santilavadenz:",
+        "fr": "Masters et arrangements de Santilavadenz :"
+    },
+    "The specific sound recording (master recording), performance, or original arrangement created by Santilavadenz remains protected and owned by Santilavadenz, where applicable.": {
+        "es": "La grabación sonora específica (grabación master), interpretación o arreglo original creado por Santilavadenz permanece protegido y es propiedad de Santilavadenz, cuando corresponda.",
+        "pt": "A gravação sonora específica (gravação master), performance ou arranjo original criado por Santilavadenz permanece protegido e é de propriedade de Santilavadenz, quando aplicável.",
+        "fr": "L’enregistrement sonore spécifique (enregistrement master), la performance ou l’arrangement original créé par Santilavadenz reste protégé et appartient à Santilavadenz, le cas échéant."
+    },
+    "Authorizations:": {
+        "es": "Autorizaciones:",
+        "pt": "Autorizações:",
+        "fr": "Autorisations :"
+    },
+    "The sale, distribution, or publication of Santilavadenz's specific recording, performance, or sheet music arrangement is done with the corresponding authorization, license, or permission, where required or applicable.": {
+        "es": "La venta, distribución o publicación de la grabación, interpretación o arreglo de partitura específico de Santilavadenz se realiza con la autorización, licencia o permiso correspondiente, cuando sea necesario o aplicable.",
+        "pt": "A venda, distribuição ou publicação da gravação, performance ou arranjo de partitura específico de Santilavadenz é realizada com a autorização, licença ou permissão correspondente, quando exigida ou aplicável.",
+        "fr": "La vente, distribution ou publication de l’enregistrement, de la performance ou de l’arrangement de partition spécifique de Santilavadenz est effectuée avec l’autorisation, la licence ou la permission correspondante, lorsque cela est requis ou applicable."
+    },
+    "Non-Transfer of Permissions:": {
+        "es": "No transferencia de permisos:",
+        "pt": "Não transferência de permissões:",
+        "fr": "Non-transfert des autorisations :"
+    },
+    "Any authorization, license, or permission that Santilavadenz has received from the original composer or rightsholder to sell, distribute, or publish a cover, arrangement, recording, or performance is NOT transferred to the buyer. The buyer solely receives the limited personal-use license established in these Terms & Conditions.": {
+        "es": "Cualquier autorización, licencia o permiso que Santilavadenz haya recibido del compositor original o titular de derechos para vender, distribuir o publicar un cover, arreglo, grabación o interpretación NO se transfiere al comprador. El comprador recibe únicamente la licencia limitada de uso personal establecida en estos Términos y condiciones.",
+        "pt": "Qualquer autorização, licença ou permissão que Santilavadenz tenha recebido do compositor original ou titular de direitos para vender, distribuir ou publicar um cover, arranjo, gravação ou performance NÃO é transferida ao comprador. O comprador recebe exclusivamente a licença limitada de uso pessoal estabelecida nestes Termos e condições.",
+        "fr": "Toute autorisation, licence ou permission que Santilavadenz a reçue du compositeur original ou du titulaire de droits pour vendre, distribuer ou publier une reprise, un arrangement, un enregistrement ou une performance n’est PAS transférée à l’acheteur. L’acheteur reçoit uniquement la licence limitée d’utilisation personnelle établie dans les présentes Conditions générales."
+    },
+    "The buyer does not acquire any rights, ownership, or copyright over the original third-party composition nor over Santilavadenz's master recording or arrangement.": {
+        "es": "El comprador no adquiere ningún derecho, propiedad ni derecho de autor sobre la composición original de terceros ni sobre la grabación master o el arreglo de Santilavadenz.",
+        "pt": "O comprador não adquire quaisquer direitos, propriedade ou direitos autorais sobre a composição original de terceiros nem sobre a gravação master ou o arranjo de Santilavadenz.",
+        "fr": "L’acheteur n’acquiert aucun droit, propriété ou droit d’auteur sur la composition originale de tiers ni sur l’enregistrement master ou l’arrangement de Santilavadenz."
+    },
+    "7. Ownership and Representation": {
+        "es": "7. Propiedad y representación",
+        "pt": "7. Propriedade e representação",
+        "fr": "7. Propriété et représentation"
+    },
+    "Santilavadenz is the artistic name of Santiago Lavadenz Pacheco. While Santiago Lavadenz Pacheco is under 18 years of age, purchases through the store are processed through an account managed by his legal representative, who handles the commercial and administrative aspects of the store on his behalf. This administrative arrangement does not transfer authorship or intellectual property ownership of Santilavadenz's original works.": {
+        "es": "Santilavadenz es el nombre artístico de Santiago Lavadenz Pacheco. Mientras Santiago Lavadenz Pacheco sea menor de 18 años, las compras realizadas a través de la tienda se procesan mediante una cuenta gestionada por su representante legal, quien se encarga de los aspectos comerciales y administrativos de la tienda en su nombre. Esta estructura administrativa no transfiere la autoría ni la propiedad intelectual de las obras originales de Santilavadenz.",
+        "pt": "Santilavadenz é o nome artístico de Santiago Lavadenz Pacheco. Enquanto Santiago Lavadenz Pacheco tiver menos de 18 anos, as compras realizadas pela loja são processadas por meio de uma conta administrada por seu representante legal, que cuida dos aspectos comerciais e administrativos da loja em seu nome. Esse arranjo administrativo não transfere a autoria nem a propriedade intelectual das obras originais de Santilavadenz.",
+        "fr": "Santilavadenz est le nom artistique de Santiago Lavadenz Pacheco. Tant que Santiago Lavadenz Pacheco a moins de 18 ans, les achats effectués via la boutique sont traités par l’intermédiaire d’un compte géré par son représentant légal, qui s’occupe en son nom des aspects commerciaux et administratifs de la boutique. Cet arrangement administratif ne transfère ni la paternité ni la propriété intellectuelle des œuvres originales de Santilavadenz."
+    },
+    "8. Changes to Products": {
+        "es": "8. Modificaciones de los productos",
+        "pt": "8. Alterações nos produtos",
+        "fr": "8. Modifications des produits"
+    },
+    "Santilavadenz reserves the right to add, modify, update, or discontinue digital products offered through the store. Changes to a product do not affect the rights granted to buyers for products they have already purchased.": {
+        "es": "Santilavadenz se reserva el derecho de añadir, modificar, actualizar o retirar productos digitales ofrecidos a través de la tienda. Los cambios en un producto no afectan los derechos concedidos a los compradores sobre productos que ya hayan adquirido.",
+        "pt": "Santilavadenz reserva-se o direito de adicionar, modificar, atualizar ou descontinuar produtos digitais oferecidos pela loja. As alterações em um produto não afetam os direitos concedidos aos compradores sobre produtos que já tenham adquirido.",
+        "fr": "Santilavadenz se réserve le droit d’ajouter, de modifier, de mettre à jour ou d’arrêter les produits numériques proposés par l’intermédiaire de la boutique. Les modifications apportées à un produit n’affectent pas les droits accordés aux acheteurs pour les produits qu’ils ont déjà achetés."
+    },
+    "9. Contact": {
+        "es": "9. Contacto",
+        "pt": "9. Contato",
+        "fr": "9. Contact"
+    },
+    "For questions regarding purchases, downloads, permissions, licensing, or these Terms & Conditions, please contact:": {
+        "es": "Si tienes preguntas sobre compras, descargas, permisos, licencias o estos Términos y condiciones, ponte en contacto con:",
+        "pt": "Para dúvidas sobre compras, downloads, permissões, licenciamento ou estes Termos e condições, entre em contato com:",
+        "fr": "Pour toute question concernant les achats, téléchargements, autorisations, licences ou les présentes Conditions générales, veuillez contacter :"
+    },
+    "By purchasing a product from the Santilavadenz store, you acknowledge that you have read, understood, and agreed to these Terms & Conditions.": {
+        "es": "Al comprar un producto de la tienda de Santilavadenz, reconoces que has leído, comprendido y aceptado estos Términos y condiciones.",
+        "pt": "Ao comprar um produto da loja Santilavadenz, você reconhece que leu, entendeu e concordou com estes Termos e condições.",
+        "fr": "En achetant un produit de la boutique Santilavadenz, vous reconnaissez avoir lu, compris et accepté les présentes Conditions générales."
+    },
+    "“Velune — Santilavadenz”": {
+        "es": "“Velune — Santilavadenz”",
+        "pt": "“Velune — Santilavadenz”",
+        "fr": "“Velune — Santilavadenz”"
+    },
+    "“[Song Title] — Santilavadenz”": {
+        "es": "“[Título de la canción] — Santilavadenz”",
+        "pt": "“[Título da música] — Santilavadenz”",
+        "fr": "“[Titre de la chanson] — Santilavadenz”"
+    },
+    "“[Song Title] (Original by [Composer/Artist]) — Performed/Arranged by Santilavadenz”": {
+        "es": "“[Título de la canción] (Original de [Compositor/Artista]) — Interpretado/Arreglado por Santilavadenz”",
+        "pt": "“[Título da música] (Original de [Compositor/Artista]) — Interpretado/Arranjado por Santilavadenz”",
+        "fr": "“[Titre de la chanson] (Original de [Compositeur/Artiste]) — Interprété/Arrangé par Santilavadenz”"
+    }
+};
+
+    const languageStorageKey = 'santilavadenz-language';
+    const supportedLanguages = ['en', 'es', 'pt', 'fr'];
+    const languageLabels = { en: 'EN', es: 'ES', pt: 'PT', fr: 'FR' };
+    const languageCodes = { en: 'en', es: 'es', pt: 'pt', fr: 'fr' };
+    const languageTitleTranslations = {
+        en: 'santilavadenz | Pianist & Composer',
+        es: 'santilavadenz | Pianista y compositor',
+        pt: 'santilavadenz | Pianista e compositor',
+        fr: 'santilavadenz | Pianiste et compositeur'
+    };
+
+    const languageAttributeTranslations = {
+        'Language': { es: 'Idioma', pt: 'Idioma', fr: 'Langue' },
+        'Your Name': { es: 'Tu nombre', pt: 'Seu nome', fr: 'Votre nom' },
+        'How can we collaborate?': { es: '¿Cómo podemos colaborar?', pt: 'Como podemos colaborar?', fr: 'Comment pouvons-nous collaborer ?' },
+        'Abrir menú': { pt: 'Abrir menu', fr: 'Ouvrir le menu' },
+        'Cerrar': { pt: 'Fechar', fr: 'Fermer' },
+        'Bajar': { pt: 'Rolar para baixo', fr: 'Faire défiler vers le bas' },
+        'Play': { es: 'Reproducir', pt: 'Reproduzir', fr: 'Lire' }
+    };
+
+    function getStoredLanguage() {
+        try {
+            const savedLanguage = localStorage.getItem(languageStorageKey);
+            return supportedLanguages.includes(savedLanguage) ? savedLanguage : 'en';
+        } catch (error) {
+            return 'en';
+        }
+    }
+
+    function translateVisibleText(language) {
+        const walker = document.createTreeWalker(
+            document.body,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode(node) {
+                    const parent = node.parentElement;
+                    if (!parent || ['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(parent.tagName)) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    return node.nodeValue.trim()
+                        ? NodeFilter.FILTER_ACCEPT
+                        : NodeFilter.FILTER_REJECT;
+                }
+            }
+        );
+
+        const textNodes = [];
+        let node;
+        while ((node = walker.nextNode())) {
+            textNodes.push(node);
+        }
+
+        textNodes.forEach(textNode => {
+            if (!textNode.__santilavadenzOriginal) {
+                textNode.__santilavadenzOriginal = textNode.nodeValue;
+            }
+
+            const originalValue = textNode.__santilavadenzOriginal;
+            const trimmedOriginal = originalValue.trim();
+            const translation = language === 'en'
+                ? trimmedOriginal
+                : (siteTranslations[trimmedOriginal] && siteTranslations[trimmedOriginal][language]) || trimmedOriginal;
+
+            const leadingWhitespace = originalValue.match(/^\s*/)[0];
+            const trailingWhitespace = originalValue.match(/\s*$/)[0];
+            textNode.nodeValue = leadingWhitespace + translation + trailingWhitespace;
+        });
+    }
+
+    function translateAttributes(language) {
+        document.querySelectorAll('[placeholder], [aria-label]').forEach(element => {
+            ['placeholder', 'aria-label'].forEach(attribute => {
+                if (!element.hasAttribute(attribute)) return;
+
+                const storageAttribute = 'data-i18n-original-' + attribute;
+                const originalValue = element.getAttribute(storageAttribute) || element.getAttribute(attribute);
+
+                if (!element.hasAttribute(storageAttribute)) {
+                    element.setAttribute(storageAttribute, originalValue);
+                }
+
+                const translation = languageAttributeTranslations[originalValue];
+                if (language === 'en' || !translation || !translation[language]) {
+                    element.setAttribute(attribute, originalValue);
+                } else {
+                    element.setAttribute(attribute, translation[language]);
+                }
+            });
+        });
+    }
+
+    function applyLanguage(language) {
+        if (!supportedLanguages.includes(language)) language = 'en';
+
+        translateVisibleText(language);
+        translateAttributes(language);
+
+        document.documentElement.lang = languageCodes[language];
+        document.title = languageTitleTranslations[language];
+
+        document.querySelectorAll('.language-current').forEach(currentLanguage => {
+            currentLanguage.textContent = languageLabels[language];
+        });
+
+        try {
+            localStorage.setItem(languageStorageKey, language);
+        } catch (error) {
+            // El sitio sigue funcionando aunque localStorage no esté disponible.
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const languageSelectors = document.querySelectorAll('[data-language-selector]');
+        const languageOptions = document.querySelectorAll('.language-option');
+
+        languageSelectors.forEach(languageSelector => {
+            const languageSelectorBtn = languageSelector.querySelector('.language-selector-btn');
+            const languageMenu = languageSelector.querySelector('.language-menu');
+
+            if (languageSelectorBtn && languageMenu) {
+                const closeLanguageMenu = () => {
+                    languageMenu.classList.add('hidden');
+                    languageSelectorBtn.setAttribute('aria-expanded', 'false');
+                };
+
+                languageSelectorBtn.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    const isOpen = !languageMenu.classList.contains('hidden');
+                    if (isOpen) {
+                        closeLanguageMenu();
+                    } else {
+                        languageSelectors.forEach(otherSelector => {
+                            const otherMenu = otherSelector.querySelector('.language-menu');
+                            const otherBtn = otherSelector.querySelector('.language-selector-btn');
+                            if (otherMenu && otherMenu !== languageMenu) otherMenu.classList.add('hidden');
+                            if (otherBtn && otherBtn !== languageSelectorBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                        });
+                        languageMenu.classList.remove('hidden');
+                        languageSelectorBtn.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            }
+        });
+
+        languageOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                applyLanguage(option.dataset.lang);
+                languageSelectors.forEach(languageSelector => {
+                    const languageMenu = languageSelector.querySelector('.language-menu');
+                    const languageSelectorBtn = languageSelector.querySelector('.language-selector-btn');
+                    if (languageMenu) languageMenu.classList.add('hidden');
+                    if (languageSelectorBtn) languageSelectorBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            languageSelectors.forEach(languageSelector => {
+                if (!languageSelector.contains(event.target)) {
+                    const languageMenu = languageSelector.querySelector('.language-menu');
+                    const languageSelectorBtn = languageSelector.querySelector('.language-selector-btn');
+                    if (languageMenu) languageMenu.classList.add('hidden');
+                    if (languageSelectorBtn) languageSelectorBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                languageSelectors.forEach(languageSelector => {
+                    const languageMenu = languageSelector.querySelector('.language-menu');
+                    const languageSelectorBtn = languageSelector.querySelector('.language-selector-btn');
+                    if (languageMenu) languageMenu.classList.add('hidden');
+                    if (languageSelectorBtn) languageSelectorBtn.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+
+        applyLanguage(getStoredLanguage());
+    });
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
