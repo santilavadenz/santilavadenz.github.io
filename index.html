@@ -229,6 +229,29 @@
             }
         }
 
+        /* Estabilidad tipográfica y de contenido exclusiva de la sección de videos. */
+        #videos {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+        #videos .video-product-heading > div {
+            flex: 1 1 0%;
+            min-width: 0;
+        }
+        #videos .video-product-heading h3 {
+            min-width: 0;
+            overflow-wrap: break-word;
+        }
+        #videos .video-product-price {
+            flex: 0 0 auto;
+            white-space: nowrap;
+        }
+        #videos .video-product-description,
+        #videos .video-product-credit {
+            min-width: 0;
+            overflow-wrap: break-word;
+        }
+
         /* Alineación exclusiva de las tarjetas de video Velune y Noir. */
         @media (min-width: 1024px) {
             #videos .video-product-card {
@@ -266,6 +289,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="font-sans antialiased overflow-x-hidden selection:bg-white selection:text-black bg-zinc-900 min-h-screen">
 
@@ -390,7 +414,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div class="lg:col-span-5 reveal-on-scroll relative w-full max-w-sm sm:max-w-md mx-auto lg:max-w-none">
                 <div class="relative z-10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.7)] bg-zinc-900 aspect-square rounded-sm">
-                    <img src="IMG_4724.jpeg" alt="Portada Velune" class="w-full h-full object-cover pointer-events-none select-none">
+                    <img src="IMG_4724.jpeg" alt="Velune single cover" class="w-full h-full object-cover object-center pointer-events-none select-none">
                 </div>
             </div>
 
@@ -561,7 +585,7 @@
 <!-- ============================== -->
 <div class="max-w-7xl mx-auto mb-0">
     <div class="reveal-on-scroll flex flex-col items-center mt-16 mb-12 md:mb-20 text-center px-4">
-        <h2 class="font-serif text-3xl md:text-5xl text-white tracking-wider mb-4">The Original Recording</h2>
+        <h2 class="font-serif text-3xl md:text-5xl text-white tracking-wider mb-4">Original Audio Recording</h2>
         <div class="w-16 h-[1px] bg-red-800/80 mb-6 shadow-[0_0_10px_rgba(153,27,27,0.8)]"></div>
         <p class="text-gray-400 font-light max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
             Get the original recording in the highest available audio quality.
@@ -769,7 +793,7 @@
                                 <h3 class="font-serif text-2xl text-white drop-shadow-md transition-colors duration-300 lg:group-hover:text-blue-300 sm:text-3xl">VELUNE — Piano Performance Video</h3>
                                 <p class="mt-1.5 text-[9px] uppercase tracking-[0.2em] text-blue-300/80 sm:text-[10px]">Exclusive performance recording</p>
                             </div>
-                            <span class="shrink-0 font-serif text-xl text-white sm:text-2xl">$15.99</span>
+                            <span class="video-product-price shrink-0 font-serif text-xl text-white sm:text-2xl">$15.99</span>
                         </div>
 
                         <div class="video-product-badges mb-5 flex flex-wrap gap-2">
@@ -839,7 +863,7 @@
                                 <h3 class="font-serif text-2xl text-white drop-shadow-md transition-colors duration-300 lg:group-hover:text-red-300 sm:text-3xl">Noir — Video</h3>
                                 <p class="mt-1.5 text-[9px] uppercase tracking-[0.2em] text-red-300/80 sm:text-[10px]">Exclusive performance recording</p>
                             </div>
-                            <span class="shrink-0 font-serif text-xl text-white sm:text-2xl">$15.99</span>
+                            <span class="video-product-price shrink-0 font-serif text-xl text-white sm:text-2xl">$15.99</span>
                         </div>
 
                         <div class="video-product-badges mb-5 flex flex-wrap gap-2">
@@ -899,9 +923,11 @@
                 <!-- Contenido -->
                 <div class="relative z-10 flex w-full flex-col justify-between p-5 sm:p-7 lg:w-3/5 lg:p-8">
                     <div>
-                        <div class="mb-3 flex items-start justify-between gap-3">
-                            <h3 class="font-serif text-2xl text-zinc-300 sm:text-3xl">Solune — Video</h3>
-                            <span class="shrink-0 font-serif text-xl text-zinc-400 sm:text-2xl">$4.99</span>
+                        <div class="video-product-heading mb-3 flex items-start justify-between gap-3">
+                            <div>
+                                <h3 class="font-serif text-2xl text-zinc-300 sm:text-3xl">Solune — Video</h3>
+                            </div>
+                            <span class="video-product-price shrink-0 font-serif text-xl text-zinc-400 sm:text-2xl">$4.99</span>
                         </div>
 
                         <div class="mb-5 flex flex-wrap gap-2">
@@ -909,7 +935,7 @@
                             <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-[9px] uppercase tracking-widest text-zinc-500">Full performance</span>
                         </div>
 
-                        <p class="mb-6 text-sm font-light leading-relaxed text-zinc-500">
+                        <p class="video-product-description mb-6 text-sm font-light leading-relaxed text-zinc-500">
                             The performance video is currently being prepared and will be available here soon.
                         </p>
                     </div>
@@ -1346,6 +1372,11 @@
         "es": "No disponible",
         "pt": "Indisponível",
         "fr": "Indisponible"
+    },
+    "Original Audio Recording": {
+        "es": "Grabación de audio original",
+        "pt": "Gravação de áudio original",
+        "fr": "Enregistrement audio original"
     },
     "Exclusive Video Performance": {
         "es": "Interpretación exclusiva en video",
@@ -2035,6 +2066,7 @@
 
     const languageAttributeTranslations = {
         'Language': { es: 'Idioma', pt: 'Idioma', fr: 'Langue' },
+        'Velune single cover': { es: 'Portada del sencillo Velune', pt: 'Capa do single Velune', fr: 'Pochette du single Velune' },
         'Your Name': { es: 'Tu nombre', pt: 'Seu nome', fr: 'Votre nom' },
         'How can we collaborate?': { es: '¿Cómo podemos colaborar?', pt: 'Como podemos colaborar?', fr: 'Comment pouvons-nous collaborer ?' },
         'Abrir menú': { pt: 'Abrir menu', fr: 'Ouvrir le menu' },
@@ -2104,8 +2136,8 @@
     }
 
     function translateAttributes(language) {
-        document.querySelectorAll('[placeholder], [aria-label]').forEach(element => {
-            ['placeholder', 'aria-label'].forEach(attribute => {
+        document.querySelectorAll('[placeholder], [aria-label], [alt]').forEach(element => {
+            ['placeholder', 'aria-label', 'alt'].forEach(attribute => {
                 if (!element.hasAttribute(attribute)) return;
 
                 const storageAttribute = 'data-i18n-original-' + attribute;
