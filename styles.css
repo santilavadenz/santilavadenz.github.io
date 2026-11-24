@@ -2029,6 +2029,47 @@ iframe {
 /* Keep the filled portion easy to follow on bright and dim displays. */
 #musica #progress-active { box-shadow: 0 0 9px rgba(248,195,105,.72), 0 0 18px rgba(229,153,50,.38); }
 
+/* Stable mobile navigation and anchored My Story reveal. */
+@media (max-width: 767.98px) {
+    #mobile-menu,
+    #mobile-menu[aria-hidden="false"] {
+        transition: transform 320ms cubic-bezier(.22, .61, .36, 1), visibility 0s linear 0s;
+    }
+
+    #mobile-menu[aria-hidden="true"] {
+        visibility: hidden;
+        transition: transform 320ms cubic-bezier(.22, .61, .36, 1), visibility 0s linear 320ms;
+    }
+
+    #mobile-menu[aria-hidden="false"] {
+        visibility: visible;
+    }
+
+    #mobile-menu .mobile-item {
+        transform: translateY(8px);
+        transition: opacity 220ms ease-out, transform 220ms cubic-bezier(.22, .61, .36, 1);
+    }
+
+    #mobile-menu .mobile-item.show {
+        transform: translateY(0);
+    }
+
+    #sobre-mi .reveal-on-scroll,
+    #sobre-mi .reveal-on-scroll.is-visible {
+        transform: none;
+        transition: opacity 300ms ease-out;
+    }
+}
+
+@media (max-width: 767.98px) and (prefers-reduced-motion: reduce) {
+    #mobile-menu,
+    #mobile-menu[aria-hidden="true"],
+    #mobile-menu[aria-hidden="false"] {
+        transition-duration: .01ms !important;
+        transition-delay: 0s !important;
+    }
+}
+
 
 /* Requested Store presentation adjustments */
 #partituras .store-category-nav {
