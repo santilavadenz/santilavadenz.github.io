@@ -1,4 +1,4 @@
-/*
+*
 ================================================================================
 SANTILAVADENZ — RESPONSIVE DESIGN SYSTEM
 External stylesheet for index.html
@@ -65,7 +65,7 @@ This file enhances presentation only; it does not replace HTML or JavaScript.
 html {
     min-height: 100%;
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: calc(5rem + var(--sl-safe-top) + .5rem);
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
@@ -191,11 +191,6 @@ nav {
     position: relative;
 }
 
-section[id],
-header[id] {
-    scroll-margin-top: 5rem;
-}
-
 section {
     isolation: isolate;
 }
@@ -223,8 +218,9 @@ hr {
     border-top: 1px solid var(--sl-color-border);
 }
 
-[ id ] {
-    scroll-margin-block-start: 5.25rem;
+[id] {
+    scroll-margin-top: 0 !important;
+    scroll-margin-block-start: 0 !important;
 }
 
 /* ==========================================================================
@@ -610,11 +606,11 @@ p {
     background-color: #09090b;
 }
 
-#partituras .grid {
+#partituras .store-product-grid {
     align-items: stretch;
 }
 
-#partituras .grid > div {
+#partituras .store-product-grid > div {
     min-width: 0;
 }
 
@@ -630,7 +626,8 @@ p {
     line-height: 1.25;
 }
 
-#partituras h3 {
+#partituras h3,
+#partituras h4 {
     line-height: 1.25;
 }
 
@@ -673,24 +670,24 @@ p {
 }
 
 /* Audio product grid spacing and long-form text. */
-#partituras .grid.px-4 {
+#partituras .store-product-grid.px-4 {
     row-gap: clamp(1.25rem, 3vw, 2.5rem);
 }
 
-#partituras .grid.px-4 > div {
+#partituras .store-product-grid.px-4 > div {
     min-width: 0;
 }
 
-#partituras .grid.px-4 h3 {
+#partituras .store-product-grid.px-4 h4 {
     max-width: 100%;
     overflow-wrap: anywhere;
 }
 
-#partituras .grid.px-4 span {
+#partituras .store-product-grid.px-4 span {
     font-variant-numeric: tabular-nums;
 }
 
-#partituras .grid.px-4 a {
+#partituras .store-product-grid.px-4 a {
     transition:
         color var(--sl-duration-medium) var(--sl-ease-standard),
         background-color var(--sl-duration-medium) var(--sl-ease-standard),
@@ -698,7 +695,7 @@ p {
         transform var(--sl-duration-fast) var(--sl-ease-standard);
 }
 
-#partituras .grid.px-4 a:active {
+#partituras .store-product-grid.px-4 a:active {
     transform: scale(0.985);
 }
 
@@ -747,7 +744,7 @@ p {
     flex: 1 1 auto;
 }
 
-#videos .video-product-heading h3 {
+#videos .video-product-heading h4 {
     min-width: 0;
     overflow-wrap: anywhere;
     font-size: clamp(1.35rem, 2.4vw, 1.9rem);
@@ -796,11 +793,6 @@ p {
 /* ==========================================================================
    10. ABOUT, CONTACT & FOOTER SECTIONS
    ========================================================================== */
-
-#sobre-mi,
-#contacto {
-    scroll-margin-top: 5.5rem;
-}
 
 #sobre-mi img {
     max-width: 100%;
@@ -1002,11 +994,11 @@ iframe {
         column-gap: 2.5rem;
     }
 
-    #partituras .grid {
+    #partituras .store-product-grid {
         gap: 1.5rem;
     }
 
-    #partituras .grid > div {
+    #partituras .store-product-grid > div {
         min-height: 100%;
     }
 
@@ -1038,7 +1030,7 @@ iframe {
     }
 
     html {
-        scroll-padding-top: 4.75rem;
+        scroll-padding-top: calc(5rem + var(--sl-safe-top) + .5rem);
     }
 
     body {
@@ -1162,24 +1154,24 @@ iframe {
         height: 1.45rem;
     }
 
-    #partituras .grid {
+    #partituras .store-product-grid {
         gap: 1.25rem;
     }
 
-    #partituras .grid > div {
+    #partituras .store-product-grid > div {
         border-radius: var(--sl-radius-medium);
     }
 
-    #partituras .grid > div > div:first-child {
+    #partituras .store-product-grid > div > div:first-child {
         min-height: 0;
     }
 
-    #partituras .grid > div > div:last-child {
+    #partituras .store-product-grid > div > div:last-child {
         padding: clamp(1.125rem, 5vw, 1.5rem);
         gap: 1.25rem;
     }
 
-    #partituras .grid.px-4 {
+    #partituras .store-product-grid.px-4 {
         padding-left: 0;
         padding-right: 0;
     }
@@ -1189,7 +1181,7 @@ iframe {
         padding-bottom: 3.25rem;
     }
 
-    #videos header h2 {
+    #videos header h3 {
         font-size: clamp(2rem, 8vw, 3.4rem);
         line-height: 1.2;
     }
@@ -1211,7 +1203,7 @@ iframe {
         row-gap: 0.5rem;
     }
 
-    #videos .video-product-heading h3 {
+    #videos .video-product-heading h4 {
         font-size: clamp(1.4rem, 6vw, 1.85rem);
     }
 
@@ -1376,7 +1368,7 @@ iframe {
         column-gap: clamp(3rem, 6vw, 6rem);
     }
 
-    #partituras .grid {
+    #partituras .store-product-grid {
         column-gap: clamp(1.5rem, 3vw, 3rem);
     }
 
@@ -1666,7 +1658,7 @@ iframe {
 
 #videos .video-product-heading > div,
 #videos .video-product-content,
-#partituras .grid > div,
+#partituras .store-product-grid > div,
 #musica .grid > div {
     min-width: 0;
 }
@@ -2036,3 +2028,357 @@ iframe {
 /* Keep the filled portion easy to follow on bright and dim displays. */
 #musica #progress-active { box-shadow: 0 0 9px rgba(248,195,105,.72), 0 0 18px rgba(229,153,50,.38); }
 
+/* Latest Releases: refined audio player, listen label, and platform spacing */
+#musica .release-player{position:relative;isolation:isolate;margin:0 0 clamp(1.5rem,2.8vw,2.25rem);padding:clamp(1.1rem,2.2vw,1.55rem) clamp(1.1rem,2.4vw,1.8rem) 1rem;border:1px solid rgba(226,207,172,.16);border-radius:4px;background:linear-gradient(135deg,rgba(35,31,25,.92),rgba(17,17,16,.96) 72%);box-shadow:0 18px 52px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.035);transition:border-color 360ms ease,box-shadow 360ms ease}
+#musica .release-player::before{content:"";position:absolute;z-index:-1;inset:0 auto 0 0;width:2px;background:linear-gradient(180deg,transparent,rgba(216,164,77,.58),transparent);opacity:.8}
+#musica .release-player.is-playing{border-color:rgba(226,207,172,.27);box-shadow:0 20px 58px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.045)}
+#musica .release-player-meta,#musica .release-track-ident{display:flex;align-items:center}
+#musica .release-player-meta{justify-content:space-between;gap:1rem;margin-bottom:1.2rem}
+#musica .release-track-ident{min-width:0;gap:1rem}
+#musica #play-btn.release-play{display:grid;place-items:center;width:3.5rem;height:3.5rem;min-width:3.5rem;min-height:3.5rem;border:1px solid rgba(238,211,164,.72);border-radius:50%;color:#1a1712;background:linear-gradient(145deg,#f3dfbd,#c89552);box-shadow:0 0 0 4px rgba(218,174,109,.075),0 7px 22px rgba(0,0,0,.28);transition:transform 260ms ease,box-shadow 300ms ease,filter 300ms ease}
+#musica #play-btn.release-play svg{display:block;width:1.25rem;height:1.25rem;margin:0 0 0 2px;fill:currentColor}
+#musica #play-btn.release-play.is-playing svg{margin-left:0}
+#musica .release-track-copy{min-width:0}
+#musica .release-track-title{margin:0;color:#f3eee5;font-family:var(--sl-font-serif,Georgia,serif);font-size:1.08rem;font-weight:500;letter-spacing:.045em;line-height:1.25}
+#musica .release-track-artist{margin:.32rem 0 0;color:rgba(220,210,191,.56);font-size:.62rem;font-weight:500;letter-spacing:.19em;line-height:1.4;text-transform:uppercase}
+#musica .release-time{flex:0 0 auto;padding:.38rem 0 .38rem .8rem;color:rgba(229,219,202,.68);font-family:var(--sl-font-mono,ui-monospace,monospace);font-size:.72rem;font-variant-numeric:tabular-nums;letter-spacing:.035em;white-space:nowrap}
+#musica .release-progress{position:relative;height:2.5rem;display:flex;align-items:center;margin-inline:.05rem}
+#musica .release-progress-rail,#musica .release-progress-fill{position:absolute;top:50%;left:0;height:3px;border-radius:999px;transform:translateY(-50%)}
+#musica .release-progress-rail{right:0;background:rgba(230,218,197,.18)}
+#musica .release-progress-fill{z-index:1;display:flex;justify-content:flex-end;align-items:center;max-width:100%;background:linear-gradient(90deg,#a86a2c,#e7bd7c 75%,#f2d9ad);box-shadow:0 0 12px rgba(226,177,98,.24);transition:width 120ms linear}
+#musica .release-progress-knob{width:9px;height:9px;flex:0 0 auto;border:2px solid #f5e7ce;border-radius:50%;background:#c8934e;box-shadow:0 0 0 3px rgba(216,164,77,.12),0 0 9px rgba(244,204,136,.38);transform:translateX(50%);transition:transform 200ms ease,box-shadow 200ms ease}
+#musica .release-range{position:absolute;z-index:2;inset:50% 0 auto;width:100%;height:40px;min-height:40px;margin:0;opacity:0;transform:translateY(-50%);cursor:pointer;touch-action:pan-x}
+#musica .release-progress:focus-within{border-radius:4px;outline:1px solid rgba(235,202,147,.55);outline-offset:2px}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){#musica #play-btn.release-play:hover{transform:translateY(-1px) scale(1.035);box-shadow:0 0 0 6px rgba(218,174,109,.11),0 10px 26px rgba(0,0,0,.36)}#musica .release-player:hover{border-color:rgba(226,207,172,.24)}}
+#musica .release-actions{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(1.25rem,2.4vw,2rem);margin-top:.15rem}
+#musica .release-listen{display:inline-flex;align-items:center;gap:.8rem;min-height:2.5rem}
+#musica .release-listen-mark{width:6px;height:6px;flex:0 0 auto;border-radius:50%;background:#d6ad6e;box-shadow:0 0 0 4px rgba(216,164,77,.09),0 0 13px rgba(216,164,77,.28)}
+#musica .release-listen-label{color:#e8d8b9;font-family:var(--sl-font-serif,Georgia,serif);font-size:.82rem;font-weight:500;letter-spacing:.24em;line-height:1.35;text-transform:uppercase}
+#musica .release-platforms{display:grid;grid-template-columns:repeat(3,3.5rem);align-items:center;justify-content:start;gap:clamp(1rem,1.8vw,1.55rem)}
+#musica .release-platform{position:relative;display:grid;place-items:center;width:3.5rem;height:3.5rem;border:1px solid rgba(231,215,186,.22);border-radius:50%;color:#e7d9c1;background:rgba(255,255,255,.035);box-shadow:0 7px 20px rgba(0,0,0,.18);transition:transform 240ms ease,color 240ms ease,border-color 240ms ease,background-color 240ms ease,box-shadow 240ms ease}
+#musica .release-platform-icon{display:block;width:1.35rem;height:1.35rem;fill:currentColor;pointer-events:none}
+#musica .release-platform.release-spotify{color:#55c786}
+#musica .release-platform.release-apple{color:#f3eee5}
+#musica .release-platform.release-youtube{color:#e9847f}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){#musica .release-platform:hover{transform:translateY(-2px);border-color:rgba(231,215,186,.52);background:rgba(255,255,255,.075);box-shadow:0 12px 26px rgba(0,0,0,.28)}}
+@media(max-width:767px){#musica .release-actions{flex-direction:column;align-items:center;gap:.85rem;margin-top:.25rem}#musica .release-listen{justify-content:center}#musica .release-platforms{justify-content:center;gap:clamp(1.15rem,6vw,1.8rem)}#musica .release-platform{width:3.45rem;height:3.45rem}#musica .release-player{padding:1rem 1rem .8rem}#musica .release-player-meta{margin-bottom:.9rem}}
+@media(max-width:360px){#musica .release-platforms{grid-template-columns:repeat(3,3.2rem);gap:1rem}#musica .release-platform{width:3.2rem;height:3.2rem}#musica .release-platform-icon{width:1.25rem;height:1.25rem}#musica .release-listen-label{font-size:.75rem;letter-spacing:.2em}}
+@media(prefers-reduced-motion:reduce){#musica .release-player,#musica #play-btn.release-play,#musica .release-platform,#musica .release-progress-fill,#musica .release-progress-knob{transition:none}}
+#musica #progress-active.release-progress-fill{transition:width 120ms linear,box-shadow 250ms ease;box-shadow:0 0 12px rgba(226,177,98,.24)}
+
+/* LATEST RELEASES cover: reserve its square before the eager image paints. */
+#musica .release-cover-frame {
+    background: radial-gradient(circle at 50% 38%, #28231c 0, #171512 52%, #101010 100%);
+}
+
+#musica .release-cover-image {
+    display: block;
+    opacity: 0;
+    transition: opacity 180ms cubic-bezier(.2, .75, .25, 1);
+}
+
+#musica .release-cover-image.is-loaded {
+    opacity: 1;
+}
+
+#musica .release-cover-frame.is-image-fallback {
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(216, 164, 77, .22);
+}
+
+#musica .release-cover-frame.is-image-fallback::before,
+#musica .release-cover-frame.is-image-fallback::after {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    color: rgba(239, 226, 205, .88);
+    text-align: center;
+    pointer-events: none;
+}
+
+#musica .release-cover-frame.is-image-fallback::before {
+    content: "VELUNE";
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--sl-font-serif, Georgia, serif);
+    font-size: clamp(1.8rem, 8vw, 3.3rem);
+    letter-spacing: .22em;
+}
+
+#musica .release-cover-frame.is-image-fallback::after {
+    content: "SANTILAVADENZ  ·  SINGLE";
+    bottom: 1.5rem;
+    color: rgba(216, 164, 77, .72);
+    font-size: .62rem;
+    letter-spacing: .2em;
+}
+
+/* Keep the full-screen mobile menu scrollable and non-interactive while closed. */
+#mobile-menu {
+    z-index: 60;
+    overflow-x: hidden;
+    overflow-y: auto;
+    touch-action: pan-y;
+    transition-timing-function: cubic-bezier(.7, 0, .3, 1);
+}
+
+#mobile-menu[aria-hidden="true"] {
+    visibility: visible;
+    pointer-events: none;
+}
+
+#mobile-menu[aria-hidden="false"] {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #musica .release-cover-image {
+        transition-duration: .01ms;
+    }
+}
+
+/* ========================================================================
+   20. STORE — EDITORIAL CATEGORY NAVIGATION & PRODUCT CONSISTENCY
+   ======================================================================== */
+
+#partituras .store-header {
+    width: 100%;
+    margin-inline: auto;
+}
+
+#partituras .store-category-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 68rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+    border-block: 1px solid rgba(232, 222, 204, .14);
+}
+
+#partituras .store-category-nav > a {
+    min-width: 0;
+    min-height: 4.5rem;
+    justify-content: center;
+    gap: .75rem;
+    padding: .75rem clamp(.5rem, 1.5vw, 1.25rem);
+    border-right: 1px solid rgba(232, 222, 204, .1);
+    color: rgba(245, 245, 245, .72);
+    font-size: clamp(.58rem, .9vw, .72rem);
+    letter-spacing: .14em;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+    transition: color .3s ease, background-color .3s ease;
+}
+
+#partituras .store-category-nav > a:last-child {
+    border-right: 0;
+}
+
+#partituras .store-category-nav > a:hover,
+#partituras .store-category-nav > a:focus-visible {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .035);
+}
+
+#partituras .store-category-nav > a:focus-visible {
+    outline: 1px solid rgba(196, 158, 95, .8);
+    outline-offset: -2px;
+}
+
+#partituras .store-nav-index {
+    flex: 0 0 auto;
+    color: #bd965b;
+    font-size: .62rem;
+    letter-spacing: .1em;
+    font-variant-numeric: tabular-nums;
+}
+
+#partituras .store-category-heading,
+#videos .store-category-heading {
+    width: 100%;
+    margin-inline: auto;
+}
+
+#partituras .store-category-heading > h3,
+#videos .store-category-heading > h3 {
+    font-size: clamp(1.65rem, 3.2vw, 2.45rem);
+    line-height: 1.25;
+    letter-spacing: .09em;
+}
+
+#partituras .store-category-heading > div,
+#videos .store-category-heading > div {
+    background-color: rgba(189, 150, 91, .68) !important;
+    box-shadow: none !important;
+}
+
+#partituras .store-product-category,
+#partituras .store-audio-category {
+    padding-bottom: clamp(3.5rem, 6vw, 5rem);
+    border-bottom: 1px solid rgba(232, 222, 204, .12);
+}
+
+#partituras .store-product-grid > div,
+#videos .video-product-card {
+    border-color: rgba(232, 222, 204, .15);
+    border-radius: 1.25rem;
+    box-shadow: 0 18px 54px rgba(0, 0, 0, .2);
+}
+
+#partituras .store-product-grid > div,
+#videos .video-product-card,
+#partituras .store-product-grid a,
+#videos .video-product-footer a {
+    transition-property: color, background-color, border-color, box-shadow, transform;
+    transition-duration: .35s;
+    transition-timing-function: cubic-bezier(.2, .75, .25, 1);
+}
+
+#partituras .store-product-grid a,
+#videos .video-product-footer a {
+    min-height: 3.25rem;
+    border: 1px solid rgba(189, 150, 91, .52);
+    border-radius: 999px;
+    background-color: rgba(189, 150, 91, .08);
+    color: #eee3d0;
+    font-size: .68rem;
+    letter-spacing: .18em;
+    box-shadow: none;
+}
+
+#partituras .store-product-grid a:hover,
+#videos .video-product-footer a:hover {
+    border-color: rgba(212, 175, 112, .9);
+    background-color: rgba(189, 150, 91, .18);
+    color: #fff;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    #partituras .store-product-grid > div:hover,
+    #videos .video-product-card:hover {
+        border-color: rgba(189, 150, 91, .38);
+        box-shadow: 0 24px 64px rgba(0, 0, 0, .32);
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 767px) {
+    #partituras .store-category-nav {
+        grid-template-columns: minmax(0, 1fr);
+        width: min(100%, 28rem);
+    }
+
+    #partituras .store-category-nav > a {
+        min-height: 3.75rem;
+        justify-content: flex-start;
+        padding-inline: 1.1rem;
+        border-right: 0;
+        border-bottom: 1px solid rgba(232, 222, 204, .1);
+        font-size: .68rem;
+        letter-spacing: .16em;
+        text-align: left;
+    }
+
+    #partituras .store-category-nav > a:last-child {
+        border-bottom: 0;
+    }
+
+    #partituras .store-product-category,
+    #partituras .store-audio-category {
+        padding-bottom: 3.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #partituras .store-category-nav > a,
+    #partituras .store-product-grid > div,
+    #videos .video-product-card,
+    #partituras .store-product-grid a,
+    #videos .video-product-footer a {
+        transition-duration: .01ms;
+        transform: none;
+    }
+}
+
+/* Keep the release cover's reserved box aligned with its square source image. */
+#musica > .max-w-7xl > .grid > .release-cover-container > .release-cover-frame {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+#musica .release-cover-frame > picture {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#musica .release-cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Keep the Latest Releases heading inside narrow viewports without changing its type styles. */
+#musica > .max-w-7xl > #latest-releases {
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 20;
+    transform: none;
+}
+
+#musica > .max-w-7xl > #latest-releases.is-visible {
+    transform: none;
+}
+
+@media (max-width: 639px) {
+    #musica > .max-w-7xl > #latest-releases {
+        width: 100%;
+        padding-inline: 0;
+    }
+
+    #musica > .max-w-7xl > #latest-releases > h2 {
+        max-width: 100%;
+        text-wrap: balance;
+    }
+}
+
+/* Leave a small clear gap below the fixed navigation when this anchor is reached. */
+#latest-releases {
+    scroll-margin-top: 1rem !important;
+    scroll-margin-block-start: 1rem !important;
+}
+
+
+/* ==========================================================================
+   USER-REQUESTED STORE REFINEMENTS
+   Scoped to category navigation and Sheet Music only.
+   ========================================================================== */
+
+#partituras .store-category-nav > a {
+    min-height: 5.1rem;
+    font-size: clamp(.78rem, 1vw, .9rem);
+    font-weight: 500;
+}
+
+#partituras .store-product-category .store-product-grid > div > div:first-child {
+    aspect-ratio: 1 / 1;
+    align-self: flex-start;
+    flex-shrink: 0;
+    background-color: #000;
+}
+
+#partituras .store-product-category .store-product-grid > div > div:first-child > img {
+    object-fit: contain;
+}
+
+@media (max-width: 767px) {
+    #partituras .store-category-nav > a {
+        min-height: 4.5rem;
+        font-size: .82rem;
+    }
+}
