@@ -2275,6 +2275,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         let activeScrollFrame = null;
         let activeScrollBehavior = null;
+        let activeNavigationReveal = null;
         let scrollRequestId = 0;
 
         const restoreActiveScrollBehavior = () => {
@@ -2294,6 +2295,10 @@
                 activeScrollFrame = null;
             }
             restoreActiveScrollBehavior();
+            if (activeNavigationReveal) {
+                activeNavigationReveal.classList.remove('mobile-navigation-target');
+                activeNavigationReveal = null;
+            }
         };
 
         const navigateToSection = (href, instant = false, preserveHash = false) => {
@@ -2302,18 +2307,25 @@
             const target = document.getElementById(href.slice(1));
             if (!target) return;
 
+            const mobileViewport = window.matchMedia('(max-width: 767.98px)').matches;
             const revealTarget = target.closest('.reveal-on-scroll');
             let revealOffsetY = 0;
             if (revealTarget) {
-                const transform = window.getComputedStyle(revealTarget).transform;
-                const matrix3d = transform.match(/^matrix3d\((.+)\)$/);
-                const matrix2d = transform.match(/^matrix\((.+)\)$/);
-                if (matrix3d) {
-                    revealOffsetY = Number.parseFloat(matrix3d[1].split(',')[13]) || 0;
-                } else if (matrix2d) {
-                    revealOffsetY = Number.parseFloat(matrix2d[1].split(',')[5]) || 0;
+                if (mobileViewport) {
+                    revealTarget.classList.add('is-visible', 'mobile-navigation-target');
+                    activeNavigationReveal = revealTarget;
+                    void revealTarget.offsetHeight;
+                } else {
+                    const transform = window.getComputedStyle(revealTarget).transform;
+                    const matrix3d = transform.match(/^matrix3d\((.+)\)$/);
+                    const matrix2d = transform.match(/^matrix\((.+)\)$/);
+                    if (matrix3d) {
+                        revealOffsetY = Number.parseFloat(matrix3d[1].split(',')[13]) || 0;
+                    } else if (matrix2d) {
+                        revealOffsetY = Number.parseFloat(matrix2d[1].split(',')[5]) || 0;
+                    }
+                    revealTarget.classList.add('is-visible');
                 }
-                revealTarget.classList.add('is-visible');
             }
 
             if (!preserveHash && window.location.hash !== href) window.history.pushState(null, '', href);
@@ -2328,7 +2340,6 @@
             const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             const startY = window.scrollY;
             const distance = destination - startY;
-            const mobileViewport = window.matchMedia('(max-width: 767.98px)').matches;
             const duration = (instant || reducedMotion) ? 0 : mobileViewport
                 ? Math.min(360, Math.max(240, Math.sqrt(Math.abs(distance)) * 12))
                 : href === '#latest-releases'
@@ -2339,6 +2350,10 @@
             if (duration === 0 || Math.abs(distance) < 1) {
                 window.scrollTo(0, destination);
                 root.style.scrollBehavior = originalScrollBehavior;
+                if (activeNavigationReveal) {
+                    activeNavigationReveal.classList.remove('mobile-navigation-target');
+                    activeNavigationReveal = null;
+                }
                 return;
             }
 
@@ -2348,9 +2363,11 @@
                 if (currentScrollRequestId !== scrollRequestId) return;
                 if (startTime === undefined) startTime = timestamp;
                 const progress = Math.min((timestamp - startTime) / duration, 1);
-                const eased = progress < 0.5
-                    ? 4 * progress * progress * progress
-                    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                const eased = mobileViewport
+                    ? (1 - Math.cos(Math.PI * progress)) / 2
+                    : progress < 0.5
+                        ? 4 * progress * progress * progress
+                        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
                 window.scrollTo(0, startY + distance * eased);
 
                 if (progress < 1) {
@@ -2359,6 +2376,10 @@
                     window.scrollTo(0, destination);
                     activeScrollFrame = null;
                     restoreActiveScrollBehavior();
+                    if (activeNavigationReveal) {
+                        activeNavigationReveal.classList.remove('mobile-navigation-target');
+                        activeNavigationReveal = null;
+                    }
                 }
             };
             activeScrollFrame = window.requestAnimationFrame(animateScroll);
@@ -2497,10 +2518,24 @@
                };
 
                finishCloseHandler = event => {
-                   if (event.target === mobileMenu && event.propertyName === 'transform') finishClose();
+                   if (event.target === mobileMenu && ['transform', 'translate'].includes(event.propertyName)) finishClose();
                };
                mobileMenu.addEventListener('transitionend', finishCloseHandler);
-               closeFallbackTimer = window.setTimeout(finishClose, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 50 : 450);
+               const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+               const menuStyle = window.getComputedStyle(mobileMenu);
+               const transitionProperties = menuStyle.transitionProperty.split(',').map(property => property.trim());
+               const transitionDurations = menuStyle.transitionDuration.split(',').map(value => value.trim());
+               const transitionDelays = menuStyle.transitionDelay.split(',').map(value => value.trim());
+               const transformIndex = transitionProperties.findIndex(property => property === 'transform' || property === 'translate');
+               const timingIndex = transformIndex >= 0 ? transformIndex : 0;
+               const toMilliseconds = value => {
+                   const amount = Number.parseFloat(value) || 0;
+                   return value.endsWith('ms') ? amount : amount * 1000;
+               };
+               const closeWait = toMilliseconds(transitionDurations[timingIndex] || transitionDurations[0] || '0s')
+                   + toMilliseconds(transitionDelays[timingIndex] || transitionDelays[0] || '0s')
+                   + 80;
+               closeFallbackTimer = window.setTimeout(finishClose, reducedMotion ? 50 : Math.max(80, closeWait));
            }
 
            mobileMenuBtn.addEventListener('click', openMenu);
